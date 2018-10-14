@@ -1,0 +1,376 @@
+Weierstrass equation transformations:
+from long y^2 + 2xy + 1/3y = x^3 - 1x^2 - 1/3x - 1/27,
+to medium y^2 = x^3 - 1/108,
+and to short y^2 = x^3 - 1/108
+
+Point P = (0,-1) and P' = (1,2) addition:
+P + P' = (8,-23)
+
+Point P = (0,-1) and P' = (0,-1) addition:
+P + P' = (1,2)
+
+Point P = (1,2) and P' = (1,2) addition:
+P + P' = (-7/16,-13/64)
+
+Group of y^2 + 1y = x^3 over F_2:
+ord(O) = 1
+ord((0,0)) = 3
+ord((0,1)) = 3
+
+Group of y^2 + 1y = x^3 + 1 over F_2:
+ord(O) = 1
+ord((1,0)) = 3
+ord((1,1)) = 3
+
+Group of y^2 + 1y = x^3 + 1x over F_2:
+ord(O) = 1
+ord((0,0)) = 5
+ord((0,1)) = 5
+ord((1,0)) = 5
+ord((1,1)) = 5
+
+Group of y^2 + 1y = x^3 + 1x + 1 over F_2:
+ord(O) = 1
+
+Group of y^2 + 1y = x^3 + 1x^2 over F_2:
+ord(O) = 1
+ord((0,0)) = 5
+ord((0,1)) = 5
+ord((1,0)) = 5
+ord((1,1)) = 5
+
+Group of y^2 + 1y = x^3 + 1x^2 + 1 over F_2:
+ord(O) = 1
+
+Group of y^2 + 1y = x^3 + 1x^2 + 1x over F_2:
+ord(O) = 1
+ord((0,0)) = 3
+ord((0,1)) = 3
+
+Group of y^2 + 1y = x^3 + 1x^2 + 1x + 1 over F_2:
+ord(O) = 1
+ord((1,0)) = 3
+ord((1,1)) = 3
+
+Group of y^2 + 1xy = x^3 + 1 over F_2:
+ord(O) = 1
+ord((0,1)) = 2
+ord((1,0)) = 4
+ord((1,1)) = 4
+
+Group of y^2 + 1xy = x^3 + 1x over F_2:
+ord(O) = 1
+ord((0,0)) = 2
+ord((1,0)) = 4
+ord((1,1)) = 4
+
+Group of y^2 + 1xy + 1y = x^3 + 1 over F_2:
+ord(O) = 1
+ord((1,0)) = 2
+
+Group of y^2 + 1xy + 1y = x^3 + 1x + 1 over F_2:
+ord(O) = 1
+ord((1,1)) = 2
+
+Group of y^2 + 1xy = x^3 + 1x^2 + 1 over F_2:
+ord(O) = 1
+ord((0,1)) = 2
+
+Group of y^2 + 1xy = x^3 + 1x^2 + 1x over F_2:
+ord(O) = 1
+ord((0,0)) = 2
+
+Group of y^2 + 1xy + 1y = x^3 + 1x^2 over F_2:
+ord(O) = 1
+ord((0,0)) = 4
+ord((0,1)) = 4
+ord((1,0)) = 2
+
+Group of y^2 + 1xy + 1y = x^3 + 1x^2 + 1x over F_2:
+ord(O) = 1
+ord((0,0)) = 4
+ord((0,1)) = 4
+ord((1,1)) = 2
+
+Group of y^2 = x^3 + 1x over F_3:
+ord(O) = 1
+ord((0,0)) = 2
+ord((2,1)) = 4
+ord((2,2)) = 4
+
+Group of y^2 = x^3 + 1x + 1 over F_3:
+ord(O) = 1
+ord((0,1)) = 4
+ord((0,2)) = 4
+ord((1,0)) = 2
+
+Group of y^2 = x^3 + 1x + 2 over F_3:
+ord(O) = 1
+ord((1,1)) = 4
+ord((1,2)) = 4
+ord((2,0)) = 2
+
+Group of y^2 = x^3 + 2x over F_3:
+ord(O) = 1
+ord((0,0)) = 2
+ord((1,0)) = 2
+ord((2,0)) = 2
+
+Group of y^2 = x^3 + 2x + 1 over F_3:
+ord(O) = 1
+ord((0,1)) = 7
+ord((0,2)) = 7
+ord((1,1)) = 7
+ord((1,2)) = 7
+ord((2,1)) = 7
+ord((2,2)) = 7
+
+Group of y^2 = x^3 + 2x + 2 over F_3:
+ord(O) = 1
+
+Group of y^2 = x^3 + 1x^2 + 1 over F_3:
+ord(O) = 1
+ord((0,1)) = 6
+ord((0,2)) = 6
+ord((1,0)) = 2
+ord((2,1)) = 3
+ord((2,2)) = 3
+
+Group of y^2 = x^3 + 1x^2 + 2 over F_3:
+ord(O) = 1
+ord((1,1)) = 3
+ord((1,2)) = 3
+
+Group of y^2 = x^3 + 1x^2 + 1x + 1 over F_3:
+ord(O) = 1
+ord((0,1)) = 3
+ord((0,2)) = 3
+ord((1,1)) = 6
+ord((1,2)) = 6
+ord((2,0)) = 2
+
+Group of y^2 = x^3 + 1x^2 + 1x + 2 over F_3:
+ord(O) = 1
+ord((2,1)) = 3
+ord((2,2)) = 3
+
+Group of y^2 = x^3 + 1x^2 + 2x over F_3:
+ord(O) = 1
+ord((0,0)) = 2
+ord((1,1)) = 3
+ord((1,2)) = 3
+ord((2,1)) = 6
+ord((2,2)) = 6
+
+Group of y^2 = x^3 + 1x^2 + 2x + 1 over F_3:
+ord(O) = 1
+ord((0,1)) = 3
+ord((0,2)) = 3
+
+Group of y^2 = x^3 + 2x^2 + 1 over F_3:
+ord(O) = 1
+ord((0,1)) = 5
+ord((0,2)) = 5
+ord((1,1)) = 5
+ord((1,2)) = 5
+
+Group of y^2 = x^3 + 2x^2 + 2 over F_3:
+ord(O) = 1
+ord((2,0)) = 2
+
+Group of y^2 = x^3 + 2x^2 + 1x + 1 over F_3:
+ord(O) = 1
+ord((0,1)) = 5
+ord((0,2)) = 5
+ord((2,1)) = 5
+ord((2,2)) = 5
+
+Group of y^2 = x^3 + 2x^2 + 1x + 2 over F_3:
+ord(O) = 1
+ord((1,0)) = 2
+
+Group of y^2 = x^3 + 2x^2 + 2x over F_3:
+ord(O) = 1
+ord((0,0)) = 2
+
+Group of y^2 = x^3 + 2x^2 + 2x + 2 over F_3:
+ord(O) = 1
+ord((1,1)) = 5
+ord((1,2)) = 5
+ord((2,1)) = 5
+ord((2,2)) = 5
+
+Group of y^2 = x^3 + 1x + 1 over F_5:
+ord(O) = 1
+ord((0,1)) = 9
+ord((0,4)) = 9
+ord((2,1)) = 3
+ord((2,4)) = 3
+ord((3,1)) = 9
+ord((3,4)) = 9
+ord((4,2)) = 9
+ord((4,3)) = 9
+
+Torsion subgroup of y^2 = x^3 + 4:
+ord(O) = 1
+ord((0,2)) = 3
+ord((0,-2)) = 3
+
+Torsion subgroup of y^2 = x^3 - 4:
+ord(O) = 1
+
+Torsion subgroup of y^2 = x^3 - 1x:
+ord(O) = 1
+ord((0,0)) = 2
+ord((1,0)) = 2
+ord((-1,0)) = 2
+
+Torsion subgroup of y^2 = x^3 - 5x:
+ord(O) = 1
+ord((0,0)) = 2
+
+Torsion subgroup of y^2 = x^3 - 17x:
+ord(O) = 1
+ord((0,0)) = 2
+
+Torsion subgroup of y^2 = x^3 - 226x:
+ord(O) = 1
+ord((0,0)) = 2
+
+Rank equations for a of y^2 = x^3 - 1x:
+Y^2 = + 1X^4 - 1Z^4
+Y^2 = - 1X^4 + 1Z^4
+Rank equations for a' of y^2 = x^3 - 1x:
+Y^2 = + 1X^4 + 4Z^4
+Y^2 = + 2X^4 + 2Z^4
+Y^2 = - 1X^4 - 4Z^4
+Y^2 = - 2X^4 - 2Z^4
+
+Rank equations for a of y^2 = x^3 - 5x:
+Y^2 = + 1X^4 - 5Z^4
+Y^2 = + 5X^4 - 1Z^4
+Y^2 = - 1X^4 + 5Z^4
+Y^2 = - 5X^4 + 1Z^4
+Rank equations for a' of y^2 = x^3 - 5x:
+Y^2 = + 1X^4 + 20Z^4
+Y^2 = + 2X^4 + 10Z^4
+Y^2 = + 5X^4 + 4Z^4
+Y^2 = + 10X^4 + 2Z^4
+Y^2 = - 1X^4 - 20Z^4
+Y^2 = - 2X^4 - 10Z^4
+Y^2 = - 5X^4 - 4Z^4
+Y^2 = - 10X^4 - 2Z^4
+
+Rank equations for a of y^2 = x^3 - 17x:
+Y^2 = + 1X^4 - 17Z^4
+Y^2 = + 17X^4 - 1Z^4
+Y^2 = - 1X^4 + 17Z^4
+Y^2 = - 17X^4 + 1Z^4
+Rank equations for a' of y^2 = x^3 - 17x:
+Y^2 = + 1X^4 + 68Z^4
+Y^2 = + 2X^4 + 34Z^4
+Y^2 = + 17X^4 + 4Z^4
+Y^2 = + 34X^4 + 2Z^4
+Y^2 = - 1X^4 - 68Z^4
+Y^2 = - 2X^4 - 34Z^4
+Y^2 = - 17X^4 - 4Z^4
+Y^2 = - 34X^4 - 2Z^4
+
+Rank equations for a of y^2 = x^3 - 226x:
+Y^2 = + 1X^4 - 226Z^4
+Y^2 = + 2X^4 - 113Z^4
+Y^2 = + 113X^4 - 2Z^4
+Y^2 = + 226X^4 - 1Z^4
+Y^2 = - 1X^4 + 226Z^4
+Y^2 = - 2X^4 + 113Z^4
+Y^2 = - 113X^4 + 2Z^4
+Y^2 = - 226X^4 + 1Z^4
+Rank equations for a' of y^2 = x^3 - 226x:
+Y^2 = + 1X^4 + 904Z^4
+Y^2 = + 2X^4 + 452Z^4
+Y^2 = + 113X^4 + 8Z^4
+Y^2 = + 226X^4 + 4Z^4
+Y^2 = - 1X^4 - 904Z^4
+Y^2 = - 2X^4 - 452Z^4
+Y^2 = - 113X^4 - 8Z^4
+Y^2 = - 226X^4 - 4Z^4
+
+Naive integer factorisation on 420:
+420 = Pi [2,2,3,5,7]
+
+Naive integer factorisation on 421:
+421 = Pi [421]
+
+Pollard's p - 1 method on 246082373 with B = 7:
+Choose a larger smoothness bound
+
+Pollard's p - 1 method on 246082373 with B = 9:
+2521 is a divisor
+
+Pollard's p - 1 method on 7591548931 with B = 20:
+Choose a larger smoothness bound
+
+Pollard's p - 1 method on 7591548931 with B = 25:
+79801 is a divisor
+
+Lenstra's elliptic curve factorisation method on 1715761513 with C = 17:
+26927 is a divisor
+
+Lenstra's elliptic curve factorisation method on 199843247 with C = 11:
+10289 is a divisor
+
+Naive primality test on 420:
+420 is composite
+
+Naive primality test on 421:
+421 is prime
+
+Naive primality test on 561:
+561 is composite
+
+Fermat's primality test on 420 with 1 tests:
+420 is composite
+
+Fermat's primality test on 421 with 1 tests:
+421 is probably prime
+
+Fermat's primality test on 561 with 1 tests:
+561 is probably prime
+
+Fermat's primality test on 561 with 2 tests:
+561 is composite
+
+Pocklington-Lehmer primality test on 2147483647 with B = 200:
+N = 2147483647 is certified prime
+r = 6487866 divides N - 1 and r = Pi [2,3,3,7,11,31,151]
+3^(N - 1) = 1 mod N and gcd(3^((N - 1)/2) - 1, N) = 1 mod N 
+5^(N - 1) = 1 mod N and gcd(5^((N - 1)/3) - 1, N) = 1 mod N 
+3^(N - 1) = 1 mod N and gcd(3^((N - 1)/7) - 1, N) = 1 mod N 
+3^(N - 1) = 1 mod N and gcd(3^((N - 1)/11) - 1, N) = 1 mod N 
+2^(N - 1) = 1 mod N and gcd(2^((N - 1)/31) - 1, N) = 1 mod N 
+3^(N - 1) = 1 mod N and gcd(3^((N - 1)/151) - 1, N) = 1 mod N 
+
+Pocklington-Lehmer primality test on 9223372036854775783 with B = 400000:
+N = 9223372036854775783 is certified prime
+r = 20223770418 divides N - 1 and r = Pi [2,3,3,3,3,17,23,319279]
+3^(N - 1) = 1 mod N and gcd(3^((N - 1)/2) - 1, N) = 1 mod N 
+2^(N - 1) = 1 mod N and gcd(2^((N - 1)/3) - 1, N) = 1 mod N 
+2^(N - 1) = 1 mod N and gcd(2^((N - 1)/17) - 1, N) = 1 mod N 
+2^(N - 1) = 1 mod N and gcd(2^((N - 1)/23) - 1, N) = 1 mod N 
+2^(N - 1) = 1 mod N and gcd(2^((N - 1)/319279) - 1, N) = 1 mod N 
+
+Rivest-Shamir-Adleman cryptosystem on p = 2147483647 and q = 2147483659:
+Public encryption key is (4611686039902224373, 5)
+Private decryption key is (4611686039902224373, 461168603560725707)
+
+Diffie-Hellman key exchange on p = 2147483647 and g = 65537:
+First key is 751856369
+Second key is 1654172966
+Private symmetric key is 1288974049
+
+Elliptic curve Diffie-Hellman on P = (0,1):
+P in E : y^2 = x^3 + 65537x + 1 over F_2147483647
+First key is (675295473,1821381850)
+Second key is (294235749,438747352)
+Private symmetric key is (1210475635,471187571)
+
