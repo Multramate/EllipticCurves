@@ -69,7 +69,7 @@
 \vspace{1cm}
 
 \begin{abstract}
-In the field of algebraic geometry, elliptic curves are deeply studied rich structures with far-fetching computational applications to classical number theory and contemporary cryptography. It is a fundamental tool in Wiles' proof of Fermat's last theorem, as well as the main object of discussion in the Birch and Swinnerton-Dyer conjecture, an open problem in number theory deemed worthy of being called one of the Millennium Prize Problems by the Clay Mathematics Institute. In this project, three of the four most fundamental theorems in the arithmetic of elliptic curves, namely the Hasse-Weil theorem, the Nagell-Lutz theorem, and the Mordell-Weil theorem, are proven in their respective special forms. Schoof's algorithm for counting rational points over Galois fields will also be briefly discussed, allowing for an application to integer factorisation and primality testing. An introductory chapter and a brief appendix on fields, varieties, curves, and groups are also included for completion.
+In the field of algebraic geometry, elliptic curves are deeply studied rich structures with far-fetching computational applications to classical number theory and contemporary cryptography. It is a fundamental tool in Wiles' proof of Fermat's last theorem, as well as the main object of discussion in the Birch and Swinnerton-Dyer conjecture, an open problem in number theory deemed worthy of being called one of the Millennium Prize Problems by the Clay Mathematics Institute. In this project, three of the four most fundamental theorems in the arithmetic of elliptic curves, namely the Hasse-Weil theorem, the Nagell-Lutz theorem, and the Mordell-Weil theorem, are proven in their respective special forms. Schoof's algorithm for counting rational points over Galois fields will also be briefly discussed, allowing for an application to integer factorisation and primality testing. An introductory section and a brief appendix on fields, varieties, curves, and groups are also included for completion.
 \end{abstract}
 
 \pagebreak
@@ -178,7 +178,7 @@ It holds that $ 4b_8 = b_2b_6 - b_4^2 $ and $ 1728\Delta_W = c_4^3 - c_6^2 $. It
 The \textbf{point at infinity} of is the point $ O = \sb{0, 1, 0} $.
 \end{definition}
 
-In contrast to general projective geometry, the \emph{line at infinity} $ L : l\rb{X, Y, Z} = Z = 0 $ intersects a Weierstrass curve only at $ O $, where $ X = Z = 0 $ and $ Y \ne 0 $. As such, any other point would have $ Z \ne 0 $ and can be treated as an affine point $ \rb{a, b} $. Now since $ 0, 1 \in F $ and $ m_O\rb{l} = 1 $, the point $ O $ is actually a non-singular $ F $-rational point, and can be paired with a smooth Weierstrass curve $ W $ to give an elliptic curve $ \rb{W, O} $. Conversely, any elliptic curve can also be explicitly given by a smooth Weierstrass curve through an isomorphism as follows.
+In contrast to general projective geometry, the \emph{line at infinity} $ L : l\rb{X, Y, Z} = Z = 0 $ intersects a Weierstrass curve only at $ O $, where $ X = Z = 0 $ and $ Y \ne 0 $. As such, any other point would have $ Z \ne 0 $ and can be treated as an affine point $ \rb{a, b} $. Now since $ 0, 1 \in F $, the point $ O $ is actually an $ F $-rational point, and can be paired with a smooth Weierstrass curve $ W $ to give an elliptic curve $ \rb{W, O} $. Conversely, any elliptic curve can also be explicitly given by a smooth Weierstrass curve through an isomorphism as follows.
 
 \begin{proposition}
 $ \rb{E, O_E} \cong \rb{W, O} $ for some smooth Weierstrass curve $ W $ over $ F $.
@@ -188,10 +188,10 @@ $ \rb{E, O_E} \cong \rb{W, O} $ for some smooth Weierstrass curve $ W $ over $ F
 Omitted, see III.3.1a in \cite{gtm}.
 \end{proof}
 
-There are even computerised algorithms to transform a general smooth projective plane cubic curve with a given arbitrary $ F $-rational point, or an elliptic curve, into a Weierstrass curve with the $ F $-rational point $ O $. The following algorithm summarises the process in \cite{weierstrass} proven in the appendix.
+There are even computerised algorithms to transform a general smooth projective plane cubic curve with a given arbitrary $ F $-rational flex point, or an elliptic curve, into a Weierstrass curve with the $ F $-rational point $ O $. The following algorithm summarises the process in \cite{weierstrass} proven in the appendix.
 
 \begin{algorithm}[Transformation of a cubic curve into Weierstrass form]
-Input: a cubic curve $ E $ over $ F $ with an $ F $-rational point $ P \in E $. Output: $ E $ in Weierstrass form.
+Input: a cubic curve $ E $ over $ F $ with an $ F $-rational flex point $ P \in E $. Output: $ E $ in Weierstrass form.
 \begin{enumerate}
 \item Get the unique tangent line $ L $ at $ P $.
 \item Find the intersection $ L \cap E $ to get a point $ Q \in L \setminus E $ distinct to $ P $.
@@ -351,13 +351,13 @@ An elliptic curve has an additional group theoretic property that makes it an \e
 
 \begin{lemma}
 \label{lem:thirdpoint}
-Let $ P, Q \in E $ be points. Then:
+Let $ P = \sb{a, b, c} \in E $ and $ Q = \sb{a', b', c'} \in E $ be points. Then:
 \begin{enumerate}
 \item if $ P \ne Q $, there is a unique line joining $ P $ and $ Q $ given by
 $$ L : \rb{bc' - b'c}X + \rb{a'c - ac'}Y + \rb{ab' - a'b}Z = 0, $$
 \item if $ P = Q $, there is a unique tangent at $ P $ given by
 $$ L : \rb{-3a^2 - Ac^2}X + 2bcY + \rb{b^2 - 2Aac - 3Bc^2}Z = 0, $$
-\item there is a unique third point $ R \in E $ such that $ R $ is the intersection of $ L $ with $ E $.
+\item there is a unique third point $ R \in E $ such that $ L $ intersects $ E $ at $ P $, $ Q $, and $ R $.
 \end{enumerate}
 \end{lemma}
 
@@ -368,7 +368,7 @@ Let $ L : l\rb{X, Y, Z} = 0 $.
 $$ l\rb{X, Y, Z} = \three{X}{Y}{Z} \cdot \rb{\three{a}{b}{c} \times \three{a'}{b'}{c'}}. $$
 \item If $ P = Q $, then
 $$ l\rb{X, Y, Z} = \two{1}{1, 0, 0}\val{\dfrac{\partial e}{\partial X}}_P\rb{X - a} + \two{1}{0, 1, 0}\val{\dfrac{\partial e}{\partial Y}}_P\rb{Y - b} + \two{1}{0, 0, 1}\val{\dfrac{\partial e}{\partial Z}}_P\rb{Z - c}. $$
-\item Since $ \deg l = 1 $ and $ \deg\rb{\gcd\rb{e, l}} = 0 $, Bézout's theorem gives that $ L $ intersects $ E $ at three points up to multiplicity. Assume that $ P = \sb{a, b, c} \ne Q = \sb{a', b', c'} $. If $ I_P\rb{e, l} = 1 $ and $ I_Q\rb{e, l} = 1 $, then there is a unique third point $ R \in E $ such that $ R \ne P, Q $ and $ I_R\rb{e, l} = 1 $. Otherwise $ I_P\rb{e, l} = 2 $ or $ I_Q\rb{e, l} = 2 $, then there is also a unique third point $ R = P $ or $ R = Q $ respectively. Otherwise assume that $ P = Q = \sb{a, b, c} $. Since $ \cb{l} = T_P\rb{l} \in T_P\rb{e} $, it holds that $ I_P\rb{e, l} > m_P\rb{e}m_P\rb{l} = 1 $. If $ I_P\rb{e, l} = 2 $, then there is a unique third point $ R \in E $ such that $ R \ne P $ and $ I_R\rb{e, l} = 1 $. Otherwise $ I_P\rb{e, l} = 3 $, then there is also a unique third point $ R = P $.
+\item Since $ \deg\rb{l} = 1 $ and $ \deg\rb{\gcd\rb{e, l}} = 0 $, Bézout's theorem gives that $ L $ intersects $ E $ at three points up to multiplicity. Assume that $ P = \sb{a, b, c} \ne Q = \sb{a', b', c'} $. If $ I_P\rb{e, l} = 1 $ and $ I_Q\rb{e, l} = 1 $, then there is a unique third point $ R \in E $ such that $ R \ne P, Q $ and $ I_R\rb{e, l} = 1 $. Otherwise $ I_P\rb{e, l} = 2 $ or $ I_Q\rb{e, l} = 2 $, then there is also a unique third point $ R = P $ or $ R = Q $ respectively. Otherwise assume that $ P = Q = \sb{a, b, c} $. Since $ \cb{l} = T_P\rb{l} \in T_P\rb{e} $, it holds that $ I_P\rb{e, l} > m_P\rb{e}m_P\rb{l} = 1 $. If $ I_P\rb{e, l} = 2 $, then there is a unique third point $ R \in E $ such that $ R \ne P $ and $ I_R\rb{e, l} = 1 $. Otherwise $ I_P\rb{e, l} = 3 $, then there is also a unique third point $ R = P $.
 \end{enumerate}
 \end{proof}
 
@@ -394,7 +394,7 @@ This definition is chosen carefully so as to make a group law possible. While it
 
 \begin{algorithm}[Group law explicit formulae]
 Input: points $ P, Q \in E $. Output: $ P + Q $.
-$$ P + Q = \begin{cases} R & P = \rb{a, b}, \ Q = \rb{a', b'}, \ a \ne a' \\ S & P = Q = \rb{a, b}, \ b \ne 0 \\ P & Q = O \\ O & P + Q = O \end{cases}, $$
+$$ P + Q = \begin{cases} R & P = \rb{a, b}, \ Q = \rb{a', b'}, \ a \ne a' \\ S & P = Q = \rb{a, b}, \ b \ne 0 \\ P & Q = O \\ O & P = Q = \rb{a, 0} \end{cases}, $$
 where
 $$ R = \rb{\dfrac{\rb{A + aa'}\rb{a + a'} + 2\rb{B - bb'}}{\rb{a - a'}^2}, \dfrac{\rb{Ab' - a'^2b}\rb{3a + a'} + \rb{a^2b' - Ab}\rb{a + 3a'} - 4B\rb{b - b'}}{\rb{a - a'}^3}}, $$
 $$ S = \rb{\dfrac{a^4 - 2Aa^2 - 8Ba + A^2}{4b^2}, \dfrac{a^6 + 5Aa^4 + 20Ba^3 - 5A^2a^2 - 4ABa - A^3 - 8B^2}{8b^3}}. $$
@@ -463,7 +463,7 @@ Let $ P = \rb{a, b} \in E\sb{2} $, then $ b = -b = 0 $. Since $ x^3 + Ax + B = 0
 Hence $ b = 0 $ iff $ ord\rb{a, b} = 2 $.
 
 \begin{remark}
-In fact, the $ n $-torsion points of $ E $ form a subgroup $ E\sb{n} $ of $ E $, such that $ \rb{E\sb{p}, O, +} \cong \rb{\Z_p^2, 0, +} $ if $ char\rb{F} \nmid p $, and either $ \rb{E\sb{p^e}, O, +} \cong \rb{\cb{0}, 0, +} $ or $ \rb{E\sb{p^e}, O, +} \cong \rb{\Z_{p^e}^2, 0, +} $ for all $ e \in \Z_{> 0} $ if $ char\rb{F} \mid p $.
+In fact, the $ n $-torsion points of $ E $ form a subgroup $ E\sb{n} $ of $ E $, such that $ \rb{E\sb{p}, O, +} \cong \rb{\Z_p^2, 0, +} $ if $ char\rb{F} \nmid p $, and either $ \rb{E\sb{p^e}, O, +} \cong \rb{\cb{0}, 0, +} $ or $ \rb{E\sb{p^e}, O, +} \cong \rb{\Z_{p^e}, 0, +} $ for all $ e \in \Z_{> 0} $ if $ char\rb{F} \mid p $.
 \end{remark}
 
 \pagebreak
@@ -694,10 +694,10 @@ $$ \phi\rb{x, y} = \rb{\dfrac{r\rb{x}}{s\rb{x}}, \dfrac{u\rb{x}}{v\rb{x}}y} = \r
 Now the above lemma might feel slightly arbitrary due to the presence of $ x^p $ and $ y^p $ in the isogeny. This brings the discussion to a particular endomorphism defined as follows, which would simplify the above expression.
 
 \begin{definition}[Frobenius endomorphism]
-The \textbf{Frobenius endomorphism} $ Fr : E \to E $ is defined by $ Fr\rb{x, y} = \rb{x^p, y^p} $. The $ q $-th power Frobenius endomorphism $ Fr_q : E \to E $ is defined by $ Fr_q\rb{x, y} = \rb{x^q, y^q} $.
+The \textbf{Frobenius endomorphism} $ Fr : E \to E $ is defined by $ Fr\rb{x, y} = \rb{x^p, y^p} $ if $ e = 1 $. The $ q $-th power Frobenius endomorphism $ Fr_q : E \to E $ is defined by $ Fr_q\rb{x, y} = \rb{x^q, y^q} $.
 \end{definition}
 
-The Frobenius endomorphism is also injective by virtue of the field characteristic, and hence bijective. This allows for an inverse isogeny to be easily defined, making the Frobenius endomorphism an automorphism.
+The Frobenius endomorphism is also injective by virtue of the field characteristic, and hence bijective, which allows for an inverse isogeny to be easily defined.
 
 \begin{remark}
 A remarkable equivalent characterisation of a perfect field is that the Frobenius endomorphism of a field with positive characteristic is an automorphism, which induces a similar property for isogenies defined over this field.
@@ -732,7 +732,7 @@ $$ \deg\rb{\phi} = \deg_s\rb{\phi}\deg_i\rb{\phi}. $$
 If an isogeny is separable, its decomposition to a Frobenius endomorphism is trivial, so its separable degree is equal to its degree and its inseparable degree is one.
 
 \begin{remark}
-An inseparable isogeny does not necessarily have its inseparable degree equal to its degree and its separable degree equal to one. If this is the case, then the isogeny is \emph{purely inseparable}. However, purely inseparable isogenies are not always inseparable, as with the case for degree one isogenies with all three degree equal to one.
+An inseparable isogeny does not necessarily have its inseparable degree equal to its degree and its separable degree equal to one. If this is the case, then the isogeny is \emph{purely inseparable}. However, purely inseparable isogenies are not always inseparable, as with the case for degree one isogenies, which are isomorphisms, with all three degree equal to one.
 \end{remark}
 
 The following example illustrates the two additional notions of degree.
@@ -972,14 +972,14 @@ The connection to this still open problem can be seen via a powerful theorem kno
 
 \begin{definition}[Local zeta function]
 The \textbf{local zeta function} of a projective algebraic variety $ V $ over $ F $ is the power series
-$$ Z_V\rb{t} = \exp\rb{\sum_{n = 1}^\infty \abs{V\rb{F_n}}\dfrac{t^n}{n}}, \qquad V\rb{F_n} = \dfrac{1}{\rb{n - 1}!}\val{\dfrac{d^n}{dt^n}\ln\rb{Z_V\rb{t}}}_{t = 0}. $$
+$$ Z_V\rb{t} = \exp\rb{\sum_{n = 1}^\infty \abs{V\rb{F_n}}\dfrac{t^n}{n}}, \qquad \abs{V\rb{F_n}} = \dfrac{1}{\rb{n - 1}!}\val{\dfrac{d^n}{dt^n}\ln\rb{Z_V\rb{t}}}_{t = 0}. $$
 where $ F_n = \F_{q^n} $.
 \end{definition}
 
 The following example is a trivial application the local zeta function.
 
 \begin{example}
-Let $ V\rb{0} $ be a projective algebraic variety over $ F $. Then $ V\rb{F_n} = 1 $ for any $ n \in \Z_{> 0} $, so
+Let $ V\rb{0} $ be the trivial projective algebraic variety over $ F $. Then $ \abs{V\rb{F_n}} = 1 $ for any $ n \in \Z_{> 0} $, so
 $$ Z_V\rb{t} = \exp\rb{\sum_{n = 1}^\infty \dfrac{t^n}{n}} = \exp\rb{\ln\rb{\dfrac{1}{1 - t}}} = \dfrac{1}{1 - t}. $$
 \end{example}
 
@@ -989,8 +989,8 @@ His three conjectures are then formulated as follows, which are easily satisfied
 \label{thm:weil}
 Let $ V $ be a smooth projective algebraic variety over $ F $ of dimension $ n \in \Z_{\ge 0} $.
 \begin{itemize}
-\item Rationality. $ Z_V\rb{t} = P\rb{t} / \rb{1 - t}\rb{1 - q^nt} \in \Q\rb{t} $, where
-$$ P\rb{t} = \prod_{i = 1}^{2n - 1} P_i\rb{t}^{\rb{-1}^{i + 1}}, \qquad P_i \in \Z\rb{t}. $$
+\item Rationality. $ Z_V\rb{t} = P\rb{t} / \rb{1 - t}\rb{1 - q^nt} \in \Q\sb{t} $, where
+$$ P\rb{t} = \prod_{i = 1}^{2n - 1} P_i\rb{t}^{\rb{-1}^{i + 1}}, \qquad P_i \in \Z\sb{t}. $$
 \item Functional equation. Let $ \epsilon \in \Z $ be the \emph{Euler characteristic} of $ V $. Then
 $$ Z_V\rb{\dfrac{1}{q^nt}} = \pm \sqrt{q}^{n\epsilon} t^\epsilon Z_V\rb{t}. $$
 \item Riemann hypothesis. Let $ S_i = \cb{\alpha \in \C \mid \abs{\alpha} = \sqrt{q}^i} $ and $ P_i $ be as per above. Then each
@@ -1091,7 +1091,7 @@ If $ t'' \in \Z $ is such that $ t'' \equiv t_1 \mod n_1 $ and $ t'' \equiv t_2 
 \end{proof}
 
 \begin{remark}
-The Chinese remainder theorem can be generalised to ideals $ I_i $ of arbitrary commutative unital rings $ R $, replacing the coprime condition with $ I_n + I_m = R $ for all $ n, m \in Z $ and modulo with respect to $ I_i $.
+The Chinese remainder theorem can be generalised to ideals $ I_i $ of arbitrary commutative unital rings $ R $, replacing the coprime condition with $ I_n + I_m = R $ for all $ n, m \in \Z $ and modulo with respect to $ I_i $.
 \end{remark}
 
 A general process for computing this unique $ t \in \Z_{\ge 0} $ can be inferred directly from the proof of the Chinese remainder theorem, using the extended Euclidean algorithm for Bézout's identity, illustrated as follows.
@@ -1125,7 +1125,7 @@ and for $ n < 0 $ by $ \psi_{-n} = -\psi_n $, with associated polynomials $ \phi
 \end{align*}
 \end{definition}
 
-It holds that $ \phi_n = -\phi_n $ and $ \omega_n = -\omega_n $, and $ \psi_{2m} = 2\omega_n\psi_n $. The following lemma allows certain division polynomials to be written solely in terms of $ x $.
+It holds that $ \phi_{-n} = -\phi_n $ and $ \omega_{-n} = -\omega_n $, and $ \psi_{2m} = 2\omega_n\psi_n $. The following lemma allows certain division polynomials to be written solely in terms of $ x $.
 
 \begin{lemma}
 If $ n \in \Z $ is even, then
@@ -1294,7 +1294,7 @@ If $ q \in \cb{2, 3} $, then $ E\rb{F} $ could be trivial, but the only examples
 \section{Elliptic curves over the rationals}
 
 After the discussion of elliptic curves over finite fields, the focus redirects to the field of rational numbers. Again, the question of computing the rational points arises again, with the unfortunate answer that it is not as straightforward as finite fields. Due to the countably infinite nature of the rationals, enumerating all possible rational solutions of all elliptic curves is not possible, so other techniques will be deployed. In particular, there will be an attempt to prove one of the most fundamental theorems of elliptic curves over the rationals, namely that the rational points form a finitely generated group. While finite groups arising from finite fields can be fully characterised by the fundamental theorem of finite abelian groups, finitely generated groups arising from the rationals can be fully characterised by the fundamental theorem of finitely generated abelian groups,
-$$ E\rb{\Q} \cong r\Z \oplus \bigoplus_{i = 1}^m \Z_{n_i}, \qquad r, m \in \Z_{\ge 0}, \qquad n_i \in \Z_{> 1}, $$
+$$ E\rb{\Q} \cong \Z^r \oplus \bigoplus_{i = 1}^m \Z_{n_i}, \qquad r, m \in \Z_{\ge 0}, \qquad n_i \in \Z_{> 1}, $$
 such that each $ n_i \mid n_{i + 1} $, which is given in full in Appendix A.4. However, there are issues with computing $ r \in \Z_{\ge 0} $, which will be discussed later. Now let $ E $ be an elliptic curve over the perfect field $ \Q $, given by the Weierstrass curve
 $$ E : y^2 = x^3 + A'x + B', \qquad A' = \dfrac{p}{q}, B' = \dfrac{p'}{q'} \in \Q, $$
 with the group of rational points $ E\rb{\Q} = \rb{E\rb{\Q}, O, +} $. Since there is a $ j $-invariant affine transformation $ \rb{x, y} \mapsto \rb{q^{-2}q'^{-2}x, q^{-3}q'^{-3}y} $, there is an isomorphism from $ E $ to the curve given by the Weierstrass equation
@@ -1377,8 +1377,8 @@ Hence $ 2 \mid v_p\rb{a} $ and $ 3 \mid v_p\rb{b} $, so $ v_p\rb{a} = -2v $ and 
 \end{proof}
 
 Hence for any point $ P = \rb{a, b} \in E\rb{\Q} $,
-$$ a = \dfrac{q}{d^2}, \qquad b = \dfrac{r}{d^3}, \qquad q, r \in \Z, \qquad d \in Z_{> 0} $$
-such that $ \gcd\rb{q, d} = \gcd\rb{r, d} = 1 $. This fact easily follows from the properties of division polynomials, but is proven explicitly here as it will be used several times in later subsections. Now a change of coordinates will be undertaken to ease discussions, namely
+$$ a = \dfrac{q}{d^2}, \qquad b = \dfrac{r}{d^3}, \qquad q, r \in \Z, \qquad d \in \Z_{> 0} $$
+such that $ \gcd\rb{q, d} = \gcd\rb{r, d} = 1 $. This fact will be proven explicitly here as it will be used several times in later subsections. Now a change of coordinates will be undertaken to ease discussions, namely
 $$ t = T = \dfrac{X}{Y}, \qquad s = S = \dfrac{Z}{Y}, \qquad \sb{X, Y, Z} \mapsto \sb{T, 1, S} = \rb{t, s}, $$
 which is an invertible projective transformation
 $$ E : Y^2Z = X^3 + AXZ^2 + BZ^3 \qquad \iff \qquad E' : S = T^3 + ATS^2 + BS^3 : s = t^3 + Ats^2 + Bs^3. $$
@@ -1414,7 +1414,7 @@ The above proof is brief but can be verified manually. Now let
 $$ E\rb{p^v} = \cb{O} \cup \cb{\rb{a, b} \in E\rb{\Q} \mid v_p\rb{a} \le -2v, \ v_p\rb{b} \le -3v} $$
 be a subset of $ E\rb{\Q} $. Rewriting coordinates accordingly gives $ v_p\rb{a / b} \ge v $ and $ v_p\rb{1 / b} \ge 3v $, so let
 $$ E'\rb{p^v} = \cb{\rb{0, 0}} \cup \cb{\rb{a, b} \in E'\rb{\Q} \mid v_p\rb{a} \ge v, \ v_p\rb{b} \ge 3v} $$
-be a subset of $ E'\rb{\Q} $ bijective to $ E'\rb{p^v} $. These two sets induce two decreasing sequences of subsets.
+be a subset of $ E'\rb{\Q} $ bijective to $ E\rb{p^v} $. These two sets induce two decreasing sequences of subsets.
 
 \begin{definition}[Filtration]
 A \textbf{filtration} is a decreasing sequence of subsets $ S_i $ such that $ S_i \supseteq S_j $ for any $ i \le j $.
@@ -1445,7 +1445,7 @@ v_p\rb{1 + A\lambda^2 + B\lambda^3} & = \min\cb{v_p\rb{1}, v_p\rb{A} + 2v_p\rb{\
 so $ v_p\rb{a''} \ge \min\cb{a, a', 5v} \ge v $. Thus $ P + Q \in E'\rb{p^v} $ and $ v_p\rb{a + a' - a''} \ge 5v $.
 \end{proof}
 
-Note that the second part of the lemma proves something stronger, that three collinear points add to give a large $ p $-adic valuation. Now let $ R = \cb{x \in \Q \mid v_p\rb{x} \ge 0} $ be a unique factorisation domain such that $ \ab{p^v} = \cb{x \in \Q \mid v_p\rb{x} \ge v} \subseteq R $ is a principal ideal. This also induces a filtration of subgroups
+Note that the second part of the lemma proves something stronger, that the $ x $ coordinates of three collinear points add to give a large $ p $-adic valuation. Now let $ R = \cb{x \in \Q \mid v_p\rb{x} \ge 0} $ be a unique factorisation domain such that $ \ab{p^v} = \cb{x \in \Q \mid v_p\rb{x} \ge v} \subseteq R $ is a principal ideal. This also induces a filtration of subgroups
 $$ R \ge \ab{p} \ge \ab{p^2} \ge \ab{p^3} \ge \dots \cb{0}. $$
 Then $ v_p\rb{a + a' - a''} \ge 5v $ from the previous lemma can be rephrased as $ a + a' - a'' \in \ab{p^{5v}} $, or even better as $ \ab{p^{5v}} + a + a' = \ab{p^{5v}} + a'' $. The following lemma attempts to makes use of this fact.
 
@@ -1499,7 +1499,7 @@ $$ b^2 \mid \rb{a^4 - 2Aa^2 - 8Ba + A^2}\rb{3a^2 + 4A} - \rb{a^3 + Aa + B}\rb{3a
 \subsection{Torsion computation}
 
 An application of the Nagell-Lutz theorem is as follows. Assuming the fundamental theorem of finite abelian groups,
-$$ E\rb{\Q} \cong r\Z \oplus E\rb{\Q}_{tors}, \qquad r \in \Z_{\ge 0}, $$
+$$ E\rb{\Q} \cong \Z^r \oplus E\rb{\Q}_{tors}, \qquad r \in \Z_{\ge 0}, $$
 the Nagell-Lutz theorem can be used to compute the torsion subgroup $ E\rb{\Q}_{tors} $, since there are only finitely many torsion points $ \rb{a, b} \in E\rb{\Q} $ such that $ b^2 \mid \Delta'_E $. The following example illustrates the full computation of the torsion subgroup of an elliptic curve.
 
 \begin{example}
@@ -1935,7 +1935,7 @@ Hence $ \alpha $ is a group homomorphism. Now $ O \in Ker\rb{\alpha} $, the poin
 The image of the group homomorphism $ \alpha $ can again be characterised, as being contained in a finite subgroup of $ \Q^* / \rb{\Q^*}^2 $. Now let $ S\rb{B} $ be the set of primes $ p \in \Z_{> 0} $ such that $ p \mid B $, and let
 $$ G\rb{B} = \cb{\rb{\Q^*}^2\rb{\prod_{p \in S} p} \ \Bigg| \ S \subseteq S\rb{B}} \cup \cb{\rb{\Q^*}^2\rb{-\prod_{p \in S} p} \ \Bigg| \ S \subseteq S\rb{B}}. $$
 Recalling the fact that for any point $ \rb{a, b} \in E\rb{\Q} $,
-$$ a = p / d^2, \qquad b = q / d^3, \qquad p, q \in \Z, \qquad d \in Z_{> 0}, $$ such that $ \gcd\rb{p, d} = \gcd\rb{q, d} = 1 $, the following lemma characterises $ \alpha $.
+$$ a = p / d^2, \qquad b = q / d^3, \qquad p, q \in \Z, \qquad d \in \Z_{> 0}, $$ such that $ \gcd\rb{p, d} = \gcd\rb{q, d} = 1 $, the following lemma characterises $ \alpha $.
 
 \begin{lemma}
 $ G\rb{B} $ is a group such that $ \abs{G\rb{B}} = 2^{\abs{S\rb{B}} + 1} $ and $ Im\rb{\alpha} \le G\rb{B} \le \Q^* / \rb{\Q^*}^2 $.
@@ -1972,7 +1972,7 @@ The proof of Mordell's theorem is now complete.
 \subsection{Rank computation}
 
 A direct application of Mordell's theorem would be the fundamental theorem of finite abelian groups,
-$$ E\rb{\Q} \cong r\Z \oplus \bigoplus_{i = 1}^m \Z_{n_i}, \qquad r, m \in \Z_{\ge 0}, \qquad n_i \in \Z_{> 1}, $$
+$$ E\rb{\Q} \cong \Z^r \oplus \bigoplus_{i = 1}^m \Z_{n_i}, \qquad r, m \in \Z_{\ge 0}, \qquad n_i \in \Z_{> 1}, $$
 such that each $ n_i \mid n_{i + 1} $. Thus for any point $ P \in E\rb{\Q} $,
 $$ P = \sum_{i = 1}^r r_iP_i + \sum_{i = 1}^m m_iQ_i, \qquad r_i \in \Z, \qquad m_i \in \Z_{n_i}, \qquad P_i, Q_i \in E\rb{\Q}. $$
 While the torsion subgroup can be easily computed, the rank $ r $ is generally difficult to compute, and can only be made slightly easier with Mordell's theorem. Noting that $ \bigoplus_i \rb{G_i / H_i} \cong \rb{\bigoplus_i G_i} / \rb{\bigoplus_i H_i} $ for any groups $ G_i, H_i $, the following proposition gives a direct formula for the rank.
@@ -1984,9 +1984,9 @@ $$ 2^r = \tfrac{1}{4}\abs{Im\rb{\alpha}}\abs{Im\rb{\alpha'}}. $$
 
 \begin{proof}
 The fundamental theorem of finite abelian groups gives
-$$ \dfrac{E\rb{\Q}}{2E\rb{\Q}} \cong \dfrac{r\Z \oplus \bigoplus_{i = 1}^m \Z_{n_i}}{r2\Z \oplus \bigoplus_{i = 1}^m 2\Z_{n_i}} \cong r\rb{\dfrac{\Z}{2\Z}} \oplus \bigoplus_{i = 1}^m \dfrac{\Z_{n_i}}{2\Z_{n_i}}. $$
+$$ \dfrac{E\rb{\Q}}{2E\rb{\Q}} \cong \dfrac{\Z^r \oplus \bigoplus_{i = 1}^m \Z_{n_i}}{r2\Z \oplus \bigoplus_{i = 1}^m 2\Z_{n_i}} \cong r\rb{\dfrac{\Z}{2\Z}} \oplus \bigoplus_{i = 1}^m \dfrac{\Z_{n_i}}{2\Z_{n_i}}. $$
 Then $ \Z / 2\Z \cong \Z_2 $. If $ n_i \nmid 2 $, then $ 2^{-1} \in \Z_{n_i} $, so $ \Z_{n_i} \cong 2\Z_{n_i} $ and $ \Z_{n_i} / 2\Z_{n_i} \cong 0 $, otherwise $ n_i \mid 2 $. Now $ P \in E\rb{\Q}\sb{2} $ iff $ 2P = 0 $, or each $ r_i = 0 $ and each $ 2m_i = 0 \mod n_i $, which holds iff $ m_i = 0 $ or $ n_i \mid 2 $, so $ E\rb{\Q}\sb{2} = \bigoplus_{n_i \mid 2} \Z_{n_i} $. Hence
-$$ \dfrac{E\rb{\Q}}{2E\rb{\Q}} \cong r\Z_2 \oplus E\rb{\Q}\sb{2} \qquad \implies \qquad \abs{E\rb{\Q} : 2E\rb{\Q}} = 2^r\abs{E\rb{\Q}\sb{2}}. $$
+$$ \dfrac{E\rb{\Q}}{2E\rb{\Q}} \cong \Z^r_2 \oplus E\rb{\Q}\sb{2} \qquad \implies \qquad \abs{E\rb{\Q} : 2E\rb{\Q}} = 2^r\abs{E\rb{\Q}\sb{2}}. $$
 Now let $ \theta : E'\rb{\Q} \to Im\rb{\psi} / 2E\rb{\Q} $ be a surjective group homomorphism defined by $ \theta\rb{P} = 2E\rb{\Q} + \psi\rb{P} $. Then $ P \in Ker\rb{\theta} $ iff $ \psi\rb{P} \in 2E\rb{\Q} $, or $ \psi\rb{P} = \psi\rb{\phi\rb{Q}} $ for some $ Q \in E\rb{\Q} $. This holds iff $ \psi\rb{P - \phi\rb{Q}} = 0 $, or $ P - \phi\rb{Q} \in Ker\rb{\psi} $ and $ P \in Ker\rb{\psi} + Im\rb{\phi} $. Then the three isomorphism theorems with $ Ker\rb{\theta} = Ker\rb{\psi} + Im\rb{\phi} $ give
 $$ \dfrac{Im\rb{\psi}}{2E\rb{\Q}} \cong \dfrac{E'\rb{\Q}}{Ker\rb{\psi} + Im\rb{\phi}} \cong \dfrac{\dfrac{E'\rb{\Q}}{Im\rb{\phi}}}{\dfrac{Ker\rb{\psi} + Im\rb{\phi}}{Im\rb{\phi}}} \cong \dfrac{\dfrac{E'\rb{\Q}}{Im\rb{\phi}}}{\dfrac{Ker\rb{\psi}}{Ker\rb{\psi} \cap Im\rb{\phi}}}. $$
 Hence
@@ -2068,13 +2068,13 @@ which has rank 19. In fact, it is conjectured that the rank of an elliptic curve
 There are elliptic curves over $ \Q $ of arbitrary large rank.
 \end{conjecture}
 
-However, while they exist, elliptic curves of rank greater than one are rare. This notion of rarity is measured by the average rank of all elliptic curves, of which is conjectured to be a constant.
+However, while they exist, elliptic curves of rank greater than one are rare. This notion of rarity is measured by the \emph{average rank} of all elliptic curves, of which is conjectured to exist as a quantity.
 
 \begin{conjecture}
 The average rank of all elliptic curves over $ \Q $ is $ \tfrac{1}{2} $.
 \end{conjecture}
 
-This means that rank zero constitute a half and rank one constitute the other half, while all higher ranks constitute zero percent of all elliptic curves. While it has not been definitely proven, Bhargava and Shankar showed in \cite{rankaverage} that the average rank of all elliptic curves is at most $ 7 / 6 $.
+In particular, rank zero constitute a half and rank one constitute the other half, while all higher ranks constitute zero percent, of all elliptic curves. While it has not been definitely proven, Bhargava and Shankar showed in \cite{rankaverage} that the average rank of all elliptic curves is at most $ 7 / 6 $.
 
 \pagebreak
 
@@ -2285,7 +2285,7 @@ $$ \gcd\rb{2^{\rb{N - 1} / 17} - 1, N} = \gcd\rb{2^{\rb{N - 1} / 23} - 1, N} = \
 Thus $ N $ is prime with primality certificate $ \rb{r, \sb{\rb{2, 3}, \rb{3, 2}, \rb{17, 2}, \rb{23, 2}, \rb{319279, 2}}} $.
 \end{example}
 
-As for Lenstra's elliptic curve factorisation method, an elliptic curve analogue attempts to fix the $ p - 1 $ assumption by virtue of Hasse's theorem. By first choosing $ A, a, b \in Z_N^* $, a valid elliptic curve over the ring $ \Z_N^* $ is considered, giving the following analogous theorem.
+As for Lenstra's elliptic curve factorisation method, an elliptic curve analogue attempts to fix the $ p - 1 $ assumption by virtue of Hasse's theorem. By first choosing $ A, a, b \in \Z_N^* $, a valid elliptic curve over the ring $ \Z_N^* $ is considered, giving the following analogous theorem.
 
 \begin{theorem}[Goldwasser-Kilian]
 Let $ E : y^2 = x^3 + Ax + B $ be an elliptic curve over $ \Q $ such that $ \gcd\rb{4A^3 + 27B^2, N} = 1 $, treated as over the ring $ \Z_N^* $, and let $ m \in \Z_{> 0} $ be such that $ m > \rb{\sqrt[4]{N} + 1}^2 $. Then $ N $ is prime if
@@ -2669,7 +2669,7 @@ Thus there are no singular points and $ A\rb{x - y} $ is smooth.
 
 \begin{definition}[Function field]
 The \textbf{function field} of $ P $ is
-$$ F\rb{P} = \cb{f\rb{x_0, \dots, x_n} / g\rb{x_0, \dots, x_n} \mid f, g \in F\sb{x_0, \dots, x_n}, \ \deg f = \deg g, \ g \notin I\rb{P}} / \sim, $$
+$$ F\rb{P} = \cb{f\rb{x_0, \dots, x_n} / g\rb{x_0, \dots, x_n} \mid f, g \in F\sb{x_0, \dots, x_n}, \ \deg\rb{f} = \deg\rb{g}, \ g \notin I\rb{P}} / \sim, $$
 the field of equivalence classes of \textbf{rational functions} of homogeneous polynomials, where $ f / g \sim f' / g' $ iff $ fg' - f'g \in I\rb{P} $.
 \end{definition}
 
@@ -2792,20 +2792,20 @@ Thus $ P $ is a flex.
 The following follows from the fundamental theorem of algebra on the \emph{resultant} of $ f $ and $ g $.
 
 \begin{theorem}[Bézout]
-$ C $ intersects $ C' $ at $ \rb{\deg f}\rb{\deg g} $ points \emph{up to multiplicity}, so
-$$ \sum_{P \in C \cap C'} I_P\rb{f, g} = \rb{\deg f}\rb{\deg g}. $$
+$ C $ intersects $ C' $ at $ \rb{\deg\rb{f}}\rb{\deg\rb{g}} $ points \emph{up to multiplicity}, so
+$$ \sum_{P \in C \cap C'} I_P\rb{f, g} = \rb{\deg\rb{f}}\rb{\deg\rb{g}}. $$
 \end{theorem}
 
 The following follows from a \emph{dimension counting} argument.
 
 \begin{theorem}[Cayley-Bacharach]
-Let $ \deg f = \deg g = 3 $ such that $ C $ intersects $ C' $ at nine points up to multiplicity, and let $ C'' : h\rb{X, Y, Z} = 0 $ be a cubic projective plane curve over $ F $ such that at least eight of these points are in $ C'' $. Then the ninth point is also in $ C'' $.
+Let $ \deg\rb{f} = \deg\rb{g} = 3 $ such that $ C $ intersects $ C' $ at nine points up to multiplicity, and let $ C'' : h\rb{X, Y, Z} = 0 $ be a cubic projective plane curve over $ F $ such that at least eight of these points are in $ C'' $. Then the ninth point is also in $ C'' $.
 \end{theorem}
 
 The following definition is the \emph{genus-degree formula}, which is a corollary of the \emph{adjunction formula} and the \emph{Riemann-Roch theorem} for arbitrary curves and surfaces.
 
 \begin{definition}[Degree]
-The \textbf{degree} of $ C $ is $ d_C = \deg f $.
+The \textbf{degree} of $ C $ is $ d_C = \deg\rb{f} $.
 \end{definition}
 
 \begin{definition}[Genus]

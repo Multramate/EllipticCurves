@@ -2,11 +2,11 @@
 
 ## Information
 
-I completed this project under the supervision of Dr Johannes Nicaise as part of the Undergraduate Research Opportunity Programme (UROP) over the summer of the second year of my undergraduate degree in Imperial College London.
+I completed this project under the supervision of Prof Johannes Nicaise as part of the Undergraduate Research Opportunity Programme (UROP) over the summer of the second year of my undergraduate degree in Imperial College London.
 
 ## Abstract
 
-In the field of *algebraic geometry*, *elliptic curves* are deeply studied rich structures with far-fetching computational applications to classical *number theory* and contemporary *cryptography*. It is a fundamental tool in Wiles' proof of *Fermat's last theorem*, as well as the main object of discussion in the *Birch and Swinnerton-Dyer conjecture*, an open problem in number theory deemed worthy of being called one of the *Millennium Prize Problems* by the *Clay Mathematics Institute*. In this project, three of the four most fundamental theorems in the arithmetic of elliptic curves, namely the *Hasse-Weil theorem*, the *Nagell-Lutz theorem*, and the *Mordell-Weil theorem*, are proven in their respective special forms. *Schoof's algorithm* for *counting rational points over Galois fields* will also be briefly discussed, allowing for an application to *integer factorisation* and *primality testing*. An introductory chapter and a brief appendix on *fields*, *varieties*, *curves*, and *groups* are also included for completion.
+In the field of *algebraic geometry*, *elliptic curves* are deeply studied rich structures with far-fetching computational applications to classical *number theory* and contemporary *cryptography*. It is a fundamental tool in Wiles' proof of *Fermat's last theorem*, as well as the main object of discussion in the *Birch and Swinnerton-Dyer conjecture*, an open problem in number theory deemed worthy of being called one of the *Millennium Prize Problems* by the *Clay Mathematics Institute*. In this project, three of the four most fundamental theorems in the arithmetic of elliptic curves, namely the *Hasse-Weil theorem*, the *Nagell-Lutz theorem*, and the *Mordell-Weil theorem*, are proven in their respective special forms. *Schoof's algorithm* for *counting rational points over Galois fields* will also be briefly discussed, allowing for an application to *integer factorisation* and *primality testing*. An introductory section and a brief appendix on *fields*, *varieties*, *curves*, and *groups* are also included for completion.
 
 ## Contents
 
@@ -59,7 +59,7 @@ Appendix B includes proofs of two less relevant algorithms omitted from the main
 2. Group law explicit formulae - proof of an algorithm of the group law
 
 ### Code listings
-Appendix C includes listings of code in the functional Haskell programming language compiled by the Glassgow Haskell Compiler.
+Appendix C includes listings of code in the functional Haskell programming language compiled by the Glasgow Haskell Compiler.
 1. Fields.hs - data for fields and prime subfields in the second section
 2. WeierstrassEquations.hs - data for Weierstrass equations in the first section
 3. GroupLaw.hs - data for the group law in the first section
