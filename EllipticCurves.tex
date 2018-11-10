@@ -102,7 +102,7 @@ In terms of notation, most of the symbols I have used are those found in books, 
 $$ f\rb{x, y} = xg\rb{y} + yh\rb{x}, \qquad g \in F\sb{y}, \qquad h \in F\sb{x}, $$
 $ g $ and $ h $ are always existentially quantified, while $ f $ and $ F $ are initially fixed or explicitly universally quantified. A function $ f' $ will always be distinct, but possibly related, to the function $ f $, while differentiation with respect to a variable $ x $ will always be denoted $ d / dx $ or $ \partial / \partial x $. No distinction will be made between sums and \emph{formal sums}, or derivatives and \emph{formal derivatives}, as they are clear from the context of this report.
 
-I would like to thank my supervisor Dr Johannes Nicaise for his support and guidance throughout the duration of this project. I had many doubts and questions early on, all of which he clarified with great detail.
+I would like to thank my supervisor Prof Johannes Nicaise for his support and guidance throughout the duration of this project. I had many doubts and questions early on, all of which he clarified with great detail.
 
 \pagebreak
 
@@ -146,7 +146,7 @@ This follows directly from the appendices.
 
 Thus an elliptic curve can be fully defined in terms of its defining polynomial, which would need to satisfy certain conditions. As per the appendix, an abuse of notation will be used to denote an elliptic curve $ \rb{E, O_E} $ over $ F $ \emph{given} by a polynomial $ e $, namely
 $$ E : e\rb{X, Y, Z} = 0 \qquad \iff \qquad E : e\rb{x, y} = 0, $$
-which are respectively the homogenised and dehomogenised forms of a polynomial that can be used interchangeably. For the rest of this section, let $ E : e\rb{x, y} = 0 $ and $ E' : e'\rb{x, y} = 0 $ be two elliptic curves over a perfect field $ F $ with algebraic closure $ K = \overline{F} $. The notion of an isomorphism, as for any algebraic geometric structure, would be useful. This is captured in the following definition.
+which are respectively the homogenised and dehomogenised forms of a polynomial that can be used interchangeably. For the rest of this section, let $ E : e\rb{x, y} = 0 $ and $ E' : e'\rb{x, y} = 0 $ be two elliptic curves over a perfect field $ F $ with algebraic closure $ K = \bar{F} $. The notion of an isomorphism, as for any algebraic geometric structure, would be useful. This is captured in the following definition.
 
 \begin{definition}[Isomorphism]
 $ \rb{E, O_E} $ and $ \rb{E', O_{E'}} $ are \textbf{isomorphic}, denoted by $ \rb{E, O_E} \cong \rb{E', O_{E'}} $, iff there is an isomorphism $ \phi : E \to E' $ such that $ \phi\rb{O_E} = O_{E'} $.
@@ -1024,29 +1024,29 @@ $ Z_E $ satisfies the following properties.
 As full proofs of the Weil conjectures, even just for elliptic curves, requires further prerequisites on algebraic geometry, particularly on the \emph{Tate module} and the \emph{Weil pairing}, only the final part of the proof is given, of which the following lemma will be assumed.
 
 \begin{lemma}
-$ \abs{E\rb{F_n}} = 1 + q^n - \alpha^n - \overline{\alpha}^n $ for some $ \alpha \in \C $ such that $ \abs{\alpha} = \sqrt{q} $.
+$ \abs{E\rb{F_n}} = 1 + q^n - \alpha^n - \bar{\alpha}^n $ for some $ \alpha \in \C $ such that $ \abs{\alpha} = \sqrt{q} $.
 \end{lemma}
 
 \begin{proof}
 Omitted, see V.2.3 in \cite{gtm}.
 \end{proof}
 
-Letting $ n = 1 $ in the above lemma for Theorem \ref{thm:weilcurve} gives $ \abs{\abs{E\rb{F}} - 1 - q} = \abs{-\alpha - \overline{\alpha}} \le 2\abs{\alpha} = 2\sqrt{q} $, which proves Hasse's theorem once again. The final part of the proof is as follows.
+Letting $ n = 1 $ in the above lemma for Theorem \ref{thm:weilcurve} gives $ \abs{\abs{E\rb{F}} - 1 - q} = \abs{-\alpha - \bar{\alpha}} \le 2\abs{\alpha} = 2\sqrt{q} $, which proves Hasse's theorem once again. The final part of the proof is as follows.
 
 \begin{proof}[Proof of Theorem \ref{thm:weilcurve}]
 The above lemma on the zeta function gives $ \alpha \in \C $ such that $ \abs{\alpha} = \sqrt{q} $, and
-$$ \ln\rb{Z_E\rb{t}} = \sum_{n = 1}^\infty \rb{1 + q^n - \alpha^n - \overline{\alpha}^n}\dfrac{t^n}{n} = -\ln\rb{1 - t} - \ln\rb{1 - qt} + \ln\rb{1 - \alpha t} + \ln\rb{1 - \overline{\alpha} t}. $$
+$$ \ln\rb{Z_E\rb{t}} = \sum_{n = 1}^\infty \rb{1 + q^n - \alpha^n - \bar{\alpha}^n}\dfrac{t^n}{n} = -\ln\rb{1 - t} - \ln\rb{1 - qt} + \ln\rb{1 - \alpha t} + \ln\rb{1 - \bar{\alpha} t}. $$
 Thus
-$$ Z_E\rb{t} = \dfrac{\rb{1 - \alpha t}\rb{1 - \overline{\alpha}t}}{\rb{1 - t}\rb{1 - qt}}, \qquad \abs{\alpha} = \sqrt{q}, $$
+$$ Z_E\rb{t} = \dfrac{\rb{1 - \alpha t}\rb{1 - \bar{\alpha}t}}{\rb{1 - t}\rb{1 - qt}}, \qquad \abs{\alpha} = \sqrt{q}, $$
 which satisfies rationality and the Riemann hypothesis, and gives the functional equation
-$$ Z_E\rb{\dfrac{1}{qt}} = \dfrac{\rb{1 - \dfrac{\alpha}{qt}}\rb{1 - \dfrac{\overline{\alpha}}{qt}}}{\rb{1 - \dfrac{1}{qt}}\rb{1 - \dfrac{1}{t}}} = \dfrac{qt^2 - \rb{\alpha + \overline{\alpha}}t + \dfrac{\alpha\overline{\alpha}}{q}}{\rb{qt - 1}\rb{t - 1}} = \dfrac{\rb{1 - \alpha t}\rb{1 - \overline{\alpha}t}}{\rb{1 - t}\rb{1 - qt}} = Z_E\rb{t}. $$
+$$ Z_E\rb{\dfrac{1}{qt}} = \dfrac{\rb{1 - \dfrac{\alpha}{qt}}\rb{1 - \dfrac{\bar{\alpha}}{qt}}}{\rb{1 - \dfrac{1}{qt}}\rb{1 - \dfrac{1}{t}}} = \dfrac{qt^2 - \rb{\alpha + \bar{\alpha}}t + \dfrac{\alpha\bar{\alpha}}{q}}{\rb{qt - 1}\rb{t - 1}} = \dfrac{\rb{1 - \alpha t}\rb{1 - \bar{\alpha}t}}{\rb{1 - t}\rb{1 - qt}} = Z_E\rb{t}. $$
 \end{proof}
 
 By the above proof, the connection to the classical Riemann hypothesis can then be seen as follows. An analogue of the Riemann zeta function can be defined for elliptic curves over $ F $ as $ \zeta_E\rb{s} = Z_E\rb{q^{-s}} $. It then satisfies a similar functional equation,
 $$ \zeta_E\rb{s} = Z_E\rb{q^{-s}} = Z_E\rb{q^{s - 1}} = \zeta_E\rb{1 - s}. $$
 If $ \zeta_E\rb{s} = 0 $, Theorem \ref{thm:weilcurve} also gives
-$$ \dfrac{\rb{1 - \alpha q^{-s}}\rb{1 - \overline{\alpha}q^{-s}}}{\rb{1 - q^{-s}}\rb{1 - q^{1 - s}}} = 0, \qquad \abs{\alpha} = \sqrt{q}. $$
-Hence $ 1 = \alpha q^{-s} $ or $ 1 = \overline{\alpha} q^{-s} $, so $ q^{\Re\rb{s}} = \abs{q^s} = \sqrt{q} $. Thus $ \Re\rb{s} = \tfrac{1}{2} $.
+$$ \dfrac{\rb{1 - \alpha q^{-s}}\rb{1 - \bar{\alpha}q^{-s}}}{\rb{1 - q^{-s}}\rb{1 - q^{1 - s}}} = 0, \qquad \abs{\alpha} = \sqrt{q}. $$
+Hence $ 1 = \alpha q^{-s} $ or $ 1 = \bar{\alpha} q^{-s} $, so $ q^{\Re\rb{s}} = \abs{q^s} = \sqrt{q} $. Thus $ \Re\rb{s} = \tfrac{1}{2} $.
 
 \begin{remark}
 The Weil conjectures is a generalisation of Riemann hypothesis, which those for elliptic curves is in turn a special case of. In general, there are many zeta functions analogous to the Riemann zeta function. One such family of zeta functions is for a \emph{finitely generated algebra} $ R $ over $ \Z $, defined as
@@ -1916,7 +1916,7 @@ Thus $ P \in Im\rb{\psi} $.
 
 The image of the isogeny $ \phi $ can be characterised analogously, and will not be explicitly stated here. Now let another map be defined as
 $$ \alpha : E\rb{\Q} \to \Q^* / \rb{\Q^*}^2, \qquad \alpha\rb{P} = \begin{cases} \rb{\Q^*}^2a & P = \rb{a, b} \ne T \\ \rb{\Q^*}^2B & P = T \\ \rb{\Q^*}^2 & P = O \end{cases}. $$
-Then $ \psi $ and $ \alpha $ induce an \emph{exact sequence} $ \begin{tikzcd} E'\rb{\Q} \arrow{r}[above]{\psi} & E\rb{\Q} \arrow{r}[above]{\alpha} & \Q^* / \rb{\Q^*}^2 \end{tikzcd} $, which can be stated more concretely in the following lemma.
+Then $ \psi $ and $ \alpha $ induce an \emph{exact sequence} $ E'\rb{\Q} \xrightarrow{\psi} E\rb{\Q} \xrightarrow{\alpha} \Q^* / \rb{\Q^*}^2 $, which can be stated more concretely in the following lemma.
 
 \begin{lemma}
 $ \alpha : E\rb{\Q} \to \Q^* / \rb{\Q^*}^2 $ is a group homomorphism such that $ Im\rb{\psi} = Ker\rb{\alpha} $.
@@ -2520,13 +2520,13 @@ An \textbf{algebraic closure} of $ F $ is an algebraically closed algebraic exte
 \end{definition}
 
 \begin{example}
-$ \overline{\R} = \C $ while $ \overline{\Q} $ is the field of algebraic numbers.
+$ \bar{\R} = \C $ while $ \bar{\Q} $ is the field of algebraic numbers.
 \end{example}
 
 The existence and uniqueness of algebraic closures can be proven from \emph{Zorn's Lemma}, which is equivalent to the \emph{Axiom of Choice}.
 
 \begin{proposition}
-An algebraic closure $ \overline{F} $ of $ F $ exists and is unique up to $ F $-isomorphism.
+An algebraic closure $ \bar{F} $ of $ F $ exists and is unique up to $ F $-isomorphism.
 \end{proposition}
 
 \begin{definition}[Splits]
@@ -2582,14 +2582,14 @@ $ F $ is \textbf{perfect} iff the algebraic closure of $ F $ is Galois.
 \end{definition}
 
 \begin{example}
-Examples of perfect fields include any field of characteristic zero including $ \Q $, $ \R $, and $ \C $, any finite field $ \F_{p^e} $, and any algebraically closed field including $ \overline{\Q} $. Examples of imperfect fields include the field of rational functions $ \F_p\rb{y} $ of any finite field $ \F_p $ since $ x^p - y \in \F_p\rb{y} $ is irreducible but inseparable.
+Examples of perfect fields include any field of characteristic zero including $ \Q $, $ \R $, and $ \C $, any finite field $ \F_{p^e} $, and any algebraically closed field including $ \bar{\Q} $. Examples of imperfect fields include the field of rational functions $ \F_p\rb{y} $ of any finite field $ \F_p $ since $ x^p - y \in \F_p\rb{y} $ is irreducible but inseparable.
 \end{example}
 
 \pagebreak
 
 \subsection{Algebraic varieties}
 
-Let $ F $ be a perfect field of $ char\rb{F} \notin \cb{2, 3} $ with algebraic closure $ K = \overline{F} $ and Galois group $ Gal_F\rb{K} $.
+Let $ F $ be a perfect field of $ char\rb{F} \notin \cb{2, 3} $ with algebraic closure $ K = \bar{F} $ and Galois group $ Gal_F\rb{K} $.
 
 \begin{definition}[Affine space]
 An \textbf{affine $ n $-space} over $ F $ is $ \A^n = K^n $.
@@ -2611,7 +2611,7 @@ $$ \P^n\rb{F} = \cb{\sb{p_0, \dots, p_n} \in \P^n \mid \forall p_j \ne 0, \ \for
 $ \A^n $ can be equipped with $ Gal_F\rb{K} $, such that $ \A^n\rb{F} = \cb{a \in \A^n \mid \forall \sigma \in Gal_F\rb{K}, \ \sigma\rb{a} = a} $. This holds similarly in $ \P^n $.
 
 \begin{example}
-$ \C^n $ is an affine $ n $-space over $ \R $, with $ \C^n\rb{\R} = \R $. $ \overline{\F}^n $ is a projective $ n $-space over $ \F^n $, with $ \overline{\F}^n\rb{\F^n} $ being the projective plane of order $ n $.
+$ \C^n $ is an affine $ n $-space over $ \R $, with $ \C^n\rb{\R} = \R $. $ \bar{\F}^n $ is a projective $ n $-space over $ \F^n $, with $ \bar{\F}^n\rb{\F^n} $ being the projective plane of order $ n $.
 \end{example}
 
 \begin{definition}[Homogeneous]
@@ -2707,7 +2707,7 @@ Thus $ \phi $ is an isomorphism and $ P \cong P' $.
 
 \subsection{Algebraic curves}
 
-Let $ F $ be a perfect field of $ char\rb{F} \notin \cb{2, 3} $ with algebraic closure $ K = \overline{F} $ and $ V $ be a projective algebraic variety of $ \P^n $ over $ F $.
+Let $ F $ be a perfect field of $ char\rb{F} \notin \cb{2, 3} $ with algebraic closure $ K = \bar{F} $ and $ V $ be a projective algebraic variety of $ \P^n $ over $ F $.
 
 \begin{definition}[Projective plane curve]
 $ V $ is a \textbf{projective plane curve} iff $ dim\rb{V} = 1 $ and $ n = 2 $.
