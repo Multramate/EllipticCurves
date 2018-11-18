@@ -238,7 +238,7 @@ This affine transformation also transforms the coefficients and quantities of $ 
 $$ a_1 \mapsto \dfrac{a_1 + 2s}{u}, \qquad a_2 \mapsto \dfrac{a_2 - sa_1 + 3r - s^2}{u^2}, \qquad a_3 \mapsto \dfrac{a_3 + ra_1 + 2t}{u^3}, $$
 $$ a_4 \mapsto \dfrac{a_4 - sa_3 + 2ra_2 - \rb{t + rs}a_1 + 3r^2 - 2st}{u^4}, \qquad a_6 \mapsto \dfrac{a_6 + ra_4 - ta_3 + r^2a_2 - rta_1 + r^3 - t^2}{u^6}, $$
 $$ b_2 \mapsto \dfrac{b_2 + 12r}{u^2}, \qquad b_4 \mapsto \dfrac{b_4 + rb_2 + 6r^2}{u^4}, \qquad b_6 \mapsto \dfrac{b_6 + 2rb_4 + r^2b_2 + 4r^3}{u^6}, $$
-$$ b_8 \mapsto \dfrac{b_8 + 3rb_6 + 3r^2b_4 + r^3b_2 + 3r^4}{u^8}, \qquad c_4 \mapsto \dfrac{c_4}{u^4}, \qquad c_6 \mapsto \dfrac{c_6}{u^6}, \qquad \Delta_W \mapsto \dfrac{\Delta_W}{u^12}, \qquad j_W \mapsto j_W $$
+$$ b_8 \mapsto \dfrac{b_8 + 3rb_6 + 3r^2b_4 + r^3b_2 + 3r^4}{u^8}, \qquad c_4 \mapsto \dfrac{c_4}{u^4}, \qquad c_6 \mapsto \dfrac{c_6}{u^6}, \qquad \Delta_W \mapsto \dfrac{\Delta_W}{u^{12}}, \qquad j_W \mapsto j_W $$
 which can be tediously verified.
 \end{remark}
 
@@ -968,7 +968,7 @@ The conjecture is then formulated in \cite{riemann} as follows.
 Let $ s \in \C $ be such that $ s \notin -2\Z_{> 0} $. If $ \zeta\rb{s} = 0 $, then $ \Re\rb{s} = \tfrac{1}{2} $.
 \end{conjecture}
 
-The connection to this still open problem can be seen via a powerful theorem known as the \emph{Weil conjectures}, proposed by Weil and proven in steps later by himself, Dwork, Deligne, and many others. The so-called conjectures also involve a related zeta function encoding the number of rational points of a smooth projective algebraic varieties variety, which is defined as follows.
+The connection to this still open problem can be seen via a powerful theorem known as the \emph{Weil conjectures}, proposed by Weil and proven in steps later by himself, Dwork, Deligne, Grothendieck, and many others. The so-called conjectures also involve a related zeta function encoding the number of rational points of a smooth projective algebraic varieties variety, which is defined as follows.
 
 \begin{definition}[Local zeta function]
 The \textbf{local zeta function} of a projective algebraic variety $ V $ over $ F $ is the power series
@@ -1009,7 +1009,7 @@ Omitted, see \cite{weil1}, \cite{weil2}, and \cite{weil3}.
 There is a fourth Weil conjecture on \emph{Betti numbers} that states if $ V $ is a \emph{reduction modulo $ q $} of a smooth projective algebraic variety $ W $ over a number field, then $ \deg\rb{P_i} $ is the $ i^{th} $ topological Betti number of $ W $ for each $ P_i $.
 \end{remark}
 
-In the special case where $ V $ is a smooth projective algebraic curve $ C $ of genus $ g_C $, its dimension is $ n = 1 $ and its Euler characteristic is $ \epsilon = 2 - 2g_C $, which greatly simplifies Theorem \ref{thm:weil}. The following is a formulation for the elliptic curve $ E $ of genus zero.
+In the special case where $ V $ is a smooth projective algebraic curve $ C $ of genus $ g_C $, its dimension is $ n = 1 $ and its Euler characteristic is $ \epsilon = 2 - 2g_C $, which greatly simplifies Theorem \ref{thm:weil}. The following is a formulation for the elliptic curve $ E $ of genus one.
 
 \begin{theorem}[Weil conjectures for elliptic curves]
 \label{thm:weilcurve}
@@ -1645,7 +1645,7 @@ Let $ E : y^2 = x^3 + 4 $ be an elliptic curve over $ \Q $. Then $ \Delta_E = -1
 While this might not seem much of a timesave, the following example begs to differ.
 
 \begin{example}
-Let $ E : y^2 = x^3 + 1680 $ be an elliptic curve over $ \Q $. Then $ \Delta'_E = 4\rb{0}^3 + 27\rb{1680}^2 = 3\rb{5040}^2 = \rb{2}^8\rb{3}^5\rb{5}^2\rb{7}^2 $ and $ \Delta_E = -\rb{2}^12\rb{3}^5\rb{5}^2\rb{7}^2 $, so $ p \ge 11 $ are primes of good reduction. Now $ 5040 $ is a \emph{colossally abundant number} with exactly $ 120 $ positive and negative divisors, so more than $ 120 $ values of $ b $ such that $ b^2 \mid \Delta'_E $ needs to be checked. Instead the previous section computes $ \abs{E_{13}\rb{\F_{13}}} = 9 $ and $ \abs{E_{19}\rb{\F_{19}}} = 28 $. Since $ \abs{E\rb{\Q}_{tors}} \mid \abs{E_{13}\rb{\F_{13}}} $ and $ \abs{E\rb{\Q}_{tors}} \mid \abs{E_{19}\rb{\F_{19}}} $, and $ \gcd\rb{9, 28} = 1 $, it holds that $ \abs{E\rb{\Q}_{tors}} = 1 $. Thus $ E\rb{\Q}_{tors} = \cb{O} $.
+Let $ E : y^2 = x^3 + 1680 $ be an elliptic curve over $ \Q $. Then $ \Delta'_E = 4\rb{0}^3 + 27\rb{1680}^2 = 3\rb{5040}^2 = \rb{2}^8\rb{3}^5\rb{5}^2\rb{7}^2 $ and $ \Delta_E = -\rb{2}^{12}\rb{3}^5\rb{5}^2\rb{7}^2 $, so $ p \ge 11 $ are primes of good reduction. Now $ 5040 $ is a \emph{colossally abundant number} with exactly $ 120 $ positive and negative divisors, so more than $ 120 $ values of $ b $ such that $ b^2 \mid \Delta'_E $ needs to be checked. Instead the previous section computes $ \abs{E_{13}\rb{\F_{13}}} = 9 $ and $ \abs{E_{19}\rb{\F_{19}}} = 28 $. Since $ \abs{E\rb{\Q}_{tors}} \mid \abs{E_{13}\rb{\F_{13}}} $ and $ \abs{E\rb{\Q}_{tors}} \mid \abs{E_{19}\rb{\F_{19}}} $, and $ \gcd\rb{9, 28} = 1 $, it holds that $ \abs{E\rb{\Q}_{tors}} = 1 $. Thus $ E\rb{\Q}_{tors} = \cb{O} $.
 \end{example}
 
 Counting points over finite fields can generally be done very efficiently, so the reduction theorem allows for an immediate answer. In any case, computation of the torsion subgroup is relatively straightforward.
