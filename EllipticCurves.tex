@@ -119,7 +119,7 @@ Informally, an elliptic curve is a cubic curve with no cusps, self-intersections
 A formal definition is as follows.
 
 \begin{definition}[Elliptic curve]
-An \textbf{elliptic curve} over a perfect field $ F $ is an ordered pair $ \rb{E, O_E} $ such that $ E $ is a smooth projective plane curve of genus one over $ F $ and $ O_E \in E $ is an $ F $-rational \textbf{base point}.
+An \textbf{elliptic curve} over a perfect field $ F $ is an ordered pair $ \rb{E, \mathcal{O}_E} $ such that $ E $ is a smooth projective plane curve of genus one over $ F $ and $ \mathcal{O}_E \in E $ is an $ F $-rational \textbf{base point}.
 \end{definition}
 
 This definition uses several terms in other fields of mathematics, which are briefly covered in the appendices. In particular, one of the many characterisations of a perfect field is given in Appendix A.1, while several fundamental notions in projective and algebraic geometry such as projective planes and smoothness are laid out in Appendix A.2. Appendix A.3 defines a curve and the genus due to the \emph{genus-degree formula}.
@@ -132,7 +132,7 @@ As the report is a gentle introduction to elliptic curves, further delving into 
 
 \begin{proposition}
 \label{prop:appendices}
-Let $ \rb{E, O_E} $ be an elliptic curve over a perfect field $ F $. Then:
+Let $ \rb{E, \mathcal{O}_E} $ be an elliptic curve over a perfect field $ F $. Then:
 \begin{enumerate}
 \item $ I\rb{E} = \ab{e} $ for some homogeneous irreducible polynomial $ e $ of three variables,
 \item any point $ P \in E $ has multiplicity $ m_P\rb{e} = 1 $, and
@@ -144,12 +144,12 @@ Let $ \rb{E, O_E} $ be an elliptic curve over a perfect field $ F $. Then:
 This follows directly from the appendices.
 \end{proof}
 
-Thus an elliptic curve can be fully defined in terms of its defining polynomial, which would need to satisfy certain conditions. As per the appendix, an abuse of notation will be used to denote an elliptic curve $ \rb{E, O_E} $ over $ F $ \emph{given} by a polynomial $ e $, namely
+Thus an elliptic curve can be fully defined in terms of its defining polynomial, which would need to satisfy certain conditions. As per the appendix, an abuse of notation will be used to denote an elliptic curve $ \rb{E, \mathcal{O}_E} $ over $ F $ \emph{given} by a polynomial $ e $, namely
 $$ E : e\rb{X, Y, Z} = 0 \qquad \iff \qquad E : e\rb{x, y} = 0, $$
-which are respectively the homogenised and dehomogenised forms of a polynomial that can be used interchangeably. For the rest of this section, let $ E : e\rb{x, y} = 0 $ and $ E' : e'\rb{x, y} = 0 $ be two elliptic curves over a perfect field $ F $ with algebraic closure $ K = \bar{F} $. The notion of an isomorphism, as for any algebraic geometric structure, would be useful. This is captured in the following definition.
+which are respectively the homogenised and dehomogenised forms of a polynomial that can be used interchangeably. For the rest of this section, let $ E : e\rb{x, y} = 0 $ and $ E' : e'\rb{x, y} = 0 $ be two elliptic curves over a perfect field $ F $ with algebraic closure $ K = \overline{F} $. The notion of an isomorphism, as for any algebraic geometric structure, would be useful. This is captured in the following definition.
 
 \begin{definition}[Isomorphism]
-$ \rb{E, O_E} $ and $ \rb{E', O_{E'}} $ are \textbf{isomorphic}, denoted by $ \rb{E, O_E} \cong \rb{E', O_{E'}} $, iff there is an isomorphism $ \phi : E \to E' $ such that $ \phi\rb{O_E} = O_{E'} $.
+$ \rb{E, \mathcal{O}_E} $ and $ \rb{E', \mathcal{O}_{E'}} $ are \textbf{isomorphic}, denoted by $ \rb{E, \mathcal{O}_E} \cong \rb{E', \mathcal{O}_{E'}} $, iff there is an isomorphism $ \phi : E \to E' $ such that $ \phi\rb{\mathcal{O}_E} = \mathcal{O}_{E'} $.
 \end{definition}
 
 \begin{remark}
@@ -175,20 +175,20 @@ $$ c_4 = b_2^2 - 24b_4 , \qquad c_6 = 36b_2b_4 - b_2^3 - 216b_6, \qquad \Delta_W
 It holds that $ 4b_8 = b_2b_6 - b_4^2 $ and $ 1728\Delta_W = c_4^3 - c_6^2 $. It can be easily verified that Weierstrass curves, with the additional condition of smoothness, would almost satisfy Proposition \ref{prop:appendices}. The only remaining requirement is having an additional base point in its definition, which can be easily fixed as follows.
 
 \begin{definition}[Point at infinity]
-The \textbf{point at infinity} of is the point $ O = \sb{0, 1, 0} $.
+The \textbf{point at infinity} of is the point $ \mathcal{O} = \sb{0, 1, 0} $.
 \end{definition}
 
-In contrast to general projective geometry, the \emph{line at infinity} $ L : l\rb{X, Y, Z} = Z = 0 $ intersects a Weierstrass curve only at $ O $, where $ X = Z = 0 $ and $ Y \ne 0 $. As such, any other point would have $ Z \ne 0 $ and can be treated as an affine point $ \rb{a, b} $. Now since $ 0, 1 \in F $, the point $ O $ is actually an $ F $-rational point, and can be paired with a smooth Weierstrass curve $ W $ to give an elliptic curve $ \rb{W, O} $. Conversely, any elliptic curve can also be explicitly given by a smooth Weierstrass curve through an isomorphism as follows.
+In contrast to general projective geometry, the \emph{line at infinity} $ L : l\rb{X, Y, Z} = Z = 0 $ intersects a Weierstrass curve only at $ \mathcal{O} $, where $ X = Z = 0 $ and $ Y \ne 0 $. As such, any other point would have $ Z \ne 0 $ and can be treated as an affine point $ \rb{a, b} $. Now since $ 0, 1 \in F $, the point $ \mathcal{O} $ is actually an $ F $-rational point, and can be paired with a smooth Weierstrass curve $ W $ to give an elliptic curve $ \rb{W, \mathcal{O}} $. Conversely, any elliptic curve can also be explicitly given by a smooth Weierstrass curve through an isomorphism as follows.
 
 \begin{proposition}
-$ \rb{E, O_E} \cong \rb{W, O} $ for some smooth Weierstrass curve $ W $ over $ F $.
+$ \rb{E, \mathcal{O}_E} \cong \rb{W, \mathcal{O}} $ for some smooth Weierstrass curve $ W $ over $ F $.
 \end{proposition}
 
 \begin{proof}
 Omitted, see III.3.1a in \cite{gtm}.
 \end{proof}
 
-There are even computerised algorithms to transform a general smooth projective plane cubic curve with a given arbitrary $ F $-rational flex point, or an elliptic curve, into a Weierstrass curve with the $ F $-rational point $ O $. The following algorithm summarises the process in \cite{weierstrass} proven in the appendix.
+There are even computerised algorithms to transform a general smooth projective plane cubic curve with a given arbitrary $ F $-rational flex point, or an elliptic curve, into a Weierstrass curve with the $ F $-rational point $ \mathcal{O} $. The following algorithm summarises the process in \cite{weierstrass} proven in the appendix.
 
 \begin{algorithm}[Transformation of a cubic curve into Weierstrass form]
 Input: a cubic curve $ E $ over $ F $ with an $ F $-rational flex point $ P \in E $. Output: $ E $ in Weierstrass form.
@@ -218,8 +218,8 @@ This characterisation allows a smooth Weierstrass curve to act as an alternative
 $$ W : w\rb{x, y} = 0 : y^2 + a_1xy + a_3y = x^3 + a_2x^2 + a_4x + a_6, \qquad a_i \in F, $$
 $$ W' : w'\rb{x, y} = 0 : y^2 + a_1'xy + a_3'y = x^3 + a_2'x^2 + a_4'x + a_6', \qquad a_i' \in F, $$
 and write them interchangeably as an abuse of notation by
-$$ \rb{E, O_E} = E : e\rb{x, y} = 0 \qquad \iff \qquad \rb{W, O} = W : w\rb{x, y} = 0, $$
-$$ \rb{E', O_{E'}} = E' : e'\rb{x, y} = 0 \qquad \iff \qquad \rb{W', O} = W' : w'\rb{x, y} = 0. $$
+$$ \rb{E, \mathcal{O}_E} = E : e\rb{x, y} = 0 \qquad \iff \qquad \rb{W, \mathcal{O}} = W : w\rb{x, y} = 0, $$
+$$ \rb{E', \mathcal{O}_{E'}} = E' : e'\rb{x, y} = 0 \qquad \iff \qquad \rb{W', \mathcal{O}} = W' : w'\rb{x, y} = 0. $$
 With these explicit equations at hand, the abstract notion of isomorphism between elliptic curves can now be made explicit by considering affine transformations of these equations, which is given below.
 
 \begin{proposition}
@@ -387,27 +387,27 @@ $ * : E \times E \to E $ is defined by $ P * Q = R $, where $ R $ is the unique 
 The addition operation can then be defined immediately in terms of this intermediate operation, which are both symmetric and hence commutative.
 
 \begin{definition}[$ + $]
-$ + : E \times E \to E $ is defined by $ P + Q = \rb{P * Q} * O $.
+$ + : E \times E \to E $ is defined by $ P + Q = \rb{P * Q} * \mathcal{O} $.
 \end{definition}
 
 This definition is chosen carefully so as to make a group law possible. While it might be slightly convoluted, there is an easy geometrical interpretation. While $ P * Q \in E $ is simply the unique third intersection point of two points $ P \in E $ and $ Q \in E $, reflecting it along the horizontal axis gives $ P + Q $. This motivates writing out several explicit formulae relating the affine coordinates of $ P $, $ Q $ and $ P + Q $, which will allow equation manipulations in later sections. The following algorithm summarises the explicit formulae for $ + $, which are proven in the appendix.
 
 \begin{algorithm}[Group law explicit formulae]
 Input: points $ P, Q \in E $. Output: $ P + Q $.
-$$ P + Q = \begin{cases} R & P = \rb{a, b}, \ Q = \rb{a', b'}, \ a \ne a' \\ S & P = Q = \rb{a, b}, \ b \ne 0 \\ P & Q = O \\ O & P = Q = \rb{a, 0} \end{cases}, $$
+$$ P + Q = \begin{cases} R & P = \rb{a, b}, \ Q = \rb{a', b'}, \ a \ne a' \\ S & P = Q = \rb{a, b}, \ b \ne 0 \\ P & Q = \mathcal{O} \\ \mathcal{O} & P = Q = \rb{a, 0} \end{cases}, $$
 where
 $$ R = \rb{\dfrac{\rb{A + aa'}\rb{a + a'} + 2\rb{B - bb'}}{\rb{a - a'}^2}, \dfrac{\rb{Ab' - a'^2b}\rb{3a + a'} + \rb{a^2b' - Ab}\rb{a + 3a'} - 4B\rb{b - b'}}{\rb{a - a'}^3}}, $$
 $$ S = \rb{\dfrac{a^4 - 2Aa^2 - 8Ba + A^2}{4b^2}, \dfrac{a^6 + 5Aa^4 + 20Ba^3 - 5A^2a^2 - 4ABa - A^3 - 8B^2}{8b^3}}. $$
 \end{algorithm}
 
-The first case is referred to as the \emph{addition formula}, while the second case is referred to as the \emph{duplication formula}. The last two cases allows the definition of a negation operation used for inverses in the group law. This is referred to as the \emph{negation formula}, where $ -O = O $ and $ -\rb{a, b} = \rb{a, -b} $. Now the group law explicit formulae for characteristic two and three are more complicated and given in full under code listings in the appendix. The following example illustrates an implementation of the algorithm in the appendix.
+The first case is referred to as the \emph{addition formula}, while the second case is referred to as the \emph{duplication formula}. The last two cases allows the definition of a negation operation used for inverses in the group law. This is referred to as the \emph{negation formula}, where $ -\mathcal{O} = \mathcal{O} $ and $ -\rb{a, b} = \rb{a, -b} $. Now the group law explicit formulae for characteristic two and three are more complicated and given in full under code listings in the appendix. The following example illustrates an implementation of the algorithm in the appendix.
 
 \begin{example}
 Let $ E $ be the elliptic curve over $ \R $ and let $ L $, $ L_P $, $ L_Q $ be the lines for the points $ P, Q \in E $ from the example above. Then $ L $ intersects $ E $ at $ \rb{3x - 1}^2 = x^3 + 2x + 1 $, or $ x\rb{x - 1}\rb{x - 8} = 0 $. Hence $ P * Q = \rb{8, 23} $, so $ P + Q = \rb{8, -23} $. Similarly $ L_P $ intersects $ E $ at $ \rb{-x - 1}^2 = x^3 + 2x + 1 $, or $ x^2\rb{x - 1} = 0 $, while $ L_Q $ intersects $ E $ at $ \rb{\tfrac{5}{4}x + \tfrac{3}{4}}^2 = x^3 + 2x + 1 $, or $ \rb{x - 1}^2\rb{16x + 7} = 0 $. Thus $ P * P = \rb{1, -2} $ and $ Q * Q = \rb{-7 / 16, 13 / 64} $, so $ P + P = \rb{1, 2} $ and $ Q + Q = \rb{-7 / 16, -13 / 64} $.
 \end{example}
 
 An alternative formulation for $ + $ is such that three points $ P, Q, R \in E $ are collinear iff
-$$ P + Q + R = P + \rb{Q + R} = \rb{P + Q} + R = O. $$
+$$ P + Q + R = P + \rb{Q + R} = \rb{P + Q} + R = \mathcal{O}. $$
 This formulation will help in proving that certain maps obey some property later, but also allows for a pictorial description for $ * $. As per the notation in the appendix: the first pane describes $ \rb{*}_2 $; the second pane describes $ \rb{*}_3 $; the third pane describes $ \rb{*}_1 $ and $ \rb{*}_5 $; the fourth pane describes $ \rb{*}_4 $; the unillustrated line at infinity describes $ \rb{*}_6 $.
 \begin{center}
 \includegraphics*[width=0.9\textwidth]{img/ECClines.png}
@@ -418,25 +418,25 @@ This formulation will help in proving that certain maps obey some property later
 The group structure of an elliptic curve with respect to $ + $ can now be stated in the following theorem.
 
 \begin{theorem}[Group law]
-$ \rb{E, O, +} $ is an abelian group.
+$ \rb{E, \mathcal{O}, +} $ is an abelian group.
 \end{theorem}
 
 As full proofs for associativity such as in III.3.4 of \cite{gtm} require further prerequisites on algebraic curves, particularly on \emph{divisors} and \emph{differentials}, only the sketch of an alternative geometric proof is given, of which the special case of nine pairwise distinct points is assumed.
 
 \begin{proof}
-The unique right identity is $ O \in E $ and unique right inverses are given by the negation formula. Symmetry of $ + $ gives the unique identity, unique right inverses, and commutativity. Associativity of $ + $ can be checked with various methods, such as by tediously verifying cases of the explicit formulae in \cite{grouplaw}. Alternatively, let $ P, Q, R \in E $ be points, and let
+The unique right identity is $ \mathcal{O} \in E $ and unique right inverses are given by the negation formula. Symmetry of $ + $ gives the unique identity, unique right inverses, and commutativity. Associativity of $ + $ can be checked with various methods, such as by tediously verifying cases of the explicit formulae in \cite{grouplaw}. Alternatively, let $ P, Q, R \in E $ be points, and let
 \begin{itemize}
 \item $ L_1 : l_1\rb{X, Y, Z} = 0 $ be the line joining $ P $, $ Q $, and $ P * Q = -\rb{P + Q} $,
 \item $ L_2 : l_2\rb{X, Y, Z} = 0 $ be the line joining $ Q $, $ R $, and $ Q * R = -\rb{Q + R} $,
-\item $ L_3 : l_3\rb{X, Y, Z} = 0 $ be the line joining $ P + Q $, $ O $, and $ \rb{P + Q} * O = -\rb{P + Q} $,
-\item $ L_4 : l_4\rb{X, Y, Z} = 0 $ be the line joining $ Q + R $, $ O $, and $ \rb{Q + R} * O = -\rb{Q + R} $,
+\item $ L_3 : l_3\rb{X, Y, Z} = 0 $ be the line joining $ P + Q $, $ \mathcal{O} $, and $ \rb{P + Q} * \mathcal{O} = -\rb{P + Q} $,
+\item $ L_4 : l_4\rb{X, Y, Z} = 0 $ be the line joining $ Q + R $, $ \mathcal{O} $, and $ \rb{Q + R} * \mathcal{O} = -\rb{Q + R} $,
 \item $ L_5 : l_5\rb{X, Y, Z} = 0 $ be the line joining $ P + Q $, $ R $, and $ \rb{P + Q} * R = -\rb{\rb{P + Q} + R} $, and
 \item $ L_6 : l_6\rb{X, Y, Z} = 0 $ be the line joining $ P $, $ Q + R $, and $ P * \rb{Q + R} = -\rb{P + \rb{Q + R}} $,
 \end{itemize}
 assuming that these points are pairwise distinct except for $ -\rb{\rb{P + Q} + R} $ and $ -\rb{P + \rb{Q + R}} $. Now let
 $$ C_1 : \rb{l_1l_4l_5}\rb{X, Y, Z} = 0, \qquad C_2 : \rb{l_2l_3l_6}\rb{X, Y, Z} = 0, $$
 be cubics such that
-$$ I = \cb{O, P, Q, R, P + Q, Q + R, -\rb{P + Q}, -\rb{Q + R}} \subseteq C_1 \cap C_2. $$
+$$ I = \cb{\mathcal{O}, P, Q, R, P + Q, Q + R, -\rb{P + Q}, -\rb{Q + R}} \subseteq C_1 \cap C_2. $$
 Then Bézout's theorem gives that $ E $, $ C_1 $, and $ C_2 $ pairwise intersect at nine points up to multiplicity. Hence
 $$ E \cap C_1 = I \cup \cb{-\rb{\rb{P + Q} + R}}, \qquad E \cap C_2 = I \cup \cb{-\rb{P + \rb{Q + R}}}, \qquad C_1 \cap C_2 = I \cup \cb{S}, $$
 for some ninth point $ S \in C_1 \cap C_2 $. Since $ I \subseteq E $, the Cayley-Bacharach theorem gives $ S \in E $, so
@@ -447,23 +447,23 @@ Thus $ \rb{P + Q} + R = P + \rb{Q + R} $.
 With an abelian group at hand, some group theoretic properties of an elliptic curve can be explored. In particular, restricting an elliptic curve onto its $ F $-rational points retain the group structure.
 
 \begin{proposition}
-$ \rb{E\rb{F}, O, +} \le \rb{E, O, +} $.
+$ \rb{E\rb{F}, \mathcal{O}, +} \le \rb{E, \mathcal{O}, +} $.
 \end{proposition}
 
 \begin{proof}
-Since $ 0, 1 \in F $, it holds that $ O \in E\rb{F} $. Let $ P, Q \in E\rb{F} $ be points, then the explicit formulae give $ -P, P + Q \in E\rb{F} $. Thus $ \rb{E\rb{F}, O, +} \le \rb{E, O, +} $.
+Since $ 0, 1 \in F $, it holds that $ \mathcal{O} \in E\rb{F} $. Let $ P, Q \in E\rb{F} $ be points, then the explicit formulae give $ -P, P + Q \in E\rb{F} $. Thus $ \rb{E\rb{F}, \mathcal{O}, +} \le \rb{E, \mathcal{O}, +} $.
 \end{proof}
 
-Additionally, the $ n $-torsion points of an elliptic curve also form a group, provided $ O $ is included. The following example illustrates the structure of the $ 2 $-torsion subgroup.
+Additionally, the $ n $-torsion points of an elliptic curve also form a group, provided $ \mathcal{O} $ is included. The following example illustrates the structure of the $ 2 $-torsion subgroup.
 
 \begin{example}
-Let $ P = \rb{a, b} \in E\sb{2} $, then $ b = -b = 0 $. Since $ x^3 + Ax + B = 0 $ has three distinct solutions, there are three distinct points $ P_1 = \rb{a_1, 0} $, $ P_2 = \rb{a_2, 0} $, and $ P_3 = \rb{a_3, 0} $ in $ E\sb{2} $. Thus $ \rb{E\sb{2}, O, +} = \rb{\cb{O, P_1, P_2, P_3}, O, +} \cong \rb{\Z_2^2, 0, +} $.
+Let $ P = \rb{a, b} \in E\sb{2} $, then $ b = -b = 0 $. Since $ x^3 + Ax + B = 0 $ has three distinct solutions, there are three distinct points $ P_1 = \rb{a_1, 0} $, $ P_2 = \rb{a_2, 0} $, and $ P_3 = \rb{a_3, 0} $ in $ E\sb{2} $. Thus $ \rb{E\sb{2}, \mathcal{O}, +} = \rb{\cb{\mathcal{O}, P_1, P_2, P_3}, \mathcal{O}, +} \cong \rb{\Z_2^2, 0, +} $.
 \end{example}
 
 Hence $ b = 0 $ iff $ ord\rb{a, b} = 2 $.
 
 \begin{remark}
-In fact, the $ n $-torsion points of $ E $ form a subgroup $ E\sb{n} $ of $ E $, such that $ \rb{E\sb{p}, O, +} \cong \rb{\Z_p^2, 0, +} $ if $ char\rb{F} \nmid p $, and either $ \rb{E\sb{p^e}, O, +} \cong \rb{\cb{0}, 0, +} $ or $ \rb{E\sb{p^e}, O, +} \cong \rb{\Z_{p^e}, 0, +} $ for all $ e \in \Z_{> 0} $ if $ char\rb{F} \mid p $.
+In fact, the $ n $-torsion points of $ E $ form a subgroup $ E\sb{n} $ of $ E $, such that $ \rb{E\sb{p}, \mathcal{O}, +} \cong \rb{\Z_p^2, 0, +} $ if $ char\rb{F} \nmid p $, and either $ \rb{E\sb{p^e}, \mathcal{O}, +} \cong \rb{\cb{0}, 0, +} $ or $ \rb{E\sb{p^e}, \mathcal{O}, +} \cong \rb{\Z_{p^e}, 0, +} $ for all $ e \in \Z_{> 0} $ if $ char\rb{F} \mid p $.
 \end{remark}
 
 \pagebreak
@@ -473,7 +473,7 @@ In fact, the $ n $-torsion points of $ E $ form a subgroup $ E\sb{n} $ of $ E $,
 Prior to this section, the only maps between elliptic curves that have been defined were affine transformations. Now that the group law is defined, group homomorphisms can also be considered. However, a slightly different approach to this will be taken with the following definition, noting that morphisms of curves are either constant or surjective.
 
 \begin{definition}[Isogeny]
-An \textbf{isogeny} from $ E $ to $ E' $ is a surjective morphism $ \phi : E \to E' $ such that $ \phi\rb{O} = O $.
+An \textbf{isogeny} from $ E $ to $ E' $ is a surjective morphism $ \phi : E \to E' $ such that $ \phi\rb{\mathcal{O}} = \mathcal{O} $.
 \end{definition}
 
 As isomorphisms are defined as invertible morphisms that preserve the point at infinity, they are isogenies as well. Now despite the simple condition, isogenies are actually group homomorphisms, which also preserve the point at infinity. The following proposition then gives an equivalent definition.
@@ -531,7 +531,7 @@ such that $ \gcd\rb{r, s} = \gcd\rb{u, v} = 1 $.
 \end{proposition}
 
 \begin{proof}
-Let $ \phi = \sb{\phi_x, \phi_y, \phi_z} $ for some $ \phi_x, \phi_y, \phi_z \in F\rb{E} $. Since $ \phi\rb{P} \ne O $, it holds that $ \phi_z\rb{P} \ne 0 $, so
+Let $ \phi = \sb{\phi_x, \phi_y, \phi_z} $ for some $ \phi_x, \phi_y, \phi_z \in F\rb{E} $. Since $ \phi\rb{P} \ne \mathcal{O} $, it holds that $ \phi_z\rb{P} \ne 0 $, so
 $$ \phi\rb{P} = \sb{\phi_x\rb{P}, \phi_y\rb{P}, \phi_z\rb{P}} = \rb{\dfrac{\phi_x\rb{P}}{\phi_z\rb{P}}, \dfrac{\phi_y\rb{P}}{\phi_z\rb{P}}}. $$
 Then $ \phi_x\rb{P} / \phi_z\rb{P}, \phi_y\rb{P} / \phi_z\rb{P} \in F\rb{E} $ are rational functions, so
 $$ \dfrac{\phi_x\rb{P}}{\phi_z\rb{P}} = \dfrac{\psi\rb{a} + \psi'\rb{a}b}{\psi''\rb{a}}, \qquad \dfrac{\phi_y\rb{P}}{\phi_z\rb{P}} = \dfrac{\chi\rb{a} + \chi'\rb{a}b}{\chi''\rb{a}}, \qquad \psi, \psi', \chi, \chi' \in F\sb{x}, \qquad \psi'', \chi'' \in F\sb{x} \setminus \cb{0}. $$
@@ -544,7 +544,7 @@ such that $ \gcd\rb{r, s} = \gcd\rb{u, v} = 1 $.
 
 In the above proof, the assumption that a point $ P \in E $ is not in the kernel allows for the isogeny to be scaled appropriately. If $ P $ is in the kernel, it would be mapped to the point at infinity, which would mean that $ \phi_z $, and hence $ s $ or $ v $, is zero. With this in mind, an abuse of notation allows for the standard form to be written as
 $$ \phi\rb{x, y} = \rb{\dfrac{r\rb{x}}{s\rb{x}}, \dfrac{u\rb{x}}{v\rb{x}}y}, \qquad r, s, u, v \in F\sb{x}, \qquad \gcd\rb{r, s} = \gcd\rb{u, v} = 1, $$
-remembering that $ \phi\rb{O} = O $, and $ \phi\rb{a, b} = O $ whenever $ s\rb{a} = 0 $ or $ v\rb{a} = 0 $ for any point $ \rb{a, b} \in E $. The following example rewrites the multiplication by two map with the familiar duplication formula.
+remembering that $ \phi\rb{\mathcal{O}} = \mathcal{O} $, and $ \phi\rb{a, b} = \mathcal{O} $ whenever $ s\rb{a} = 0 $ or $ v\rb{a} = 0 $ for any point $ \rb{a, b} \in E $. The following example rewrites the multiplication by two map with the familiar duplication formula.
 
 \begin{example}
 By the duplication formula,
@@ -553,7 +553,7 @@ By the duplication formula,
 & = \rb{\dfrac{x^4 - 2Ax^2 - 8Bx + A^2}{4y^2}, \dfrac{x^6 + 5Ax^4 + 20Bx^3 - 5A^2x^2 - 4ABx - A^3 - 8B^2}{8y^3}} \\
 & = \rb{\dfrac{x^4 - 2Ax^2 - 8Bx + A^2}{4\rb{x^3 + Ax + B}}, \dfrac{x^6 + 5Ax^4 + 20Bx^3 - 5A^2x^2 - 4ABx - A^3 - 8B^2}{8\rb{x^3 + Ax + B}^2}y},
 \end{align*}
-which is in standard form. Then $ \sb{2}\rb{a, b} = O $ iff $ b^2 = a^3 + Aa + B = 0 $ for any point $ \rb{a, b} \in E $.
+which is in standard form. Then $ \sb{2}\rb{a, b} = \mathcal{O} $ iff $ b^2 = a^3 + Aa + B = 0 $ for any point $ \rb{a, b} \in E $.
 \end{example}
 
 There are also two useful notions of an isogeny, the first of which is its degree.
@@ -641,14 +641,14 @@ Let $ E : y^2 = x^3 + x + 1 $ be an elliptic curve over $ \F_5 $. Since there ar
 \item If $ x = 3 $, then $ y^2 = x^3 + x + 1 = 1 = 1^2 = 4^2 $, so $ y = 1 $ or $ y = 4 $.
 \item If $ x = 4 $, then $ y^2 = x^3 + x + 1 = 4 = 2^2 = 3^2 $, so $ y = 2 $ or $ y = 3 $.
 \end{itemize}
-Since $ O \in E\rb{\F_5} $, there are exactly nine $ \F_5 $-rational points
-$$ E\rb{\F_5} = \cb{O, \rb{0, 1}, \rb{0, 4}, \rb{2, 1}, \rb{2, 4}, \rb{3, 1}, \rb{3, 4}, \rb{4, 2}, \rb{4, 3}}. $$
-Hence $ E\rb{\F_5} \cong \Z_3^2 $ or $ E\rb{\F_5} \cong \Z_9 $. Now Lagrange's theorem gives that $ ord\rb{P} = 3 $ or $ ord\rb{P} = 9 $ for any non-zero point $ P \in E\rb{\F_5} $. Let $ P = \rb{0, 1} \in E\rb{\F_5} $. By the addition and duplication formulae, it holds that $ 3P = \rb{2, 1} $ and $ 9P = O $, so it has order $ ord\rb{P} = 9 $ and is a generator of $ E\rb{\F_5} $. Thus $ E\rb{\F_5} \cong \Z_9 $.
+Since $ \mathcal{O} \in E\rb{\F_5} $, there are exactly nine $ \F_5 $-rational points
+$$ E\rb{\F_5} = \cb{\mathcal{O}, \rb{0, 1}, \rb{0, 4}, \rb{2, 1}, \rb{2, 4}, \rb{3, 1}, \rb{3, 4}, \rb{4, 2}, \rb{4, 3}}. $$
+Hence $ E\rb{\F_5} \cong \Z_3^2 $ or $ E\rb{\F_5} \cong \Z_9 $. Now Lagrange's theorem gives that $ ord\rb{P} = 3 $ or $ ord\rb{P} = 9 $ for any non-zero point $ P \in E\rb{\F_5} $. Let $ P = \rb{0, 1} \in E\rb{\F_5} $. By the addition and duplication formulae, it holds that $ 3P = \rb{2, 1} $ and $ 9P = \mathcal{O} $, so it has order $ ord\rb{P} = 9 $ and is a generator of $ E\rb{\F_5} $. Thus $ E\rb{\F_5} \cong \Z_9 $.
 \end{example}
 
 This finite process is straightforward in the sense that it always terminates. However, as it runs with an asymptotic time complexity of $ O\rb{q} $ for a finite field $ \F_q $, the approach becomes rather intractable for large prime powers $ q \in \Z_{> 0} $. This section will attempt to develop several techniques to compute $ E\rb{\F_q} $, or more specifically $ \abs{E\rb{\F_q}} $, which will span the next few subsections. Now let $ E $ be an elliptic curve over the perfect field $ F = \F_q = \F_{p^e} $ for some prime $ p \in \Z_{> 0} \setminus \cb{2, 3} $ and some $ e \in \Z_{> 0} $, given by the Weierstrass curve
 $$ E : y^2 = x^3 + Ax + B, \qquad A, B \in F, $$
-with the group of rational points $ E\rb{F} = \rb{E\rb{F}, O, +} $. 
+with the group of rational points $ E\rb{F} = \rb{E\rb{F}, \mathcal{O}, +} $. 
 
 \subsection{Hasse's theorem: inseparable isogenies}
 
@@ -1024,29 +1024,29 @@ $ Z_E $ satisfies the following properties.
 As full proofs of the Weil conjectures, even just for elliptic curves, requires further prerequisites on algebraic geometry, particularly on the \emph{Tate module} and the \emph{Weil pairing}, only the final part of the proof is given, of which the following lemma will be assumed.
 
 \begin{lemma}
-$ \abs{E\rb{F_n}} = 1 + q^n - \alpha^n - \bar{\alpha}^n $ for some $ \alpha \in \C $ such that $ \abs{\alpha} = \sqrt{q} $.
+$ \abs{E\rb{F_n}} = 1 + q^n - \alpha^n - \overline{\alpha}^n $ for some $ \alpha \in \C $ such that $ \abs{\alpha} = \sqrt{q} $.
 \end{lemma}
 
 \begin{proof}
 Omitted, see V.2.3 in \cite{gtm}.
 \end{proof}
 
-Letting $ n = 1 $ in the above lemma for Theorem \ref{thm:weilcurve} gives $ \abs{\abs{E\rb{F}} - 1 - q} = \abs{-\alpha - \bar{\alpha}} \le 2\abs{\alpha} = 2\sqrt{q} $, which proves Hasse's theorem once again. The final part of the proof is as follows.
+Letting $ n = 1 $ in the above lemma for Theorem \ref{thm:weilcurve} gives $ \abs{\abs{E\rb{F}} - 1 - q} = \abs{-\alpha - \overline{\alpha}} \le 2\abs{\alpha} = 2\sqrt{q} $, which proves Hasse's theorem once again. The final part of the proof is as follows.
 
 \begin{proof}[Proof of Theorem \ref{thm:weilcurve}]
 The above lemma on the zeta function gives $ \alpha \in \C $ such that $ \abs{\alpha} = \sqrt{q} $, and
-$$ \ln\rb{Z_E\rb{t}} = \sum_{n = 1}^\infty \rb{1 + q^n - \alpha^n - \bar{\alpha}^n}\dfrac{t^n}{n} = -\ln\rb{1 - t} - \ln\rb{1 - qt} + \ln\rb{1 - \alpha t} + \ln\rb{1 - \bar{\alpha} t}. $$
+$$ \ln\rb{Z_E\rb{t}} = \sum_{n = 1}^\infty \rb{1 + q^n - \alpha^n - \overline{\alpha}^n}\dfrac{t^n}{n} = -\ln\rb{1 - t} - \ln\rb{1 - qt} + \ln\rb{1 - \alpha t} + \ln\rb{1 - \overline{\alpha} t}. $$
 Thus
-$$ Z_E\rb{t} = \dfrac{\rb{1 - \alpha t}\rb{1 - \bar{\alpha}t}}{\rb{1 - t}\rb{1 - qt}}, \qquad \abs{\alpha} = \sqrt{q}, $$
+$$ Z_E\rb{t} = \dfrac{\rb{1 - \alpha t}\rb{1 - \overline{\alpha}t}}{\rb{1 - t}\rb{1 - qt}}, \qquad \abs{\alpha} = \sqrt{q}, $$
 which satisfies rationality and the Riemann hypothesis, and gives the functional equation
-$$ Z_E\rb{\dfrac{1}{qt}} = \dfrac{\rb{1 - \dfrac{\alpha}{qt}}\rb{1 - \dfrac{\bar{\alpha}}{qt}}}{\rb{1 - \dfrac{1}{qt}}\rb{1 - \dfrac{1}{t}}} = \dfrac{qt^2 - \rb{\alpha + \bar{\alpha}}t + \dfrac{\alpha\bar{\alpha}}{q}}{\rb{qt - 1}\rb{t - 1}} = \dfrac{\rb{1 - \alpha t}\rb{1 - \bar{\alpha}t}}{\rb{1 - t}\rb{1 - qt}} = Z_E\rb{t}. $$
+$$ Z_E\rb{\dfrac{1}{qt}} = \dfrac{\rb{1 - \dfrac{\alpha}{qt}}\rb{1 - \dfrac{\overline{\alpha}}{qt}}}{\rb{1 - \dfrac{1}{qt}}\rb{1 - \dfrac{1}{t}}} = \dfrac{qt^2 - \rb{\alpha + \overline{\alpha}}t + \dfrac{\alpha\overline{\alpha}}{q}}{\rb{qt - 1}\rb{t - 1}} = \dfrac{\rb{1 - \alpha t}\rb{1 - \overline{\alpha}t}}{\rb{1 - t}\rb{1 - qt}} = Z_E\rb{t}. $$
 \end{proof}
 
 By the above proof, the connection to the classical Riemann hypothesis can then be seen as follows. An analogue of the Riemann zeta function can be defined for elliptic curves over $ F $ as $ \zeta_E\rb{s} = Z_E\rb{q^{-s}} $. It then satisfies a similar functional equation,
 $$ \zeta_E\rb{s} = Z_E\rb{q^{-s}} = Z_E\rb{q^{s - 1}} = \zeta_E\rb{1 - s}. $$
 If $ \zeta_E\rb{s} = 0 $, Theorem \ref{thm:weilcurve} also gives
-$$ \dfrac{\rb{1 - \alpha q^{-s}}\rb{1 - \bar{\alpha}q^{-s}}}{\rb{1 - q^{-s}}\rb{1 - q^{1 - s}}} = 0, \qquad \abs{\alpha} = \sqrt{q}. $$
-Hence $ 1 = \alpha q^{-s} $ or $ 1 = \bar{\alpha} q^{-s} $, so $ q^{\Re\rb{s}} = \abs{q^s} = \sqrt{q} $. Thus $ \Re\rb{s} = \tfrac{1}{2} $.
+$$ \dfrac{\rb{1 - \alpha q^{-s}}\rb{1 - \overline{\alpha}q^{-s}}}{\rb{1 - q^{-s}}\rb{1 - q^{1 - s}}} = 0, \qquad \abs{\alpha} = \sqrt{q}. $$
+Hence $ 1 = \alpha q^{-s} $ or $ 1 = \overline{\alpha} q^{-s} $, so $ q^{\Re\rb{s}} = \abs{q^s} = \sqrt{q} $. Thus $ \Re\rb{s} = \tfrac{1}{2} $.
 
 \begin{remark}
 The Weil conjectures is a generalisation of Riemann hypothesis, which those for elliptic curves is in turn a special case of. In general, there are many zeta functions analogous to the Riemann zeta function. One such family of zeta functions is for a \emph{finitely generated algebra} $ R $ over $ \Z $, defined as
@@ -1058,10 +1058,10 @@ over all maximal ideals $ M \subset R $.
 
 \subsection{Schoof's algorithm}
 
-In light of Hasse's theorem, there were improved algorithms to compute $ E\rb{F} $ similar to the naive approach described in a previous subsection. Lagrange's theorem gives that $ ord\rb{P} \mid \abs{E\rb{F}} $ for any point $ P \in E\rb{F} $, the latter of which is bounded by Hasse's theorem. After obtaining a random point $ P \in E\rb{F} $ by inspection or otherwise, simply try all values of $ n \in \Z $ such that $ q - 2\sqrt{q} + 1 \le n \le q + 2\sqrt{q} + 1 $ to catch whenever $ nP = O $. If this $ n $ is unique, the point $ P $ is a generator of $ E\rb{F} $ and hence $ \abs{E\rb{F}} = ord\rb{P} = n $. Otherwise obtain a different random point $ P \in E\rb{F} $ and repeat. This process can be illustrated with a prior example.
+In light of Hasse's theorem, there were improved algorithms to compute $ E\rb{F} $ similar to the naive approach described in a previous subsection. Lagrange's theorem gives that $ ord\rb{P} \mid \abs{E\rb{F}} $ for any point $ P \in E\rb{F} $, the latter of which is bounded by Hasse's theorem. After obtaining a random point $ P \in E\rb{F} $ by inspection or otherwise, simply try all values of $ n \in \Z $ such that $ q - 2\sqrt{q} + 1 \le n \le q + 2\sqrt{q} + 1 $ to catch whenever $ nP = \mathcal{O} $. If this $ n $ is unique, the point $ P $ is a generator of $ E\rb{F} $ and hence $ \abs{E\rb{F}} = ord\rb{P} = n $. Otherwise obtain a different random point $ P \in E\rb{F} $ and repeat. This process can be illustrated with a prior example.
 
 \begin{example}
-Let $ E : y^2 = x^3 + x + 1 $ be an elliptic curve over $ \F_5 $ and $ P = \rb{0, 1} \in E\rb{\F_5} $ be a point. Hasse's theorem gives $ \abs{E\rb{\F_5}} = 5 - t + 1 $ for some $ \abs{t} \le 2\sqrt{5} $, so $ \abs{E\rb{\F_5}} \in \cb{2, \dots, 10} $. Then the addition formula gives only $ 9P = O $, so $ \abs{E\rb{\F_5}} = 9 $.
+Let $ E : y^2 = x^3 + x + 1 $ be an elliptic curve over $ \F_5 $ and $ P = \rb{0, 1} \in E\rb{\F_5} $ be a point. Hasse's theorem gives $ \abs{E\rb{\F_5}} = 5 - t + 1 $ for some $ \abs{t} \le 2\sqrt{5} $, so $ \abs{E\rb{\F_5}} \in \cb{2, \dots, 10} $. Then the addition formula gives only $ 9P = \mathcal{O} $, so $ \abs{E\rb{\F_5}} = 9 $.
 \end{example}
 
 There is then room for algorithms like \emph{baby-step giant-step} that trades a space complexity of $ O\rb{\sqrt{q}} $ for a time complexity of also $ O\rb{\sqrt{q}} $, speeding up the computation further. However, discussions here will be on a different algorithm for computing $ \abs{E\rb{F}} $, which also builds upon Hasse's theorem. A high-level description of the \emph{deterministic polynomial time} algorithm is as follows.
@@ -1166,7 +1166,7 @@ Omitted, see III.E.3.7 in \cite{gtm}.
 This proof can be approached via other ways, such as through properties of the \emph{Weierstrass elliptic function} $ \wp $ in 9.33 of \cite{crypto}, which will not be discussed. The fact that $ \gcd\rb{\phi_n, \psi_n^2} = 1 $ and $ \deg\rb{\phi_n} = n^2 $ also lends itself to another proof that $ \deg\rb{\sb{n}} = n^2 $ for any $ n \in \Z $.
 \end{remark}
 
-Relating this back to the standard form of isogenies, it holds that $ \psi_n\rb{a, b} = 0 $ iff $ \sb{n}\rb{P} = O $ for any point $ P = \rb{a, b} \in E $, which is the case whenever $ P \in E\sb{n} $. Group operations in $ End\rb{E\sb{n}} $ can be more easily done since the polynomials involved in the endomorphisms have bounded degrees in the \emph{coordinate ring} $ F\sb{x, y} / \ab{y^2 - x^3 - Ax - B, \psi_n} $, provided $ \psi_n $ is already precomputed. Now arithmetic in $ End\rb{E\sb{n}} $ is motivated by the second step of Schoof's algorithm, where all congruences are modulo $ n $ and endomorphisms are computed modulo $ \psi_n $. A \emph{characteristic} equation that all endomorphisms satisfy will be given in the following lemma.
+Relating this back to the standard form of isogenies, it holds that $ \psi_n\rb{a, b} = 0 $ iff $ \sb{n}\rb{P} = \mathcal{O} $ for any point $ P = \rb{a, b} \in E $, which is the case whenever $ P \in E\sb{n} $. Group operations in $ End\rb{E\sb{n}} $ can be more easily done since the polynomials involved in the endomorphisms have bounded degrees in the \emph{coordinate ring} $ F\sb{x, y} / \ab{y^2 - x^3 - Ax - B, \psi_n} $, provided $ \psi_n $ is already precomputed. Now arithmetic in $ End\rb{E\sb{n}} $ is motivated by the second step of Schoof's algorithm, where all congruences are modulo $ n $ and endomorphisms are computed modulo $ \psi_n $. A \emph{characteristic} equation that all endomorphisms satisfy will be given in the following lemma.
 
 \begin{lemma}
 Let $ \phi \in End\rb{E} $ be an endomorphism, and let $ d = \deg\rb{\phi} $ and $ t = 2\ab{\phi, \sb{1}} $. Then $ \phi^2 - t\phi + \sb{d} = 0 $.
@@ -1206,7 +1206,7 @@ $$ t_n\rb{a^q, b^q} = \rb{a^{q^2}, b^{q^2}} + \rb{a_q, b_q}, \qquad q_nP = \rb{a
 \begin{proof}
 Since $ Fr_q $ is injective, so is $ Fr_q^2 $, so $ Fr_q\rb{P} = \rb{a^q, b^q} $ and $ Fr_q^2\rb{P} = \rb{a^{q^2}, b^{q^2}} $. Hence
 $$ t\rb{a^q, b^q} = \rb{a^{q^2}, b^{q^2}} + q\rb{a, b}. $$
-Now Lagrange's theorem gives that $ P \in E\sb{n} $ iff $ ord\rb{P} = n $. Since $ q $ is prime and $ q \ne n $, it holds that $ \gcd\rb{q, n} = 1 $, so $ qP \ne O $. Then division gives a unique $ q_n \in \Z_{> 0} $ such that $ q_n \equiv q \mod n $ with $ \abs{q_n} < n $. Hence $ q_nP = qP = \rb{a_q, b_q} $ for some point $ \rb{a_q, b_q} \in E\sb{n} $. Similarly division gives a unique $ t_n \in \Z_{\ge 0} $ such that $ t_n \equiv t \mod n $ and $ \abs{t_n} < n $. Since $ Fr_q $ has a trivial kernel and $ nFr_q\rb{P} = Fr_q\rb{nP} = Fr_q\rb{O} = O $, it holds that $ ord\rb{Fr_q\rb{P}} = n = ord\rb{P} $, so $ t_nFr_q\rb{P} = tFr_q\rb{P} $ similarly. Thus
+Now Lagrange's theorem gives that $ P \in E\sb{n} $ iff $ ord\rb{P} = n $. Since $ q $ is prime and $ q \ne n $, it holds that $ \gcd\rb{q, n} = 1 $, so $ qP \ne \mathcal{O} $. Then division gives a unique $ q_n \in \Z_{> 0} $ such that $ q_n \equiv q \mod n $ with $ \abs{q_n} < n $. Hence $ q_nP = qP = \rb{a_q, b_q} $ for some point $ \rb{a_q, b_q} \in E\sb{n} $. Similarly division gives a unique $ t_n \in \Z_{\ge 0} $ such that $ t_n \equiv t \mod n $ and $ \abs{t_n} < n $. Since $ Fr_q $ has a trivial kernel and $ nFr_q\rb{P} = Fr_q\rb{nP} = Fr_q\rb{\mathcal{O}} = \mathcal{O} $, it holds that $ ord\rb{Fr_q\rb{P}} = n = ord\rb{P} $, so $ t_nFr_q\rb{P} = tFr_q\rb{P} $ similarly. Thus
 $$ t_n\rb{a^q, b^q} = \rb{a^{q^2}, b^{q^2}} + \rb{a_q, b_q}. $$
 \end{proof}
 
@@ -1297,7 +1297,7 @@ After the discussion of elliptic curves over finite fields, the focus redirects 
 $$ E\rb{\Q} \cong \Z^r \oplus \bigoplus_{i = 1}^m \Z_{n_i}, \qquad r, m \in \Z_{\ge 0}, \qquad n_i \in \Z_{> 1}, $$
 such that each $ n_i \mid n_{i + 1} $, which is given in full in Appendix A.4. However, there are issues with computing $ r \in \Z_{\ge 0} $, which will be discussed later. Now let $ E $ be an elliptic curve over the perfect field $ \Q $, given by the Weierstrass curve
 $$ E : y^2 = x^3 + A'x + B', \qquad A' = \dfrac{p}{q}, B' = \dfrac{p'}{q'} \in \Q, $$
-with the group of rational points $ E\rb{\Q} = \rb{E\rb{\Q}, O, +} $. Since there is a $ j $-invariant affine transformation $ \rb{x, y} \mapsto \rb{q^{-2}q'^{-2}x, q^{-3}q'^{-3}y} $, there is an isomorphism from $ E $ to the curve given by the Weierstrass equation
+with the group of rational points $ E\rb{\Q} = \rb{E\rb{\Q}, \mathcal{O}, +} $. Since there is a $ j $-invariant affine transformation $ \rb{x, y} \mapsto \rb{q^{-2}q'^{-2}x, q^{-3}q'^{-3}y} $, there is an isomorphism from $ E $ to the curve given by the Weierstrass equation
 $$ \rb{\dfrac{1}{q^3q'^3}y}^2 = \rb{\dfrac{1}{q^2q'^2}x}^3 + \dfrac{p}{q}\rb{\dfrac{1}{q^2q'^2}x} + \dfrac{p'}{q'} \qquad \implies \qquad y^2 = x^3 + pq^3q'^4x + p'q^6q'^5. $$
 Hence for this section, assume without loss of generality that
 $$ E : y^2 = x^3 + Ax + B, \qquad A, B \in \Z. $$
@@ -1383,7 +1383,7 @@ $$ t = T = \dfrac{X}{Y}, \qquad s = S = \dfrac{Z}{Y}, \qquad \sb{X, Y, Z} \mapst
 which is an invertible projective transformation
 $$ E : Y^2Z = X^3 + AXZ^2 + BZ^3 \qquad \iff \qquad E' : S = T^3 + ATS^2 + BS^3 : s = t^3 + Ats^2 + Bs^3. $$
 This has the effect that
-$$ O \mapsto \rb{0, 0}, \qquad \rb{a, b} \mapsto \rb{\dfrac{a}{b}, \dfrac{1}{b}} $$
+$$ \mathcal{O} \mapsto \rb{0, 0}, \qquad \rb{a, b} \mapsto \rb{\dfrac{a}{b}, \dfrac{1}{b}} $$
 for any point $ \rb{a, b} \in E\rb{\Q} $ such that $ b \ne 0 $, while the three $ 2 $-torsion points $ \rb{a, 0} $ map to three points at infinity and can be disregarded for now. The modified group law is then given in the following lemma.
 
 \begin{lemma}
@@ -1411,7 +1411,7 @@ Thus comparing coefficients gives $ -\rb{2A\lambda\mu + 3B\lambda^2\mu} / \rb{1 
 \end{proof}
 
 The above proof is brief but can be verified manually. Now let
-$$ E\rb{p^v} = \cb{O} \cup \cb{\rb{a, b} \in E\rb{\Q} \mid v_p\rb{a} \le -2v, \ v_p\rb{b} \le -3v} $$
+$$ E\rb{p^v} = \cb{\mathcal{O}} \cup \cb{\rb{a, b} \in E\rb{\Q} \mid v_p\rb{a} \le -2v, \ v_p\rb{b} \le -3v} $$
 be a subset of $ E\rb{\Q} $. Rewriting coordinates accordingly gives $ v_p\rb{a / b} \ge v $ and $ v_p\rb{1 / b} \ge 3v $, so let
 $$ E'\rb{p^v} = \cb{\rb{0, 0}} \cup \cb{\rb{a, b} \in E'\rb{\Q} \mid v_p\rb{a} \ge v, \ v_p\rb{b} \ge 3v} $$
 be a subset of $ E'\rb{\Q} $ bijective to $ E\rb{p^v} $. These two sets induce two decreasing sequences of subsets.
@@ -1421,7 +1421,7 @@ A \textbf{filtration} is a decreasing sequence of subsets $ S_i $ such that $ S_
 \end{definition}
 
 A simple rephrasal gives that $ E\rb{p^v} $ and $ E'\rb{p^v} $ \emph{induce} two $ p $-adic filtrations
-$$ E\rb{\Q} \supseteq E\rb{p} \supseteq E\rb{p^2} \supseteq E\rb{p^3} \supseteq \dots \supseteq \cb{O}, \qquad E'\rb{\Q} \supseteq E'\rb{p} \supseteq E'\rb{p^2} \supseteq E'\rb{p^3} \supseteq \dots \supseteq \cb{\rb{0, 0}}. $$
+$$ E\rb{\Q} \supseteq E\rb{p} \supseteq E\rb{p^2} \supseteq E\rb{p^3} \supseteq \dots \supseteq \cb{\mathcal{O}}, \qquad E'\rb{\Q} \supseteq E'\rb{p} \supseteq E'\rb{p^2} \supseteq E'\rb{p^3} \supseteq \dots \supseteq \cb{\rb{0, 0}}. $$
 The individual subsets in these filtrations are actually subgroups, giving a filtration of subgroups, which will be proven in the following lemma.
 
 \begin{lemma}
@@ -1451,19 +1451,19 @@ Then $ v_p\rb{a + a' - a''} \ge 5v $ from the previous lemma can be rephrased as
 
 \begin{lemma}
 There is an injective group homomorphism
-$$ \phi : E\rb{p^v} / E\rb{p^{5v}} \to \ab{p^v} / \ab{p^{5v}}, \qquad \phi\rb{E\rb{p^{5v}} + P} = \begin{cases} \ab{p^{5v}} + \dfrac{a}{b} & P = \rb{a, b} \\ \ab{p^{5v}} & P = O \end{cases}. $$
+$$ \phi : E\rb{p^v} / E\rb{p^{5v}} \to \ab{p^v} / \ab{p^{5v}}, \qquad \phi\rb{E\rb{p^{5v}} + P} = \begin{cases} \ab{p^{5v}} + \dfrac{a}{b} & P = \rb{a, b} \\ \ab{p^{5v}} & P = \mathcal{O} \end{cases}. $$
 \end{lemma}
 
 \begin{proof}
 Let $ \psi : E\rb{p^v} \to \ab{p^v} / \ab{p^{5v}} $ be defined by
-$$ \psi\rb{P} = \begin{cases} \ab{p^{5v}} + \dfrac{a}{b} & P = \rb{a, b} \\ \ab{p^{5v}} & P = O \end{cases}, $$
-and let $ P, Q \in E\rb{p^v} $ be points. If $ P = O $, then
+$$ \psi\rb{P} = \begin{cases} \ab{p^{5v}} + \dfrac{a}{b} & P = \rb{a, b} \\ \ab{p^{5v}} & P = \mathcal{O} \end{cases}, $$
+and let $ P, Q \in E\rb{p^v} $ be points. If $ P = \mathcal{O} $, then
 $$ \psi\rb{P} + \psi\rb{Q} = \ab{p^{5v}} + \ab{p^{5v}} + \dfrac{a'}{b'} = \ab{p^{5v}} + \dfrac{a'}{b'} = \psi\rb{Q} = \psi\rb{P + Q}, $$
-or similar for $ Q = O $. If $ P = \rb{a, b} $ and $ Q = \rb{a, -b} $, then
-$$ \psi\rb{P} + \psi\rb{Q} = \ab{p^{5v}} + \dfrac{a}{b} + \ab{p^{5v}} - \dfrac{a}{b} = \ab{p^{5v}} = \psi\rb{O} = \psi\rb{P + Q}. $$
+or similar for $ Q = \mathcal{O} $. If $ P = \rb{a, b} $ and $ Q = \rb{a, -b} $, then
+$$ \psi\rb{P} + \psi\rb{Q} = \ab{p^{5v}} + \dfrac{a}{b} + \ab{p^{5v}} - \dfrac{a}{b} = \ab{p^{5v}} = \psi\rb{\mathcal{O}} = \psi\rb{P + Q}. $$
 Otherwise $ P = \rb{a, b} $ and $ Q = \rb{a', b'} $ such that $ P + Q = \rb{a'', b''} $, then
 $$ \psi\rb{P} + \psi\rb{Q} = \ab{p^{5v}} + \dfrac{a}{b} + \ab{p^{5v}} + \dfrac{a'}{b'} = \ab{p^{5v}} + \dfrac{a}{b} + \dfrac{a'}{b'} = \ab{p^{5v}} + \dfrac{a''}{b''} = \psi\rb{P + Q}. $$
-Hence $ \psi $ is a group homomorphism. Now $ O \in Ker\rb{\psi} $, and $ \rb{a, b} \in Ker\rb{\psi} $ iff $ v_p\rb{a / b} \ge 5v $. This holds iff $ \rb{a / b, 1 / b} \in E'\rb{p^{5v}} $ and $ \rb{a, b} \in E\rb{p^{5v}} $, so $ Ker\rb{\psi} = E\rb{p^{5v}} $. Thus the first isomorphism theorem gives a natural injective group homomorphism
+Hence $ \psi $ is a group homomorphism. Now $ \mathcal{O} \in Ker\rb{\psi} $, and $ \rb{a, b} \in Ker\rb{\psi} $ iff $ v_p\rb{a / b} \ge 5v $. This holds iff $ \rb{a / b, 1 / b} \in E'\rb{p^{5v}} $ and $ \rb{a, b} \in E\rb{p^{5v}} $, so $ Ker\rb{\psi} = E\rb{p^{5v}} $. Thus the first isomorphism theorem gives a natural injective group homomorphism
 $$ \phi : \dfrac{E\rb{p^v}}{E\rb{p^{5v}}} \to Im\rb{\psi} \subseteq \dfrac{\ab{p^v}}{\ab{p^{5v}}}. $$
 \end{proof}
 
@@ -1505,7 +1505,7 @@ the Nagell-Lutz theorem can be used to compute the torsion subgroup $ E\rb{\Q}_{
 \begin{example}
 Let $ E : y^2 = x^3 + 4 $ be an elliptic curve over $ \Q $ and $ P = \rb{a, b} \in E\rb{\Q} $ be a torsion point. Then either $ b = 0 $ or $ b^2 \mid 4\rb{0}^3 + 27\rb{4}^2 = 3\rb{12}^2 $, so $ b \in \cb{0, \pm 1, \pm 2, \pm 3, \pm 4, \pm 6, \pm 12} $, of which only $ P_1 = \rb{0, 2} \in E\rb{\Q} $ and $ P_2 = \rb{0, -2} \in E\rb{\Q} $. Then
 $$ 2P_1 = \rb{\dfrac{0}{4\rb{4}}, \dfrac{2^2 - 3\rb{4}}{2\rb{2}}} = \rb{0, -2} = P_2, $$
-so $ ord\rb{P_1} = ord\rb{P_2} = 3 $. Thus the torsion subgroup is $ E\rb{\Q}_{tors} = \cb{O, P_1, P_2} \cong \Z_3 $.
+so $ ord\rb{P_1} = ord\rb{P_2} = 3 $. Thus the torsion subgroup is $ E\rb{\Q}_{tors} = \cb{\mathcal{O}, P_1, P_2} \cong \Z_3 $.
 \end{example}
 
 The following algorithm summarises the process and code in the appendix.
@@ -1515,22 +1515,22 @@ Input: an elliptic curve $ E $ over $ \Q $. Output: $ E\rb{\Q}_{tors} $.
 \begin{enumerate}
 \item Calculate $ \Delta'_E $ and get all non-negative $ b $ coordinates such that $ b^2 \mid \Delta'_E $.
 \item Get all $ a $ coordinates for each non-negative $ b $ coordinate such that $ b^2 = a^3 + Aa + B $.
-\item Add points $ \rb{a, b} $ with itself repeatedly and stop at $ O $ or non-integer coordinates.
+\item Add points $ \rb{a, b} $ with itself repeatedly and stop at $ \mathcal{O} $ or non-integer coordinates.
 \item Negate each point $ \rb{a, b} $ to $ \rb{a, -b} $ and do the same.
-\item Insert $ O $ into the list of all points that add to $ O $.
+\item Insert $ \mathcal{O} $ into the list of all points that add to $ \mathcal{O} $.
 \end{enumerate}
 \end{algorithm}
 
 The torsion subgroups of the following examples of elliptic curves given by the Weierstrass equations $ y^2 = x^3 - px $ for $ p \in \Z_{> 0} $ can be computed similarly. This information will be used in a later subsection.
 
 \begin{example}
-The elliptic curves $ E : y^2 = x^3 - x $ has torsion subgroup $ E\rb{\Q}_{tors} = \cb{O, \rb{0, 0}, \rb{1, 0}, \rb{-1, 0}} \cong \Z_2^2 $, while the elliptic curves $ E : y^2 = x^3 - 5x $, $ E : y^2 = x^3 - 17x $, $ E : y^2 = x^3 - 226x $ all have torsion subgroup $ E\rb{\Q}_{tors} = \cb{O, \rb{0, 0}} \cong \Z_2 $.
+The elliptic curves $ E : y^2 = x^3 - x $ has torsion subgroup $ E\rb{\Q}_{tors} = \cb{\mathcal{O}, \rb{0, 0}, \rb{1, 0}, \rb{-1, 0}} \cong \Z_2^2 $, while the elliptic curves $ E : y^2 = x^3 - 5x $, $ E : y^2 = x^3 - 17x $, $ E : y^2 = x^3 - 226x $ all have torsion subgroup $ E\rb{\Q}_{tors} = \cb{\mathcal{O}, \rb{0, 0}} \cong \Z_2 $.
 \end{example}
 
 The converse to the Nagell-Lutz theorem does not generally hold. It cannot be used to prove that a certain point is a torsion point, but it can be used to show the contrapositive, that a point is not a torsion point, by duplicating it until its coordinates are not integers. The following example illustrates this.
 
 \begin{example}
-Let $ E : y^2 = x^3 - 4 $ be an elliptic curve over $ \Q $ with torsion subgroup $ E\rb{\Q}_{tors} = \cb{O} \cong \Z_1 $. Now let $ P = \rb{2, 2} \in E\rb{\Q} $ be a point. Then
+Let $ E : y^2 = x^3 - 4 $ be an elliptic curve over $ \Q $ with torsion subgroup $ E\rb{\Q}_{tors} = \cb{\mathcal{O}} \cong \Z_1 $. Now let $ P = \rb{2, 2} \in E\rb{\Q} $ be a point. Then
 $$ 2P = \rb{5, -11}, \qquad 4P = \rb{\dfrac{785}{484}, -\dfrac{5497}{10648}}. $$
 Thus $ ord\rb{P} $ is infinite.
 \end{example}
@@ -1569,7 +1569,7 @@ Minimal Weierstrass equations can then be treated as if their coefficients are m
 
 \begin{definition}[Reduction map]
 The \textbf{reduction modulo $ p $ map} $ r_p : E\rb{\Q} \to E_p\rb{\F_p} $ for some prime $ p \in \Z_{> 0} $ is defined by
-$$ E_p : y^2 = x^3 + \tilde{A}x + \tilde{B}, \qquad r_p\rb{P} = \begin{cases} \rb{\tilde{a}, \tilde{b}} & P = \rb{a, b} \\ O & P = O \end{cases}, $$
+$$ E_p : y^2 = x^3 + \tilde{A}x + \tilde{B}, \qquad r_p\rb{P} = \begin{cases} \rb{\tilde{a}, \tilde{b}} & P = \rb{a, b} \\ \mathcal{O} & P = \mathcal{O} \end{cases}, $$
 where $ \tilde{\cdot} : \Z \to \F_p $ denotes modulo $ p $.
 \end{definition}
 
@@ -1587,7 +1587,7 @@ Let $ P = \sb{a, b, c} \in E\rb{\Q} $ be a point. Then $ P = \sb{a', b', c'} $ f
 \end{lemma}
 
 \begin{proof}
-If $ c = 0 $, then $ P = O $, so $ \gcd\rb{0, 1, 0} = 1 $. Otherwise $ c \ne 0 $, then $ P = \rb{a / c, b / c} $. Then $ a / c = q / d^2 $ and $ b / c = r / d^3 $ for some $ q, r \in \Z $ and some $ d \in \Z_{> 0} $ such that $ \gcd\rb{q, d} = \gcd\rb{r, d} = 1 $. Thus $ P = \rb{q / d^2, r / d^3} = \sb{qd, r, d^3} $ is such that $ \gcd\rb{qd, r, d^3} = 1 $.
+If $ c = 0 $, then $ P = \mathcal{O} $, so $ \gcd\rb{0, 1, 0} = 1 $. Otherwise $ c \ne 0 $, then $ P = \rb{a / c, b / c} $. Then $ a / c = q / d^2 $ and $ b / c = r / d^3 $ for some $ q, r \in \Z $ and some $ d \in \Z_{> 0} $ such that $ \gcd\rb{q, d} = \gcd\rb{r, d} = 1 $. Thus $ P = \rb{q / d^2, r / d^3} = \sb{qd, r, d^3} $ is such that $ \gcd\rb{qd, r, d^3} = 1 $.
 \end{proof}
 
 This integral and minimal condition will also be defined as follows.
@@ -1619,7 +1619,7 @@ be a line joining $ P $ and $ Q $ with coefficients in $ \Q $ such that $ P, Q, 
 $$ L_p : l_p\rb{X, Y, Z} = \tilde{l}X + \tilde{m}Y + \tilde{n}Z = 0 $$
 with coefficients in $ \F_p $ is well-defined. Now let $ P = \sb{a, b, c} $. Then
 $$ la + mb + nc = 0 \qquad \implies \qquad \tilde{l}\tilde{a} + \tilde{m}\tilde{b} + \tilde{n}\tilde{c} = 0, $$
-so $ r_p\rb{P} = \rb{\tilde{a}, \tilde{b}, \tilde{c}} \in E_p\rb{\F_p} \cap L_p $. Similarly $ r_p\rb{Q} \in E_p\rb{\F_p} \cap L_p $. Since $ r_p\rb{-O} = r_p\rb{O} = -r_p\rb{O} $ and
+so $ r_p\rb{P} = \rb{\tilde{a}, \tilde{b}, \tilde{c}} \in E_p\rb{\F_p} \cap L_p $. Similarly $ r_p\rb{Q} \in E_p\rb{\F_p} \cap L_p $. Since $ r_p\rb{-\mathcal{O}} = r_p\rb{\mathcal{O}} = -r_p\rb{\mathcal{O}} $ and
 $$ r_p\rb{-\rb{a, b}} = r_p\rb{\rb{a, -b}} = \rb{\tilde{a}, \tilde{-b}} = \rb{\tilde{a}, -\tilde{b}} = -\rb{\tilde{a}, \tilde{b}} = -r_p\rb{\rb{a, b}} $$
 for any point $ \rb{a, b} \in E\rb{\Q} $, similarly $ -r_p\rb{P + Q} = r_p\rb{-\rb{P + Q}} \in E_p\rb{\F_p} \cap L_p $. Since $ \gcd\rb{e_p, l_p} = 1 $ where $ e_p\rb{x, y} $ is the Weierstrass equation of $ E_p $, Bézout's theorem gives that $ L_p $ intersects $ E_p\rb{\F_p} $ at three points up to multiplicity, so
 $$ E_p\rb{\F_p} \cap L_p = \cb{r_p\rb{P}, r_p\rb{Q}, -r_p\rb{P + Q}}. $$
@@ -1633,19 +1633,19 @@ $ E\rb{\Q}_{tors} \cong G $ for some $ G \le E_p\rb{\F_p} $.
 \end{theorem}
 
 \begin{proof}
-Since $ Ker\rb{r_p} = E\rb{p} $, it holds that $ v_p\rb{a} \le -2 $ and $ v_p\rb{b} \le -3 $ for any point $ P = \rb{a, b} \in Ker\rb{r_p} $, so $ a, b \notin \Z $. Then the Nagell-Lutz theorem gives that $ ord\rb{P} $ is infinite, so $ P \notin E\rb{\Q}_{tors} $. Now let $ r_p' = \val{r_p}_{E\rb{\Q}_{tors}} $ and $ G = Im\rb{r_p'} $, so $ Ker\rb{r_p'} = Ker\rb{r_p} \cap E\rb{\Q}_{tors} = \cb{O} $. Thus the first isomorphism theorem gives $ G \cong E\rb{\Q}_{tors} / Ker\rb{r_p'} \cong E\rb{\Q}_{tors} $.
+Since $ Ker\rb{r_p} = E\rb{p} $, it holds that $ v_p\rb{a} \le -2 $ and $ v_p\rb{b} \le -3 $ for any point $ P = \rb{a, b} \in Ker\rb{r_p} $, so $ a, b \notin \Z $. Then the Nagell-Lutz theorem gives that $ ord\rb{P} $ is infinite, so $ P \notin E\rb{\Q}_{tors} $. Now let $ r_p' = \val{r_p}_{E\rb{\Q}_{tors}} $ and $ G = Im\rb{r_p'} $, so $ Ker\rb{r_p'} = Ker\rb{r_p} \cap E\rb{\Q}_{tors} = \cb{\mathcal{O}} $. Thus the first isomorphism theorem gives $ G \cong E\rb{\Q}_{tors} / Ker\rb{r_p'} \cong E\rb{\Q}_{tors} $.
 \end{proof}
 
 Lagrange's theorem then gives $ \abs{E\rb{\Q}_{tors}} \mid \abs{E_p\rb{\F_p}} $, which enforces a restriction of the possible torsion subgroups. The following reignites a prior example, this time with the reduction theorem.
 
 \begin{example}
-Let $ E : y^2 = x^3 + 4 $ be an elliptic curve over $ \Q $. Then $ \Delta_E = -16\rb{4\rb{0}^3 + 27\rb{4}^2} = -\rb{2}^8\rb{3}^3 $, so let $ p = 5 $ be a prime of good reduction. Then the previous section gives $ \abs{E_5\rb{\F_5}} = 6 $. Since $ \abs{E\rb{\Q}_{tors}} \mid \abs{E_5\rb{\F_5}} $, it holds that $ \abs{E\rb{\Q}_{tors}} \in \cb{1, 2, 3, 6} $. Since $ ord\rb{\rb{0, 2}} = 3 $ and there are no points $ P \in E\rb{\Q} $ such that $ ord\rb{P} = 2 $, it holds that $ E\rb{\Q}_{tors} = \cb{O, \rb{0, 2}, \rb{0, -2}} \cong \Z_3 $.
+Let $ E : y^2 = x^3 + 4 $ be an elliptic curve over $ \Q $. Then $ \Delta_E = -16\rb{4\rb{0}^3 + 27\rb{4}^2} = -\rb{2}^8\rb{3}^3 $, so let $ p = 5 $ be a prime of good reduction. Then the previous section gives $ \abs{E_5\rb{\F_5}} = 6 $. Since $ \abs{E\rb{\Q}_{tors}} \mid \abs{E_5\rb{\F_5}} $, it holds that $ \abs{E\rb{\Q}_{tors}} \in \cb{1, 2, 3, 6} $. Since $ ord\rb{\rb{0, 2}} = 3 $ and there are no points $ P \in E\rb{\Q} $ such that $ ord\rb{P} = 2 $, it holds that $ E\rb{\Q}_{tors} = \cb{\mathcal{O}, \rb{0, 2}, \rb{0, -2}} \cong \Z_3 $.
 \end{example}
 
 While this might not seem much of a timesave, the following example begs to differ.
 
 \begin{example}
-Let $ E : y^2 = x^3 + 1680 $ be an elliptic curve over $ \Q $. Then $ \Delta'_E = 4\rb{0}^3 + 27\rb{1680}^2 = 3\rb{5040}^2 = \rb{2}^8\rb{3}^5\rb{5}^2\rb{7}^2 $ and $ \Delta_E = -\rb{2}^{12}\rb{3}^5\rb{5}^2\rb{7}^2 $, so $ p \ge 11 $ are primes of good reduction. Now $ 5040 $ is a \emph{colossally abundant number} with exactly $ 120 $ positive and negative divisors, so more than $ 120 $ values of $ b $ such that $ b^2 \mid \Delta'_E $ needs to be checked. Instead the previous section computes $ \abs{E_{13}\rb{\F_{13}}} = 9 $ and $ \abs{E_{19}\rb{\F_{19}}} = 28 $. Since $ \abs{E\rb{\Q}_{tors}} \mid \abs{E_{13}\rb{\F_{13}}} $ and $ \abs{E\rb{\Q}_{tors}} \mid \abs{E_{19}\rb{\F_{19}}} $, and $ \gcd\rb{9, 28} = 1 $, it holds that $ \abs{E\rb{\Q}_{tors}} = 1 $. Thus $ E\rb{\Q}_{tors} = \cb{O} $.
+Let $ E : y^2 = x^3 + 1680 $ be an elliptic curve over $ \Q $. Then $ \Delta'_E = 4\rb{0}^3 + 27\rb{1680}^2 = 3\rb{5040}^2 = \rb{2}^8\rb{3}^5\rb{5}^2\rb{7}^2 $ and $ \Delta_E = -\rb{2}^{12}\rb{3}^5\rb{5}^2\rb{7}^2 $, so $ p \ge 11 $ are primes of good reduction. Now $ 5040 $ is a \emph{colossally abundant number} with exactly $ 120 $ positive and negative divisors, so more than $ 120 $ values of $ b $ such that $ b^2 \mid \Delta'_E $ needs to be checked. Instead the previous section computes $ \abs{E_{13}\rb{\F_{13}}} = 9 $ and $ \abs{E_{19}\rb{\F_{19}}} = 28 $. Since $ \abs{E\rb{\Q}_{tors}} \mid \abs{E_{13}\rb{\F_{13}}} $ and $ \abs{E\rb{\Q}_{tors}} \mid \abs{E_{19}\rb{\F_{19}}} $, and $ \gcd\rb{9, 28} = 1 $, it holds that $ \abs{E\rb{\Q}_{tors}} = 1 $. Thus $ E\rb{\Q}_{tors} = \cb{\mathcal{O}} $.
 \end{example}
 
 Counting points over finite fields can generally be done very efficiently, so the reduction theorem allows for an immediate answer. In any case, computation of the torsion subgroup is relatively straightforward.
@@ -1711,7 +1711,7 @@ The function $ h $ can be defined as follows.
 
 \begin{definition}[Height]
 The \textbf{height} of a point $ P \in E\rb{\Q} $ is a function $ h\rb{P} : E\rb{\Q} \to \R_{\ge 0} $ defined by $ h\rb{P} = \log_2\rb{H\rb{P}} $, where
-$$ H\rb{P} = \begin{dcases} \max\cb{\abs{p}, \abs{q}} & P = \rb{\dfrac{p}{q}, y}, \ \gcd\rb{p, q} = 1 \\ 1 & P = O \end{dcases}. $$
+$$ H\rb{P} = \begin{dcases} \max\cb{\abs{p}, \abs{q}} & P = \rb{\dfrac{p}{q}, y}, \ \gcd\rb{p, q} = 1 \\ 1 & P = \mathcal{O} \end{dcases}. $$
 \end{definition}
 
 \begin{remark}
@@ -1726,7 +1726,7 @@ The set $ S = \cb{P \in E\rb{\Q} \mid h\rb{P} \le C_1} $ is finite for any $ C_1
 \end{proposition}
 
 \begin{proof}
-Let $ C_1 \in \R_{\ge 0} $ and $ P \in E\rb{\Q} $ be a point. If $ P = O $, then $ P \in S $. Otherwise $ P = \rb{p / q, y} $, then $ \max\cb{\abs{p}, \abs{q}} \le 2^{C_1} $, so $ -2^{C_1} \le p, q \le 2^{C_1} $. Thus $ \abs{S} \le \rb{2^{C_1 + 1} + 1}^2 + 1 $ is finite.
+Let $ C_1 \in \R_{\ge 0} $ and $ P \in E\rb{\Q} $ be a point. If $ P = \mathcal{O} $, then $ P \in S $. Otherwise $ P = \rb{p / q, y} $, then $ \max\cb{\abs{p}, \abs{q}} \le 2^{C_1} $, so $ -2^{C_1} \le p, q \le 2^{C_1} $. Thus $ \abs{S} \le \rb{2^{C_1 + 1} + 1}^2 + 1 $ is finite.
 \end{proof}
 
 The second property provides an upper bound for the height of added points. This is relatively easy and is stated in the following proposition.
@@ -1737,7 +1737,7 @@ Let $ Q \in E\rb{\Q} $. Then there is a constant $ C_2 \in \R_{\ge 0} $ such tha
 \end{proposition}
 
 \begin{proof}
-If $ P = O $ or $ Q = O $ or $ P + Q = O $, let $ C_2 = 2h\rb{Q} $ such that $ h\rb{P + Q} \le 2h\rb{P} + 2h\rb{Q} $. Otherwise $ P = \rb{a, b} $ and $ Q = \rb{a', b'} $ for $ a \ne a' $ or $ a = a' $ and $ b = b' \ne 0 $. Assume that $ a = a' $ and $ b = b' \ne 0 $, then let $ C_2 = h\rb{2Q} $ such that $ h\rb{P + Q} = h\rb{2Q} \le 2h\rb{P} + h\rb{2Q} $. Assume otherwise that $ a \ne a' $, and let $ C_2 = \log_2\rb{\max\cb{K_3, K_2}} $, where
+If $ P = \mathcal{O} $ or $ Q = \mathcal{O} $ or $ P + Q = \mathcal{O} $, let $ C_2 = 2h\rb{Q} $ such that $ h\rb{P + Q} \le 2h\rb{P} + 2h\rb{Q} $. Otherwise $ P = \rb{a, b} $ and $ Q = \rb{a', b'} $ for $ a \ne a' $ or $ a = a' $ and $ b = b' \ne 0 $. Assume that $ a = a' $ and $ b = b' \ne 0 $, then let $ C_2 = h\rb{2Q} $ such that $ h\rb{P + Q} = h\rb{2Q} \le 2h\rb{P} + h\rb{2Q} $. Assume otherwise that $ a \ne a' $, and let $ C_2 = \log_2\rb{\max\cb{K_3, K_2}} $, where
 $$ K_1 = \sqrt{1 + \abs{A} + \abs{B}}, \qquad K_2 = 1 + \abs{a'}, \qquad K_3 = \rb{\abs{A} + \abs{a'}}K_2 + 2\rb{\abs{B} + \abs{b'}K_1}. $$
 Then $ a = p / d^2 $ and $ b = q / d^3 $ for some $ p, q \in \Z $ and some $ d \in \Z_{> 0} $ such that $ \gcd\rb{p, d} = \gcd\rb{q, d} = 1 $, and $ q^2 = p^3 + Apd^4 + Bd^6 $. Since $ H\rb{P} = \max\cb{\abs{p}, \abs{d}^2} $, it holds that $ \abs{p}, \abs{d}^2 \le H\rb{P} $, so $ \abs{d} \le \sqrt{H\rb{P}} $ and
 $$ \abs{q}\abs{d} = \abs{\sqrt{p^3 + Apd^4 + Bd^6}}\abs{d} \le \sqrt{\abs{p}^3\abs{d}^2 + \abs{A}\abs{p}\abs{d}^6 + \abs{B}\abs{d}^8} \le K_1H\rb{P}^2. $$
@@ -1764,7 +1764,7 @@ There is a constant $ C_3 \in \R_{\ge 0} $ such that $ h\rb{2P} \ge 4h\rb{P} - C
 \end{proposition}
 
 \begin{proof}
-If $ P = O $, let $ C_3 = 0 $ such that $ h\rb{2P} \ge 4h\rb{P} $. If $ P = \rb{a, 0} $, let $ C_3 = 4h\rb{P} $ such that $ h\rb{2P} \ge 0 $. Otherwise $ P = \rb{a, b} $ for $ b \ne 0 $. Let $ a = p / q $ for some $ p \in \Z $ and some $ q \in \Z^* $ such that $ \gcd\rb{p, q} = 1 $, and let
+If $ P = \mathcal{O} $, let $ C_3 = 0 $ such that $ h\rb{2P} \ge 4h\rb{P} $. If $ P = \rb{a, 0} $, let $ C_3 = 4h\rb{P} $ such that $ h\rb{2P} \ge 0 $. Otherwise $ P = \rb{a, b} $ for $ b \ne 0 $. Let $ a = p / q $ for some $ p \in \Z $ and some $ q \in \Z^* $ such that $ \gcd\rb{p, q} = 1 $, and let
 \begin{align*}
 p' & = p^4 - 2Ap^2q^2 - 8Bpq^3 + A^2q^4, \\
 q' & = 4p^3q + 4Apq^3 + 4Bq^4, \\
@@ -1851,7 +1851,7 @@ $$ 2P = \rb{\lambda^2 - A - 2a, \mu - \lambda\rb{\lambda^2 - A - 2a}} \in E\rb{\
 The above proof is brief but can be verified manually. Let a related curve be
 $$ E' : y^2 = x^3 + A'x^2 + B'x, \qquad A' = -2A, \qquad B' = A^2 - 4B, $$
 such that $ T \in E' $ and $ B' \ne 0 $. Then $ A'^2 - 4B' = \rb{-2A}^2 - 4\rb{A^2 - 4B} = 16B $, and the group law is similar to that of $ E $ but with $ A' $ and $ B' $ instead of $ A $ and $ B $. Now let the two maps $ \phi : E \to E' $ and $ \psi : E' \to E $ be defined by
-$$ \phi\rb{P} = \begin{dcases} \rb{\dfrac{b^2}{a^2}, \dfrac{b\rb{a^2 - B}}{a^2}} & P = \rb{a, b} \ne T \\ O & P \in \cb{O, T} \end{dcases}, \qquad \psi\rb{P} = \begin{dcases} \rb{\dfrac{b^2}{4a^2}, \dfrac{b\rb{a^2 - B'}}{8a^2}} & P = \rb{a, b} \ne T \\ O & P \in \cb{O, T} \end{dcases}. $$
+$$ \phi\rb{P} = \begin{dcases} \rb{\dfrac{b^2}{a^2}, \dfrac{b\rb{a^2 - B}}{a^2}} & P = \rb{a, b} \ne T \\ \mathcal{O} & P \in \cb{\mathcal{O}, T} \end{dcases}, \qquad \psi\rb{P} = \begin{dcases} \rb{\dfrac{b^2}{4a^2}, \dfrac{b\rb{a^2 - B'}}{8a^2}} & P = \rb{a, b} \ne T \\ \mathcal{O} & P \in \cb{\mathcal{O}, T} \end{dcases}. $$
 These two maps are related in the obvious way, where one can be seen as the scaling of the other. They also relate the two elliptic curves, as seen in the following lemma.
 
 \begin{lemma}
@@ -1868,14 +1868,14 @@ $$ \rb{\dfrac{b^2}{a^2}}^3 + A'\rb{\dfrac{b^2}{a^2}}^2 + B'\dfrac{b^2}{a^2}
 = \dfrac{b^2}{a^4}\rb{\dfrac{\rb{b^2 - Aa^2}^2 - 4Ba^4}{a^2}}
 = \dfrac{b^2}{a^4}\rb{\dfrac{\rb{a^3 + Ba}^2 - 4Ba^4}{a^2}}
 = \rb{\dfrac{b\rb{a^2 - B}}{a^2}}^2, $$
-so $ \phi\rb{P} \in E' $. Since $ \phi\rb{T} = \phi\rb{O} = O $, it holds that $ \phi $ is a well-defined non-constant morphism, and hence an isogeny. Since $ \psi $ can be seen as applying $ \chi \circ \phi $ to $ E $, where $ \chi $ is the $ j $-invariant affine transformation $ \rb{x, y} \mapsto \rb{x / 4, y / 8} $, it is also a well-defined non-constant morphism, and hence an isogeny. Now let $ P \in E $. If $ P = O $ or $ P = \rb{a, 0} $, then $ \rb{\psi \circ \phi}\rb{P} = O = 2P $. Otherwise $ P = \rb{a, b} $ such that $ a \ne 0 $ and $ b \ne 0 $, then
+so $ \phi\rb{P} \in E' $. Since $ \phi\rb{T} = \phi\rb{\mathcal{O}} = \mathcal{O} $, it holds that $ \phi $ is a well-defined non-constant morphism, and hence an isogeny. Since $ \psi $ can be seen as applying $ \chi \circ \phi $ to $ E $, where $ \chi $ is the $ j $-invariant affine transformation $ \rb{x, y} \mapsto \rb{x / 4, y / 8} $, it is also a well-defined non-constant morphism, and hence an isogeny. Now let $ P \in E $. If $ P = \mathcal{O} $ or $ P = \rb{a, 0} $, then $ \rb{\psi \circ \phi}\rb{P} = \mathcal{O} = 2P $. Otherwise $ P = \rb{a, b} $ such that $ a \ne 0 $ and $ b \ne 0 $, then
 \begin{align*}
 \rb{\psi \circ \phi}\rb{P}
 & = \rb{\dfrac{\rb{b\rb{a^2 - B} / a^2}^2}{4\rb{b^2 / a^2}^2}, \dfrac{\rb{b\rb{a^2 - B} / a^2}\rb{\rb{b^2 / a^2}^2 - B'}}{8\rb{b^2 / a^2}^2}} \\
 & = \rb{\dfrac{\rb{a^2 - B}^2}{4b^2}, \dfrac{\rb{a^2 - B}\rb{b^4 - \rb{A^2 - 4B}a^4}}{8b^3a^2}} \\
 & = \rb{\dfrac{\rb{a^2 - B}^2}{4b^2}, \dfrac{\rb{a^2 - B}\rb{a^4 + B^2 + 2Aa^3 + 2ABa + 6Ba^2}}{8b^3}} = 2P.
 \end{align*}
-Hence $ \psi \circ \phi = \sb{2}_E $. Similarly let $ P' \in E' $. If $ P' = O $ or $ P' = \rb{a, 0} $, then $ \rb{\phi \circ \psi}\rb{P'} = O = 2P' $. Otherwise $ P' = \rb{a, b} $ such that $ a \ne 0 $ and $ b \ne 0 $, then
+Hence $ \psi \circ \phi = \sb{2}_E $. Similarly let $ P' \in E' $. If $ P' = \mathcal{O} $ or $ P' = \rb{a, 0} $, then $ \rb{\phi \circ \psi}\rb{P'} = \mathcal{O} = 2P' $. Otherwise $ P' = \rb{a, b} $ such that $ a \ne 0 $ and $ b \ne 0 $, then
 \begin{align*}
 \rb{\phi \circ \psi}\rb{P'}
 & = \rb{\dfrac{\rb{b\rb{a^2 - B'} / 8a^2}^2}{\rb{b^2 / 4a^2}^2}, \dfrac{\rb{b\rb{a^2 - B'} / 8a^2}\rb{\rb{b^2 / 4a^2}^2 - B}}{\rb{b^2 / 4a^2}^2}} \\
@@ -1898,14 +1898,14 @@ The image of the isogeny $ \psi $ depends on whether $ B $ is a perfect square o
 \begin{lemma}
 The image $ Im\rb{\psi} $ is such that:
 \begin{itemize}
-\item $ O \in Im\rb{\psi} $,
+\item $ \mathcal{O} \in Im\rb{\psi} $,
 \item $ T \in Im\rb{\psi} $ iff $ B \in \rb{\Z^*}^2 $, and
 \item $ \rb{a, b} \ne T \in Im\rb{\psi} $ iff $ a \in \rb{\Q^*}^2 $.
 \end{itemize}
 \end{lemma}
 
 \begin{proof}
-Since $ \psi\rb{O} = O $, it holds that $ O \in Im\rb{\psi} $. Now $ T \in Im\rb{\psi} $ iff there is a point $ P = \rb{a, b} \in E'\rb{\Q} $ such that $ \psi\rb{P} = T $ and $ 0 = b^2 / 4a^2 $. This holds iff $ a \in \Q^* $ and $ b = 0 $, or $ B \in \rb{\Z^*}^2 $. Now assume that $ P = \rb{a, b} \ne T \in Im\rb{\psi} $. Then there is a point $ Q = \rb{a', b'} \in E'\rb{\Q} $ such that $ \psi\rb{Q} = P $, so $ a = b'^2 / 4a'^2 = \rb{b' / 2a}^2 \in \rb{\Q^*}^2 $. Conversely assume that $ P = \rb{a, b} \ne T \in E\rb{\Q} $ and $ a \in \rb{\Q^*}^2 $. Then $ a = c^2 $ for some $ c \in \Q^* $, so
+Since $ \psi\rb{\mathcal{O}} = \mathcal{O} $, it holds that $ \mathcal{O} \in Im\rb{\psi} $. Now $ T \in Im\rb{\psi} $ iff there is a point $ P = \rb{a, b} \in E'\rb{\Q} $ such that $ \psi\rb{P} = T $ and $ 0 = b^2 / 4a^2 $. This holds iff $ a \in \Q^* $ and $ b = 0 $, or $ B \in \rb{\Z^*}^2 $. Now assume that $ P = \rb{a, b} \ne T \in Im\rb{\psi} $. Then there is a point $ Q = \rb{a', b'} \in E'\rb{\Q} $ such that $ \psi\rb{Q} = P $, so $ a = b'^2 / 4a'^2 = \rb{b' / 2a}^2 \in \rb{\Q^*}^2 $. Conversely assume that $ P = \rb{a, b} \ne T \in E\rb{\Q} $ and $ a \in \rb{\Q^*}^2 $. Then $ a = c^2 $ for some $ c \in \Q^* $, so
 $$ b^2 = c^6 - \dfrac{A'c^4}{2} + \dfrac{A'^2 - 4B'}{16}c^2 \qquad \implies \qquad B' = \rb{2c^2 - \dfrac{A'}{2} + \dfrac{2b}{c}}\rb{2c^2 - \dfrac{A'}{2} - \dfrac{2b}{c}}. $$
 Now let $ Q = \rb{a', b'} $, where $ a' = 2c^2 - A' / 2 + 2b / c $ and $ b' = 2a'c $, such that $ B' = a'\rb{a' - 4b / c} $. Then
 $$ a'^3 + A'a'^2 + B'a' = a'^3 + A'a'^2 + a'^2\rb{a' - \dfrac{2b}{c}} = 2a'^2\rb{a' + \dfrac{A'}{2} - \dfrac{4b}{c}} = 4a'^2c^2 = b'^2, $$
@@ -1915,7 +1915,7 @@ Thus $ P \in Im\rb{\psi} $.
 \end{proof}
 
 The image of the isogeny $ \phi $ can be characterised analogously, and will not be explicitly stated here. Now let another map be defined as
-$$ \alpha : E\rb{\Q} \to \Q^* / \rb{\Q^*}^2, \qquad \alpha\rb{P} = \begin{cases} \rb{\Q^*}^2a & P = \rb{a, b} \ne T \\ \rb{\Q^*}^2B & P = T \\ \rb{\Q^*}^2 & P = O \end{cases}. $$
+$$ \alpha : E\rb{\Q} \to \Q^* / \rb{\Q^*}^2, \qquad \alpha\rb{P} = \begin{cases} \rb{\Q^*}^2a & P = \rb{a, b} \ne T \\ \rb{\Q^*}^2B & P = T \\ \rb{\Q^*}^2 & P = \mathcal{O} \end{cases}. $$
 Then $ \psi $ and $ \alpha $ induce an \emph{exact sequence} $ E'\rb{\Q} \xrightarrow{\psi} E\rb{\Q} \xrightarrow{\alpha} \Q^* / \rb{\Q^*}^2 $, which can be stated more concretely in the following lemma.
 
 \begin{lemma}
@@ -1923,13 +1923,13 @@ $ \alpha : E\rb{\Q} \to \Q^* / \rb{\Q^*}^2 $ is a group homomorphism such that $
 \end{lemma}
 
 \begin{proof}
-Let $ P, Q \in E\rb{\Q} $ be points. If $ P = O $,
+Let $ P, Q \in E\rb{\Q} $ be points. If $ P = \mathcal{O} $,
 $$ \alpha\rb{P}\alpha\rb{Q} = \rb{\Q^*}^2\alpha\rb{Q} = \alpha\rb{Q} = \alpha\rb{P + Q}, $$
-or similar for $ Q = O $. If $ P = \rb{a, b} $ and $ Q = \rb{a', b'} $ such that $ a \ne a' $ and $ P + Q = \rb{a'', b''} \in E\rb{\Q} $, then
+or similar for $ Q = \mathcal{O} $. If $ P = \rb{a, b} $ and $ Q = \rb{a', b'} $ such that $ a \ne a' $ and $ P + Q = \rb{a'', b''} \in E\rb{\Q} $, then
 $$ \alpha\rb{P}\alpha\rb{Q} = \rb{\Q^*}^2a\rb{\Q^*}^2a' = \rb{\Q^*}^2aa' = \rb{\Q^*}^2\dfrac{\mu^2}{a''} = \rb{\Q^*}^2\mu^2a'' = \rb{\Q^*}^2a'' = \alpha\rb{P + Q}. $$
 Otherwise $ P = \rb{a, b} $ and $ Q = \rb{a, b'} $, then
 $$ \alpha\rb{P}\alpha\rb{Q} = \rb{\Q^*}^2a\rb{\Q^*}^2a = \rb{\Q^*}^2a^2 = \rb{\Q^*}^2 = \rb{\Q^*}^2\dfrac{\rb{a^2 - B}^2}{4b^2} = \alpha\rb{P + Q}. $$
-Hence $ \alpha $ is a group homomorphism. Now $ O \in Ker\rb{\alpha} $, the point $ T \in Ker\rb{\alpha} $ iff $ B \in \rb{\Q^*}^2 $, and a point $ \rb{a, b} \ne T \in Ker\rb{\alpha} $ iff $ a \in \rb{\Q^*}^2 $. Thus $ Im\rb{\psi} = Ker\rb{\alpha} $.
+Hence $ \alpha $ is a group homomorphism. Now $ \mathcal{O} \in Ker\rb{\alpha} $, the point $ T \in Ker\rb{\alpha} $ iff $ B \in \rb{\Q^*}^2 $, and a point $ \rb{a, b} \ne T \in Ker\rb{\alpha} $ iff $ a \in \rb{\Q^*}^2 $. Thus $ Im\rb{\psi} = Ker\rb{\alpha} $.
 \end{proof}
 
 The image of the group homomorphism $ \alpha $ can again be characterised, as being contained in a finite subgroup of $ \Q^* / \rb{\Q^*}^2 $. Now let $ S\rb{B} $ be the set of primes $ p \in \Z_{> 0} $ such that $ p \mid B $, and let
@@ -1946,7 +1946,7 @@ Since $ \emptyset \subseteq S\rb{B} $, it holds that $ \rb{\Q^*}^2 \in G\rb{B} $
 $$ a = \rb{\Q^*}^2 j p_1 \dots p_n p'_1 \dots p'_{n'}, \qquad b = \rb{\Q^*}^2 j' p_1 \dots p_n p''_1 \dots p''_{n''} $$
 for some $ j, j' \in \cb{-1, 1} $ and some distinct primes $ p_i, p'_i, p''_i \in S\rb{B} $, so
 $$ \dfrac{a}{b} = \dfrac{\rb{\Q^*}^2 j p_1 \dots p_n p'_1 \dots p'_{n'}}{\rb{\Q^*}^2 j' p_1 \dots p_n p''_1 \dots p''_{n''}} = \rb{\Q^*}^2\dfrac{j p'_1 \dots p'_{n'}}{j' p''_1 \dots p''_{n''}} = \rb{\Q^*}^2 j j' p'_1 \dots p'_{n'} p''_1 \dots p''_{n''} \in G\rb{B}. $$
-Hence $ G\rb{B} \le \Q^* / \rb{\Q^*}^2 $ and $ \abs{G\rb{B}} = 2^{\abs{S\rb{B}}} + 2^{\abs{S\rb{B}}} = 2^{\abs{S\rb{B}} + 1} $. Now let $ P \in E\rb{\Q} $ be a point. If $ P = O $, then $ \alpha\rb{P} = \rb{\Q^*}^2 \in G\rb{B} $. If $ P = T $, then $ \alpha\rb{P} = \rb{\Q^*}^2B \in G\rb{B} $. Otherwise $ P = \rb{a, b} \ne T $, then $ a = r / d^2 $ and $ b = s / d^3 $ for some $ r, s \in \Z $ and some $ d \in \Z_{> 0} $ such that $ \gcd\rb{r, d} = \gcd\rb{s, d} = 1 $ and $ s^2 = r^3 + Ar^2d^2 + Brd^4 = r\rb{r^2 + Ard^2 + Bd^4} $. Let $ g = \gcd\rb{r, r^2 + Ard^2 + Bd^4} $, then $ r = cg $ and $ r^2 + Ard^2 + Bd^4 = c'g $ for some $ c, c' \in \Z_{\ge 0} $ such that $ \gcd\rb{c, c'} = 1 $. Since $ s^2 = \rb{cg}\rb{c'g} = cc'g^2 $, it holds that $ \rb{s / g}^2 = cc' $, so $ c = k q_1^2 \cdots q_m^2 $ for some $ k \in \cb{-1, 1} $ and some primes $ q_i \in \Z_{> 0} $. Since $ g \mid r $ and $ g \mid Bd^4 $, it also holds that $ g \mid B $, so $ g = k' q'_1 \dots q'_{m'} $ for some $ k' \in \cb{-1, 1} $ and some primes $ q'_i \in \Z_{> 0} $ such that $ q'_i \mid B $, and hence $ q'_i \in S\rb{B} $. Hence
+Hence $ G\rb{B} \le \Q^* / \rb{\Q^*}^2 $ and $ \abs{G\rb{B}} = 2^{\abs{S\rb{B}}} + 2^{\abs{S\rb{B}}} = 2^{\abs{S\rb{B}} + 1} $. Now let $ P \in E\rb{\Q} $ be a point. If $ P = \mathcal{O} $, then $ \alpha\rb{P} = \rb{\Q^*}^2 \in G\rb{B} $. If $ P = T $, then $ \alpha\rb{P} = \rb{\Q^*}^2B \in G\rb{B} $. Otherwise $ P = \rb{a, b} \ne T $, then $ a = r / d^2 $ and $ b = s / d^3 $ for some $ r, s \in \Z $ and some $ d \in \Z_{> 0} $ such that $ \gcd\rb{r, d} = \gcd\rb{s, d} = 1 $ and $ s^2 = r^3 + Ar^2d^2 + Brd^4 = r\rb{r^2 + Ard^2 + Bd^4} $. Let $ g = \gcd\rb{r, r^2 + Ard^2 + Bd^4} $, then $ r = cg $ and $ r^2 + Ard^2 + Bd^4 = c'g $ for some $ c, c' \in \Z_{\ge 0} $ such that $ \gcd\rb{c, c'} = 1 $. Since $ s^2 = \rb{cg}\rb{c'g} = cc'g^2 $, it holds that $ \rb{s / g}^2 = cc' $, so $ c = k q_1^2 \cdots q_m^2 $ for some $ k \in \cb{-1, 1} $ and some primes $ q_i \in \Z_{> 0} $. Since $ g \mid r $ and $ g \mid Bd^4 $, it also holds that $ g \mid B $, so $ g = k' q'_1 \dots q'_{m'} $ for some $ k' \in \cb{-1, 1} $ and some primes $ q'_i \in \Z_{> 0} $ such that $ q'_i \mid B $, and hence $ q'_i \in S\rb{B} $. Hence
 $$ \alpha\rb{P} = \rb{\Q^*}^2a = \rb{\Q^*}^2\dfrac{r}{d^2} = \rb{\Q^*}^2\dfrac{k k' q_1^2 \cdots q_m^2 q'_1 \dots q'_{m'}}{d^2} = \rb{\Q^*}^2 k k' q'_1 \dots q'_{m'} \in G\rb{B}. $$
 Thus $ Im\rb{\alpha} \le G\rb{B} $.
 \end{proof}
@@ -1991,8 +1991,8 @@ Now let $ \theta : E'\rb{\Q} \to Im\rb{\psi} / 2E\rb{\Q} $ be a surjective group
 $$ \dfrac{Im\rb{\psi}}{2E\rb{\Q}} \cong \dfrac{E'\rb{\Q}}{Ker\rb{\psi} + Im\rb{\phi}} \cong \dfrac{\dfrac{E'\rb{\Q}}{Im\rb{\phi}}}{\dfrac{Ker\rb{\psi} + Im\rb{\phi}}{Im\rb{\phi}}} \cong \dfrac{\dfrac{E'\rb{\Q}}{Im\rb{\phi}}}{\dfrac{Ker\rb{\psi}}{Ker\rb{\psi} \cap Im\rb{\phi}}}. $$
 Hence
 $$ \abs{E\rb{\Q} : 2E\rb{\Q}} = \dfrac{\abs{E\rb{\Q} : Im\rb{\psi}}\abs{E'\rb{\Q} : Im\rb{\phi}}}{\abs{Ker\rb{\psi} : Ker\rb{\psi} \cap Im\rb{\phi}}} = \dfrac{\abs{Im\rb{\alpha}}\abs{Im\rb{\alpha'}}}{\abs{Ker\rb{\psi} : Ker\rb{\psi} \cap Im\rb{\phi}}}. $$
-Now $ B' \in \rb{\Z^*}^2 $ iff $ T \in Im\rb{\phi} $ and the equation $ x^2 + Ax + B = 0 $ with discriminant $ 16\rb{A^2 - 4B^2} = 16B' $ has solutions in $ \Z^* $. Since $ Ker\rb{\psi} = \cb{O, T} $ and $ O \in Im\rb{\phi} $, this holds iff $ Ker\rb{\psi} \cap Im\rb{\phi} = \cb{O, T} $. Since $ O, T \in E\rb{\Q}\sb{2} $, this also holds iff $ \rb{a, 0}, \rb{a', 0} \in E\rb{\Q}\sb{2} $ for the solutions $ a, a' \in \Q^* $ of $ x^2 + Ax + B = 0 $. Hence
-$$ E\rb{\Q}\sb{2} = \begin{cases} \cb{O, T, \rb{a, 0}, \rb{a', 0}} & B' \in \rb{\Z^*}^2 \\ \cb{O, T} & B' \notin \rb{\Z^*}^2 \end{cases}, \qquad \dfrac{Ker\rb{\psi}}{Ker\rb{\psi} \cap Im\rb{\phi}} = \begin{cases} \cb{O} & B' \in \rb{\Z^*}^2 \\ \cb{O, T} & B' \notin \rb{\Z^*}^2 \end{cases}, $$
+Now $ B' \in \rb{\Z^*}^2 $ iff $ T \in Im\rb{\phi} $ and the equation $ x^2 + Ax + B = 0 $ with discriminant $ 16\rb{A^2 - 4B^2} = 16B' $ has solutions in $ \Z^* $. Since $ Ker\rb{\psi} = \cb{\mathcal{O}, T} $ and $ \mathcal{O} \in Im\rb{\phi} $, this holds iff $ Ker\rb{\psi} \cap Im\rb{\phi} = \cb{\mathcal{O}, T} $. Since $ \mathcal{O}, T \in E\rb{\Q}\sb{2} $, this also holds iff $ \rb{a, 0}, \rb{a', 0} \in E\rb{\Q}\sb{2} $ for the solutions $ a, a' \in \Q^* $ of $ x^2 + Ax + B = 0 $. Hence
+$$ E\rb{\Q}\sb{2} = \begin{cases} \cb{\mathcal{O}, T, \rb{a, 0}, \rb{a', 0}} & B' \in \rb{\Z^*}^2 \\ \cb{\mathcal{O}, T} & B' \notin \rb{\Z^*}^2 \end{cases}, \qquad \dfrac{Ker\rb{\psi}}{Ker\rb{\psi} \cap Im\rb{\phi}} = \begin{cases} \cb{\mathcal{O}} & B' \in \rb{\Z^*}^2 \\ \cb{\mathcal{O}, T} & B' \notin \rb{\Z^*}^2 \end{cases}, $$
 so $ \abs{Ker\rb{\psi} : Ker\rb{\psi} \cap Im\rb{\phi}}\abs{E\rb{\Q}\sb{2}} = 4 $. Thus
 $$ 2^r = \dfrac{\abs{Im\rb{\alpha}}\abs{Im\rb{\alpha'}}}{\abs{Ker\rb{\psi} : Ker\rb{\psi} \cap Im\rb{\phi}}\abs{E\rb{\Q}\sb{2}}} = \tfrac{1}{4}\abs{Im\rb{\alpha}}\abs{Im\rb{\alpha'}}. $$
 \end{proof}
@@ -2232,7 +2232,7 @@ A simple observation picks out several possible concerns in the algorithm, most 
 Let $ N = 246082373 $. Then $ 2^{N - 1} \equiv 114193013 \ne 1 \mod N $, so Fermat's little theorem gives that $ N $ is composite. Now let $ B = 7 $ and $ l_B = \text{lcm}\rb{1, \dots, B} = 420 $, and let $ a = 2 $. Then $ a^{l_B} \equiv 60592910 \mod N $, so $ \gcd\rb{a^{l_B} - 1, N} = \gcd\rb{60592909, N} = 1 $. Hence choose $ B = 9 > 7 $ and $ l_B = \text{lcm}\rb{1, \dots, B} = 2520 $, and let $ a = 2 $. Then $ a^{l_B} \equiv 130940741 \mod N $, so $ \gcd\rb{a^{l_B} - 1, N} = \gcd\rb{130940740, N} = 2521 < N $. Thus $ 2521 \mid N $ and $ N = \rb{2521}\rb{97613} $, which are both prime.
 \end{example}
 
-A final serious concern would be overall efficiency of the algorithm that is only reasonable with the initial supposition that $ p - 1 $ is $ B $-power smooth, which may not always be the case, inevitably forcing large values of $ B $. Despite so, it may still be desirable to check the $ B $-power smoothness of $ p + 1 $, or even $ p \pm n $ for any small $ n \in \Z $, to see if the initially fixed $ B $ is sufficient to factorise $ N $. In this respect, Pollard's $ p - 1 $ algorithm has no way of allowing for other values of $ p \pm n $ due to the restriction given by Fermat's little theorem. Now \emph{Lenstra's elliptic curve factorisation method} takes this flaw into account by considering multiple random elliptic curves over finite fields. While the former considers the multiplicative group $ \Z_p^* $ of order $ \abs{\Z_p^*} = p - 1 $ and checks if $ a \in \Z_p^* $ satisfies $ a^{l_B} = 1 $, the latter considers the elliptic curve $ E\rb{\F_p} $ of order $ \abs{E\rb{\F_p}} = p - t + 1 $ and checks if $ P \in E\rb{\F_p} $ satisfies $ l_BP = O $. Hasse's theorem gives $ \abs{t} \le 2\sqrt{p} $, allowing $ \abs{E\rb{\F_p}} $ to vary wildly within this interval and hence removing the aforementioned defect. The algorithm is stated as follows.
+A final serious concern would be overall efficiency of the algorithm that is only reasonable with the initial supposition that $ p - 1 $ is $ B $-power smooth, which may not always be the case, inevitably forcing large values of $ B $. Despite so, it may still be desirable to check the $ B $-power smoothness of $ p + 1 $, or even $ p \pm n $ for any small $ n \in \Z $, to see if the initially fixed $ B $ is sufficient to factorise $ N $. In this respect, Pollard's $ p - 1 $ algorithm has no way of allowing for other values of $ p \pm n $ due to the restriction given by Fermat's little theorem. Now \emph{Lenstra's elliptic curve factorisation method} takes this flaw into account by considering multiple random elliptic curves over finite fields. While the former considers the multiplicative group $ \Z_p^* $ of order $ \abs{\Z_p^*} = p - 1 $ and checks if $ a \in \Z_p^* $ satisfies $ a^{l_B} = 1 $, the latter considers the elliptic curve $ E\rb{\F_p} $ of order $ \abs{E\rb{\F_p}} = p - t + 1 $ and checks if $ P \in E\rb{\F_p} $ satisfies $ l_BP = \mathcal{O} $. Hasse's theorem gives $ \abs{t} \le 2\sqrt{p} $, allowing $ \abs{E\rb{\F_p}} $ to vary wildly within this interval and hence removing the aforementioned defect. The algorithm is stated as follows.
 
 \begin{algorithm}[Lenstra's elliptic curve factorisation method]
 Input: an integer $ N \in \Z_{> 0} $. Output: a proper divisor of $ N $.
@@ -2245,7 +2245,7 @@ Input: an integer $ N \in \Z_{> 0} $. Output: a proper divisor of $ N $.
 \end{enumerate}
 \end{algorithm}
 
-A couple of remarks will be made on Lenstra's elliptic curve factorisation method, which has the first two steps markedly differently from Pollard's $ p - 1 $ method. The last three steps of the former mirror the latter, but it is worth noting that $ l_CP = O $ iff $ d = 0 $, which holds iff $ p \mid d $, or $ p \mid g_C = \gcd\rb{d, N} \mid N $. While it is possible to directly obtain a random elliptic curve $ E : y^2 = x^3 + Ax + B $ over $ \F_p $ by choosing some random $ A, B \in \Z $ and treating $ A, B $ as elements of $ \F_p $, obtaining a point in $ E $ afterwards will involve the laborious process of finding a modular square root, and so the above approach is taken. Moreover, to avoid having $ P $ be a torsion point and hence resulting in $ N \mid d $, a simple fix would be an additional condition to choose $ b^2 \nmid 4A^3 + 27\rb{A^3 + Aa} $ in this reverse approach, which by the contrapositive to the Nagell-Lutz theorem forces $ P $ to have infinite order. Again, computation of $ l_C $ will be done by successive duplication of points, but a concern arises from possibly having denominators $ d \in \Z_N $ being zero. Considering the cases when an inverse does not exist in $ \Z_N^* $, or when $ \gcd\rb{d, N} > 1 $, either $ \gcd\rb{d, N} = N $, for which it is sufficient to simply choose a different curve $ E $, or $ 1 < \gcd\rb{d, N} < N $, for which $ \gcd\rb{d, N} $ can be returned as a proper divisor of $ N $. In practice, the affine coordinates are computed modulo $ N $, catching a division by zero error only when the extended Euclidean algorithm fails to give a modular inverse, then computing $ g_C $ separately. With these remarks at hand, Lenstra's elliptic curve factorisation method can be illustrated with the following example involving a small $ N $, which again can actually be done instantly with a modern computer.
+A couple of remarks will be made on Lenstra's elliptic curve factorisation method, which has the first two steps markedly differently from Pollard's $ p - 1 $ method. The last three steps of the former mirror the latter, but it is worth noting that $ l_CP = \mathcal{O} $ iff $ d = 0 $, which holds iff $ p \mid d $, or $ p \mid g_C = \gcd\rb{d, N} \mid N $. While it is possible to directly obtain a random elliptic curve $ E : y^2 = x^3 + Ax + B $ over $ \F_p $ by choosing some random $ A, B \in \Z $ and treating $ A, B $ as elements of $ \F_p $, obtaining a point in $ E $ afterwards will involve the laborious process of finding a modular square root, and so the above approach is taken. Moreover, to avoid having $ P $ be a torsion point and hence resulting in $ N \mid d $, a simple fix would be an additional condition to choose $ b^2 \nmid 4A^3 + 27\rb{A^3 + Aa} $ in this reverse approach, which by the contrapositive to the Nagell-Lutz theorem forces $ P $ to have infinite order. Again, computation of $ l_C $ will be done by successive duplication of points, but a concern arises from possibly having denominators $ d \in \Z_N $ being zero. Considering the cases when an inverse does not exist in $ \Z_N^* $, or when $ \gcd\rb{d, N} > 1 $, either $ \gcd\rb{d, N} = N $, for which it is sufficient to simply choose a different curve $ E $, or $ 1 < \gcd\rb{d, N} < N $, for which $ \gcd\rb{d, N} $ can be returned as a proper divisor of $ N $. In practice, the affine coordinates are computed modulo $ N $, catching a division by zero error only when the extended Euclidean algorithm fails to give a modular inverse, then computing $ g_C $ separately. With these remarks at hand, Lenstra's elliptic curve factorisation method can be illustrated with the following example involving a small $ N $, which again can actually be done instantly with a modern computer.
 
 \begin{example}
 Let $ N = 1715761513 $. Then $ 2^{N - 1} \equiv 114094409 \ne 1 \mod N $, so Fermat's little theorem gives that $ N $ is composite. Let $ A = 1 $, $ a = 2 $, and $ b = 1 $, such that $ P = \rb{2, 1} $ and $ B = 1^2 - 2^3 - 1\rb{2} = -9 $. Then $ g = \gcd\rb{4A^3 + 27B^2, N} = 1 $, such that $ E : y^2 = x^3 + x - 9 $ is an elliptic curve over $ \Q $. Now let $ C = 17 $ and $ l_C = \text{lcm}\rb{1, \dots, C} = 12252240 $. Then $ l_CP = \rb{1225303014, 142796033} $, so $ \rb{d, N} = 1 $. Instead of choosing a larger $ C $, choose a different $ A \in \cb{2, \dots, N} $ and recompute. Then $ A = 42 $ eventually returns $ \rb{d, N} = 26927 $. Thus $ 26927 \mid N $ and $ N = \rb{26927}\rb{63719} $, which are both prime.
@@ -2289,12 +2289,12 @@ As for Lenstra's elliptic curve factorisation method, an elliptic curve analogue
 
 \begin{theorem}[Goldwasser-Kilian]
 Let $ E : y^2 = x^3 + Ax + B $ be an elliptic curve over $ \Q $ such that $ \gcd\rb{4A^3 + 27B^2, N} = 1 $, treated as over the ring $ \Z_N^* $, and let $ m \in \Z_{> 0} $ be such that $ m > \rb{\sqrt[4]{N} + 1}^2 $. Then $ N $ is prime if
-$$ mP_q = O, \qquad \dfrac{m}{q}P_q \ne O, \qquad P_q \in E\rb{\Q} \setminus \cb{O}, $$
+$$ mP_q = \mathcal{O}, \qquad \dfrac{m}{q}P_q \ne \mathcal{O}, \qquad P_q \in E\rb{\Q} \setminus \cb{\mathcal{O}}, $$
 for any distinct prime $ q \in \Z_{> 0} $ such that $ q \mid m $.
 \end{theorem}
 
 \begin{proof}
-Let $ p \in \Z_{> 0} $ be a prime such that $ p \mid N $, and let $ v = v_q\rb{m} $ be the $ q $-adic valuation of $ m $. Now let $ r_p : E\rb{\Q} \to E_p\rb{\F_p} $ be the reduction modulo $ p $ map, and let $ P_q' = \rb{m / q^v}r_p\rb{P_q} $. Then $ q^vP_q' = mr_p\rb{P_q} = O $ and $ q^{v - 1}P_q' = \rb{m / q}r_p\rb{P_q} \ne O $. Hence $ ord\rb{P_q'} = q^v $. Lagrange's theorem gives $ q^v \mid \abs{E_p\rb{\F_p}} $, so $ m \mid \abs{E_p\rb{\F_p}} $. Now Hasse's theorem gives
+Let $ p \in \Z_{> 0} $ be a prime such that $ p \mid N $, and let $ v = v_q\rb{m} $ be the $ q $-adic valuation of $ m $. Now let $ r_p : E\rb{\Q} \to E_p\rb{\F_p} $ be the reduction modulo $ p $ map, and let $ P_q' = \rb{m / q^v}r_p\rb{P_q} $. Then $ q^vP_q' = mr_p\rb{P_q} = \mathcal{O} $ and $ q^{v - 1}P_q' = \rb{m / q}r_p\rb{P_q} \ne \mathcal{O} $. Hence $ ord\rb{P_q'} = q^v $. Lagrange's theorem gives $ q^v \mid \abs{E_p\rb{\F_p}} $, so $ m \mid \abs{E_p\rb{\F_p}} $. Now Hasse's theorem gives
 $$ \rb{\sqrt[4]{N} + 1}^2 < m \le \abs{E_p\rb{\F_p}} \le p + 2\sqrt{p} + 1 = \rb{\sqrt{p} + 1}^2. $$
 Hence $ p > \sqrt{N} $. Thus $ p = N $ and $ N $ is prime.
 \end{proof}
@@ -2302,8 +2302,8 @@ Hence $ p > \sqrt{N} $. Thus $ p = N $ and $ N $ is prime.
 As for the Pocklington-Lehmer primality test, an appropriate primality certificate, possibly with the form of an ordered triple $ \rb{m, A, c} $ as in Theorem \ref{thm:pocklington}, where $ c $ is a list of ordered pairs $ \rb{q, P_q} $, will act as the output of a successful test. With all previous considerations, the Goldwasser-Kilian primality test can be illustrated with an even larger value of $ N $ in the following example.
 
 \begin{example}
-Let $ N = 9223372036854775907 $. Instead let $ A = -2 $, $ a = 2 $, and $ b = 0 $, such that $ P = \rb{2, 0} $ and $ B = 0^2 - 2^3 - -2\rb{-2} = -4 $. Then $ \gcd\rb{4A^3 + 27B^2, N} = 1 $, such that $ E : y^2 = x^3 - 2x - 4 $ is an elliptic curve over $ \Q $. Now let $ m = \rb{2}\rb{11}\rb{13}\rb{37}\rb{269}\rb{1327} = 3777382466 $ such that $ \rb{\sqrt[4]{N} + 1}^2 < 3037110719 < m $. Then $ ord\rb{P} = 2 $, so $ mP = O $, and
-$$ \dfrac{m}{2}P \ne O, \qquad \dfrac{m}{11}P \ne O, \qquad \dfrac{m}{13}P \ne O, \qquad \dfrac{m}{37}P \ne O, \qquad \dfrac{m}{269}P \ne O, \qquad \dfrac{m}{1327}P \ne O. $$
+Let $ N = 9223372036854775907 $. Instead let $ A = -2 $, $ a = 2 $, and $ b = 0 $, such that $ P = \rb{2, 0} $ and $ B = 0^2 - 2^3 - -2\rb{-2} = -4 $. Then $ \gcd\rb{4A^3 + 27B^2, N} = 1 $, such that $ E : y^2 = x^3 - 2x - 4 $ is an elliptic curve over $ \Q $. Now let $ m = \rb{2}\rb{11}\rb{13}\rb{37}\rb{269}\rb{1327} = 3777382466 $ such that $ \rb{\sqrt[4]{N} + 1}^2 < 3037110719 < m $. Then $ ord\rb{P} = 2 $, so $ mP = \mathcal{O} $, and
+$$ \dfrac{m}{2}P \ne \mathcal{O}, \qquad \dfrac{m}{11}P \ne \mathcal{O}, \qquad \dfrac{m}{13}P \ne \mathcal{O}, \qquad \dfrac{m}{37}P \ne \mathcal{O}, \qquad \dfrac{m}{269}P \ne \mathcal{O}, \qquad \dfrac{m}{1327}P \ne \mathcal{O}. $$
 Thus $ N $ is prime with primality certificate $ \rb{m, -2, \sb{\rb{2, P}, \rb{11, P}, \rb{13, P}, \rb{37, P}, \rb{269, P}, \rb{1327, P}}} $.
 \end{example}
 
@@ -2520,13 +2520,13 @@ An \textbf{algebraic closure} of $ F $ is an algebraically closed algebraic exte
 \end{definition}
 
 \begin{example}
-$ \bar{\R} = \C $ while $ \bar{\Q} $ is the field of algebraic numbers.
+$ \overline{\R} = \C $ while $ \overline{\Q} $ is the field of algebraic numbers.
 \end{example}
 
 The existence and uniqueness of algebraic closures can be proven from \emph{Zorn's Lemma}, which is equivalent to the \emph{Axiom of Choice}.
 
 \begin{proposition}
-An algebraic closure $ \bar{F} $ of $ F $ exists and is unique up to $ F $-isomorphism.
+An algebraic closure $ \overline{F} $ of $ F $ exists and is unique up to $ F $-isomorphism.
 \end{proposition}
 
 \begin{definition}[Splits]
@@ -2582,14 +2582,14 @@ $ F $ is \textbf{perfect} iff the algebraic closure of $ F $ is Galois.
 \end{definition}
 
 \begin{example}
-Examples of perfect fields include any field of characteristic zero including $ \Q $, $ \R $, and $ \C $, any finite field $ \F_{p^e} $, and any algebraically closed field including $ \bar{\Q} $. Examples of imperfect fields include the field of rational functions $ \F_p\rb{y} $ of any finite field $ \F_p $ since $ x^p - y \in \F_p\rb{y} $ is irreducible but inseparable.
+Examples of perfect fields include any field of characteristic zero including $ \Q $, $ \R $, and $ \C $, any finite field $ \F_{p^e} $, and any algebraically closed field including $ \overline{\Q} $. Examples of imperfect fields include the field of rational functions $ \F_p\rb{y} $ of any finite field $ \F_p $ since $ x^p - y \in \F_p\rb{y} $ is irreducible but inseparable.
 \end{example}
 
 \pagebreak
 
 \subsection{Algebraic varieties}
 
-Let $ F $ be a perfect field of $ char\rb{F} \notin \cb{2, 3} $ with algebraic closure $ K = \bar{F} $ and Galois group $ Gal_F\rb{K} $.
+Let $ F $ be a perfect field of $ char\rb{F} \notin \cb{2, 3} $ with algebraic closure $ K = \overline{F} $ and Galois group $ Gal_F\rb{K} $.
 
 \begin{definition}[Affine space]
 An \textbf{affine $ n $-space} over $ F $ is $ \A^n = K^n $.
@@ -2611,7 +2611,7 @@ $$ \P^n\rb{F} = \cb{\sb{p_0, \dots, p_n} \in \P^n \mid \forall p_j \ne 0, \ \for
 $ \A^n $ can be equipped with $ Gal_F\rb{K} $, such that $ \A^n\rb{F} = \cb{a \in \A^n \mid \forall \sigma \in Gal_F\rb{K}, \ \sigma\rb{a} = a} $. This holds similarly in $ \P^n $.
 
 \begin{example}
-$ \C^n $ is an affine $ n $-space over $ \R $, with $ \C^n\rb{\R} = \R $. $ \bar{\F}^n $ is a projective $ n $-space over $ \F^n $, with $ \bar{\F}^n\rb{\F^n} $ being the projective plane of order $ n $.
+$ \C^n $ is an affine $ n $-space over $ \R $, with $ \C^n\rb{\R} = \R $. $ \overline{\F}^n $ is a projective $ n $-space over $ \F^n $, with $ \overline{\F}^n\rb{\F^n} $ being the projective plane of order $ n $.
 \end{example}
 
 \begin{definition}[Homogeneous]
@@ -2707,7 +2707,7 @@ Thus $ \phi $ is an isomorphism and $ P \cong P' $.
 
 \subsection{Algebraic curves}
 
-Let $ F $ be a perfect field of $ char\rb{F} \notin \cb{2, 3} $ with algebraic closure $ K = \bar{F} $ and $ V $ be a projective algebraic variety of $ \P^n $ over $ F $.
+Let $ F $ be a perfect field of $ char\rb{F} \notin \cb{2, 3} $ with algebraic closure $ K = \overline{F} $ and $ V $ be a projective algebraic variety of $ \P^n $ over $ F $.
 
 \begin{definition}[Projective plane curve]
 $ V $ is a \textbf{projective plane curve} iff $ dim\rb{V} = 1 $ and $ n = 2 $.
@@ -2901,13 +2901,13 @@ L
 \end{align*}
 If $ P $ is not a flex, Bézout's theorem gives that $ L $ intersects $ E $ at three points up to multiplicity, so $ E \cap L = \cb{P, P'} $ for some other $ F $-rational point $ P' \in E $, and repeat inductively with $ P' $. This \emph{chord-tangent} method eventually terminates until $ P' $ is a flex, so assume without loss of generality that $ P $ is a flex. Now let $ Q \in L \setminus E $ be a point distinct to $ P $ and define a matrix
 $$ M = \three{Q}{P}{R}, \qquad R \in \cb{\sb{1, 0, 0}, \sb{0, 1, 0}, \sb{0, 0, 1}}. $$
-Since $ P $ and $ Q $ are linearly independent, at least one of these is invertible. Then transforming $ \sb{X, Y, Z} \mapsto M\sb{X, Y, Z}^T $ gives $ Q \mapsto \sb{1, 0, 0} $ and $ P \mapsto \sb{0, 1, 0} = O $, and the elliptic curve
+Since $ P $ and $ Q $ are linearly independent, at least one of these is invertible. Then transforming $ \sb{X, Y, Z} \mapsto M\sb{X, Y, Z}^T $ gives $ Q \mapsto \sb{1, 0, 0} $ and $ P \mapsto \sb{0, 1, 0} = \mathcal{O} $, and the elliptic curve
 $$ E' : f'\rb{X, Y, Z} = a_1'X^3 + a_2'X^2Y + a_3'XY^2 + a_4'Y^3 + a_5'X^2Z + a_6'XYZ + a_7'Y^2Z + a_8'XZ^2 + a_9'YZ^2 + a_{10}'Z^3 = 0. $$
-for some $ a_i' \in F $. Since $ O \in E' $, it holds that $ f'\rb{0, 1, 0} = a_4' = 0 $. Now the tangent at $ O $ is
-$$ L' : \two{1}{1, 0, 0}\val{\dfrac{\partial f'}{\partial X}}_OX + \two{1}{0, 1, 0}\val{\dfrac{\partial f'}{\partial Y}}_O\rb{Y - 1} + \two{1}{0, 0, 1}\val{\dfrac{\partial f'}{\partial Z}}_OZ = 0 : a_3'X + a_7'Z = 0. $$
+for some $ a_i' \in F $. Since $ \mathcal{O} \in E' $, it holds that $ f'\rb{0, 1, 0} = a_4' = 0 $. Now the tangent at $ \mathcal{O} $ is
+$$ L' : \two{1}{1, 0, 0}\val{\dfrac{\partial f'}{\partial X}}_\mathcal{O}X + \two{1}{0, 1, 0}\val{\dfrac{\partial f'}{\partial Y}}_\mathcal{O}\rb{Y - 1} + \two{1}{0, 0, 1}\val{\dfrac{\partial f'}{\partial Z}}_\mathcal{O}Z = 0 : a_3'X + a_7'Z = 0. $$
 Since $ L' : Z = 0 $, it holds that $ a_3' = 0 $ and $ a_7' \ne 0 $. Then $ L' $ intersects $ E' $ at
 $$ a_1'X^3 + a_2'X^2Y + a_5'X^2\rb{0} + a_6'XY\rb{0} + a_7'Y^2\rb{0} + a_8'X\rb{0}^2 + a_9'Y\rb{0}^2 + a_{10}'\rb{0}^3 = X^2\rb{a_1'X + a_2'Y} = 0. $$
-Since $ O $ is a flex, it holds that $ X = 0 $ is repeated three times, so $ a_1' \ne 0 $ and $ a_2' = 0 $. Hence
+Since $ \mathcal{O} $ is a flex, it holds that $ X = 0 $ is repeated three times, so $ a_1' \ne 0 $ and $ a_2' = 0 $. Hence
 \begin{align*}
 E'
 & : a_1'X^3 + a_5'X^2Z + a_6'XYZ + a_7'Y^2Z + a_8'XZ^2 + a_9'YZ^2 + a_{10}'Z^3 = 0 \\
@@ -2933,7 +2933,7 @@ which intersects $ E $ at
 $$ Y^2Z = \rb{aZ}^3 + A\rb{aZ}Z^2 + BZ^3 \qquad \implies \qquad Z\rb{a^3Z^2 + AaZ^2 + BZ^2 - Y^2} = 0. $$
 If $ Z \ne 0 $, then this can be dehomogenised into
 $$ y^2 = a^3 + Aa + B, $$
-which has trivial solutions opposite in sign, so $ b' = -b $. Thus $ Z = 0 $ and $ R = O $.
+which has trivial solutions opposite in sign, so $ b' = -b $. Thus $ Z = 0 $ and $ R = \mathcal{O} $.
 \item Assume that $ P = \rb{a, b} $ and $ Q = \rb{a', b'} $ for $ a \ne a' $, and let
 $$ \lambda = \dfrac{b - b'}{a - a'}, \qquad \mu = \dfrac{ab' - a'b}{a - a'}. $$
 Then the line joining $ P $ and $ Q $ is
@@ -2960,13 +2960,13 @@ $$ \lambda^2 = 2a + a', \qquad A - 2\lambda\mu = 2aa' + a^2, \qquad \mu^2 - B = 
 Thus $ R = \rb{\lambda^2 - 2a, \lambda\rb{\lambda^2 - 2a} + \mu} $.
 \item Assume that $ P = Q = \rb{a, 0} $. Then since $ a\rb{3a^2 + A} = 3\rb{a^3} + Aa = 3\rb{-Aa - B} + Aa = -2Aa - 3B $, the tangent at $ P $ is
 $$ L : \rb{-3a^2 - A}X + \rb{-2Aa - 3B}Z = 0 : X = aZ, $$
-which intersects $ E $ at $ \rb{a, 0} $, $ \rb{a, -0} = \rb{a, 0} $ and $ O $ by $ \rb{*}_1 $. Thus $ R = O $.
-\item Assume that $ P = \rb{a, b} $ and $ Q = O $. Then the line joining $ P $ and $ Q $ is
+which intersects $ E $ at $ \rb{a, 0} $, $ \rb{a, -0} = \rb{a, 0} $, and $ \mathcal{O} $ by $ \rb{*}_1 $. Thus $ R = \mathcal{O} $.
+\item Assume that $ P = \rb{a, b} $ and $ Q = \mathcal{O} $. Then the line joining $ P $ and $ Q $ is
 $$ L : -X + aZ = 0 : X = aZ, $$
-which intersects $ E $ at $ \rb{a, b} $, $ \rb{a, -b} $, and $ O $ by $ \rb{*}_1 $. Thus $ R = \rb{a, -b} $.
-\item Assume that $ P = Q = O $. Then the tangent at $ P $ is
+which intersects $ E $ at $ \rb{a, b} $, $ \rb{a, -b} $, and $ \mathcal{O} $ by $ \rb{*}_1 $. Thus $ R = \rb{a, -b} $.
+\item Assume that $ P = Q = \mathcal{O} $. Then the tangent at $ P $ is
 $$ L : Z = 0. $$
-Thus $ R = O $.
+Thus $ R = \mathcal{O} $.
 \end{enumerate}
 Similarly since $ + $ is symmetric, it is commutative, so only the following four cases need to be considered. If $ P = \rb{a, b} $ and $ Q = \rb{a', b'} $ for $ a \ne a' $, then $ \rb{*}_2 $ and $ \rb{*}_5 $ give
 \begin{align*}
@@ -2982,10 +2982,10 @@ P + Q
 & = \rb{\dfrac{a^4 - 2Aa^2 - 8Ba + A^2}{4b^2}, \dfrac{b^2 - 2Aa - 3B - \rb{\dfrac{a^4 - 2Aa^2 - 8Ba + A^2}{4b^2}}\rb{3a^2 + A}}{2b}} \\
 & = \rb{\dfrac{a^4 - 2Aa^2 - 8Ba + A^2}{4b^2}, \dfrac{a^6 + 5Aa^4 + 20Ba^3 - 5A^2a^2 - 4ABa - A^3 - 8B^2}{8b^3}}.
 \end{align*}
-If $ P = \rb{a, b} $ and $ Q = O $, then $ \rb{*}_5 $ gives
-$$ P + Q = \rb{\rb{a, b} * O} * O = \rb{a, -b} * O = \rb{a, b} = P. $$
-Otherwise $ P + Q = O $ or $ P = Q = O $, then $ \rb{*}_1 $, $ \rb{*}_4 $, and $ \rb{*}_6 $ give
-$$ P + Q = \rb{P * Q} * O = O * O = O. $$
+If $ P = \rb{a, b} $ and $ Q = \mathcal{O} $, then $ \rb{*}_5 $ gives
+$$ P + Q = \rb{\rb{a, b} * \mathcal{O}} * \mathcal{O} = \rb{a, -b} * \mathcal{O} = \rb{a, b} = P. $$
+Otherwise $ P + Q = \mathcal{O} $ or $ P = Q = \mathcal{O} $, then $ \rb{*}_1 $, $ \rb{*}_4 $, and $ \rb{*}_6 $ give
+$$ P + Q = \rb{P * Q} * \mathcal{O} = \mathcal{O} * \mathcal{O} = \mathcal{O}. $$
 Thus the explicit formulae hold.
 
 \pagebreak
