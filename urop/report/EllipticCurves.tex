@@ -28,12 +28,16 @@
 \newcommand{\cb}[1]{\left\{ #1 \right\}}
 \newcommand{\ab}[1]{\left\langle #1 \right\rangle}
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
-\newcommand{\two}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
-\newcommand{\three}[3]{\begin{pmatrix} #1 & #2 & #3 \end{pmatrix}}
 
-\theoremstyle{definition}\newtheorem*{definition}{Definition}
-\theoremstyle{definition}\newtheorem*{example}{Example}
-\theoremstyle{definition}\newtheorem*{remark}{Remark}
+\newcommand{\twobyone}[2]{\begin{pmatrix} #1 \\ #2 \end{pmatrix}}
+\newcommand{\onebythree}[3]{\begin{pmatrix} #1 & #2 & #3 \end{pmatrix}}
+\newcommand{\threebyone}[3]{\begin{pmatrix} #1 \\ #2 \\ #3 \end{pmatrix}}
+\newcommand{\threebythree}[9]{\begin{pmatrix} #1 & #2 & #3 \\ #4 & #5 & #6 \\ #7 & #8 & #9 \end{pmatrix}}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{remark}{Remark}
 \newtheorem{proposition}{Proposition}[subsection]
 \newtheorem{lemma}[proposition]{Lemma}
 \newtheorem{theorem}[proposition]{Theorem}
@@ -169,13 +173,13 @@ A \textbf{Weierstrass curve} is a projective plane curve $ W $ over $ F $ \emph{
 $$ W : w\rb{x, y} = 0 : y^2 + a_1xy + a_3y = x^3 + a_2x^2 + a_4x + a_6, \qquad a_i \in F, $$
 with associated quantities:
 $$ b_2 = a_1^2 + 4a_2, \qquad b_4 = a_1a_3 + 2a_4, \qquad b_6 = a_3^2 + 4a_6, \qquad b_8 = a_1^2a_6 + 4a_2a_6 - a_1a_3a_4 + a_2a_3^2 - a_4^2, $$
-$$ c_4 = b_2^2 - 24b_4 , \qquad c_6 = 36b_2b_4 - b_2^3 - 216b_6, \qquad \Delta_W = 9b_2b_4b_6 - b_2^2b_8 - 8b_4^3 - 27b_6^2, \qquad j_W = c_4^3 / \Delta_W. $$
+$$ c_4 = b_2^2 - 24b_4, \qquad c_6 = 36b_2b_4 - b_2^3 - 216b_6, \qquad \Delta_W = 9b_2b_4b_6 - b_2^2b_8 - 8b_4^3 - 27b_6^2, \qquad j_W = c_4^3 / \Delta_W. $$
 \end{definition}
 
 It holds that $ 4b_8 = b_2b_6 - b_4^2 $ and $ 1728\Delta_W = c_4^3 - c_6^2 $. It can be easily verified that Weierstrass curves, with the additional condition of smoothness, would almost satisfy Proposition \ref{prop:appendices}. The only remaining requirement is having an additional base point in its definition, which can be easily fixed as follows.
 
 \begin{definition}[Point at infinity]
-The \textbf{point at infinity} of is the point $ \mathcal{O} = \sb{0, 1, 0} $.
+The \textbf{point at infinity} of $ E $ is the point $ \mathcal{O} = \sb{0, 1, 0} $.
 \end{definition}
 
 In contrast to general projective geometry, the \emph{line at infinity} $ L : l\rb{X, Y, Z} = Z = 0 $ intersects a Weierstrass curve only at $ \mathcal{O} $, where $ X = Z = 0 $ and $ Y \ne 0 $. As such, any other point would have $ Z \ne 0 $ and can be treated as an affine point $ \rb{a, b} $. Now since $ 0, 1 \in F $, the point $ \mathcal{O} $ is actually an $ F $-rational point, and can be paired with a smooth Weierstrass curve $ W $ to give an elliptic curve $ \rb{W, \mathcal{O}} $. Conversely, any elliptic curve can also be explicitly given by a smooth Weierstrass curve through an isomorphism as follows.
@@ -195,7 +199,7 @@ Input: a cubic curve $ E $ over $ F $ with an $ F $-rational flex point $ P \in 
 \begin{enumerate}
 \item Get the unique tangent line $ L $ at $ P $.
 \item Find the intersection $ L \cap E $ to get a point $ Q \in L \setminus E $ distinct to $ P $.
-\item Write down an invertible matrix $ M = \begin{pmatrix} Q & P & R \end{pmatrix} $, where $ R \in \cb{\sb{1, 0, 0}, \sb{0, 1, 0}, \sb{0, 0, 1}} $.
+\item Write down an invertible matrix $ M = \onebythree{Q}{P}{R} $, where $ R \in \cb{\sb{1, 0, 0}, \sb{0, 1, 0}, \sb{0, 0, 1}} $.
 \item Transform $ \sb{X, Y, Z} \mapsto M\sb{X, Y, Z}^T $ to get a scaled Weierstrass equation.
 \item Rescale $ \sb{X, Y, Z} \mapsto \sb{X, Y, cZ} $ for some $ c \in K^* $ to get a Weierstrass equation.
 \end{enumerate}
@@ -205,9 +209,9 @@ The following example illustrates an implementation of the algorithm.
 
 \begin{example}
 Let $ E : e\rb{X, Y, Z} = 0 : X^3 + Y^3 = Z^3 $ be a smooth projective plane cubic curve over $ \R $ with an $ \R $-rational flex $ P = \sb{1, -1, 0} \in E $. Then the unique tangent at $ P $ is
-$$ L : \two{1}{1, 0, 0}\val{\dfrac{\partial e}{\partial X}}_P\rb{X - 1} + \two{1}{0, 1, 0}\val{\dfrac{\partial e}{\partial Y}}_P\rb{Y + 1} + \two{1}{0, 0, 1}\val{\dfrac{\partial e}{\partial Z}}_PZ = 3\rb{X + Y} = 0, $$
+$$ L : \twobyone{1}{1, 0, 0}\val{\dfrac{\partial e}{\partial X}}_P\rb{X - 1} + \twobyone{1}{0, 1, 0}\val{\dfrac{\partial e}{\partial Y}}_P\rb{Y + 1} + \twobyone{1}{0, 0, 1}\val{\dfrac{\partial e}{\partial Z}}_PZ = 3\rb{X + Y} = 0, $$
 which intersects $ E $ at $ X^3 + \rb{-X}^3 + Z^3 = 0 $, or $ Z = 0 $. Hence $ L \cap E = \cb{P} $ and let $ Q = \sb{1, -1, 1} \in L \setminus E $. Then there is an invertible affine transformation matrix
-$$ M = \begin{pmatrix} 1 & 1 & 1 \\ -1 & -1 & 0 \\ 1 & 0 & 0 \end{pmatrix} \qquad \implies \qquad M^{-1} = \begin{pmatrix} 0 & 0 & 1 \\ 0 & -1 & -1 \\ 1 & 1 & 0 \end{pmatrix}. $$
+$$ M = \threebythree{1}{1}{1}{-1}{-1}{0}{1}{0}{0} \qquad \implies \qquad M^{-1} = \threebythree{0}{0}{1}{0}{-1}{-1}{1}{1}{0}. $$
 such that the affine transformation $ \sb{X, Y, Z} \mapsto M\sb{X, Y, Z}^{T} $ gives
 $$ \rb{X + Y + Z}^3 + \rb{-X - Y}^3 = X^3 \qquad \implies 3Y^2Z + 6XYZ + 3YZ^2 = X^3 - 3X^2Z - 3XZ^2 - Z^3. $$
 Thus the affine transformation $ \sb{X, Y, Z} \mapsto \sb{X, Y, \tfrac{1}{3}Z} $ gives a Weierstrass curve
@@ -365,10 +369,10 @@ $$ L : \rb{-3a^2 - Ac^2}X + 2bcY + \rb{b^2 - 2Aac - 3Bc^2}Z = 0, $$
 Let $ L : l\rb{X, Y, Z} = 0 $.
 \begin{enumerate}
 \item If $ P \ne Q $, then
-$$ l\rb{X, Y, Z} = \three{X}{Y}{Z} \cdot \rb{\three{a}{b}{c} \times \three{a'}{b'}{c'}}. $$
+$$ l\rb{X, Y, Z} = \threebyone{X}{Y}{Z} \cdot \rb{\threebyone{a}{b}{c} \times \threebyone{a'}{b'}{c'}}. $$
 \item If $ P = Q $, then
-$$ l\rb{X, Y, Z} = \two{1}{1, 0, 0}\val{\dfrac{\partial e}{\partial X}}_P\rb{X - a} + \two{1}{0, 1, 0}\val{\dfrac{\partial e}{\partial Y}}_P\rb{Y - b} + \two{1}{0, 0, 1}\val{\dfrac{\partial e}{\partial Z}}_P\rb{Z - c}. $$
-\item Since $ \deg\rb{l} = 1 $ and $ \deg\rb{\gcd\rb{e, l}} = 0 $, Bézout's theorem gives that $ L $ intersects $ E $ at three points up to multiplicity. Assume that $ P = \sb{a, b, c} \ne Q = \sb{a', b', c'} $. If $ I_P\rb{e, l} = 1 $ and $ I_Q\rb{e, l} = 1 $, then there is a unique third point $ R \in E $ such that $ R \ne P, Q $ and $ I_R\rb{e, l} = 1 $. Otherwise $ I_P\rb{e, l} = 2 $ or $ I_Q\rb{e, l} = 2 $, then there is also a unique third point $ R = P $ or $ R = Q $ respectively. Otherwise assume that $ P = Q = \sb{a, b, c} $. Since $ \cb{l} = T_P\rb{l} \in T_P\rb{e} $, it holds that $ I_P\rb{e, l} > m_P\rb{e}m_P\rb{l} = 1 $. If $ I_P\rb{e, l} = 2 $, then there is a unique third point $ R \in E $ such that $ R \ne P $ and $ I_R\rb{e, l} = 1 $. Otherwise $ I_P\rb{e, l} = 3 $, then there is also a unique third point $ R = P $.
+$$ l\rb{X, Y, Z} = \twobyone{1}{1, 0, 0}\val{\dfrac{\partial e}{\partial X}}_P\rb{X - a} + \twobyone{1}{0, 1, 0}\val{\dfrac{\partial e}{\partial Y}}_P\rb{Y - b} + \twobyone{1}{0, 0, 1}\val{\dfrac{\partial e}{\partial Z}}_P\rb{Z - c}. $$
+\item Since $ \deg\rb{l} = 1 $ and $ \deg\rb{\gcd\rb{e, l}} = 0 $, B\'ezout's theorem gives that $ L $ intersects $ E $ at three points up to multiplicity. Assume that $ P = \sb{a, b, c} \ne Q = \sb{a', b', c'} $. If $ I_P\rb{e, l} = 1 $ and $ I_Q\rb{e, l} = 1 $, then there is a unique third point $ R \in E $ such that $ R \ne P, Q $ and $ I_R\rb{e, l} = 1 $. Otherwise $ I_P\rb{e, l} = 2 $ or $ I_Q\rb{e, l} = 2 $, then there is also a unique third point $ R = P $ or $ R = Q $ respectively. Otherwise assume that $ P = Q = \sb{a, b, c} $. Since $ \cb{l} = T_P\rb{l} \in T_P\rb{e} $, it holds that $ I_P\rb{e, l} > m_P\rb{e}m_P\rb{l} = 1 $. If $ I_P\rb{e, l} = 2 $, then there is a unique third point $ R \in E $ such that $ R \ne P $ and $ I_R\rb{e, l} = 1 $. Otherwise $ I_P\rb{e, l} = 3 $, then there is also a unique third point $ R = P $.
 \end{enumerate}
 \end{proof}
 
@@ -437,7 +441,7 @@ assuming that these points are pairwise distinct except for $ -\rb{\rb{P + Q} + 
 $$ C_1 : \rb{l_1l_4l_5}\rb{X, Y, Z} = 0, \qquad C_2 : \rb{l_2l_3l_6}\rb{X, Y, Z} = 0, $$
 be cubics such that
 $$ I = \cb{\mathcal{O}, P, Q, R, P + Q, Q + R, -\rb{P + Q}, -\rb{Q + R}} \subseteq C_1 \cap C_2. $$
-Then Bézout's theorem gives that $ E $, $ C_1 $, and $ C_2 $ pairwise intersect at nine points up to multiplicity. Hence
+Then B\'ezout's theorem gives that $ E $, $ C_1 $, and $ C_2 $ pairwise intersect at nine points up to multiplicity. Hence
 $$ E \cap C_1 = I \cup \cb{-\rb{\rb{P + Q} + R}}, \qquad E \cap C_2 = I \cup \cb{-\rb{P + \rb{Q + R}}}, \qquad C_1 \cap C_2 = I \cup \cb{S}, $$
 for some ninth point $ S \in C_1 \cap C_2 $. Since $ I \subseteq E $, the Cayley-Bacharach theorem gives $ S \in E $, so
 $$ -\rb{\rb{P + Q} + R} = S = -\rb{P + \rb{Q + R}}. $$
@@ -1084,7 +1088,7 @@ Let $ n_1, \dots, n_k \in \Z_{> 1} $ be pairwise coprime with product $ N \in \Z
 \end{theorem}
 
 \begin{proof}
-Let $ k = 2 $. Bézout's identity gives $ m_1n_1 + m_2n_2 = 1 $ for some $ m_i \in \Z $. Let $ t' = t_2m_1n_1 + t_1m_2n_2 $, so
+Let $ k = 2 $. B\'ezout's identity gives $ m_1n_1 + m_2n_2 = 1 $ for some $ m_i \in \Z $. Let $ t' = t_2m_1n_1 + t_1m_2n_2 $, so
 $$ t' = \rb{t_2 - t_1}m_1n_1 + t_1\rb{m_1n_1 + m_2n_2} \equiv t_1 \mod n_1, $$
 $$ t' = t_2\rb{m_1n_1 + m_2n_2} - \rb{t_2 - t_1}m_2n_2 \equiv t_2 \mod n_2. $$
 If $ t'' \in \Z $ is such that $ t'' \equiv t_1 \mod n_1 $ and $ t'' \equiv t_2 \mod n_2 $, then $ t' \equiv t'' \mod n_1 $ and $ t' \equiv t'' \mod n_2 $, so $ n_1 \mid t' - t'' $ and $ n_2 \mid t' - t'' $. Then $ N = n_1n_2 \mid t' - t'' $, so $ t' \equiv t'' \mod N $ and $ t' $ is unique up to congruences. Hence division gives a unique $ t \in \Z_{\ge 0} $ such that $ t < N $ and $ t \equiv t' \mod N $. Now let $ k \in \Z_{\ge 2} $ with product $ N_k \in \Z_{> 0} $ and assume that there is a unique $ t' \in \Z_{\ge 0} $ such that $ t' < N_k $ and each $ t' \equiv t_i \mod n_i $. Since $ N_k $ and $ n_{k + 1} $ are coprime, the case $ k = 2 $ gives a unique $ t \in \Z_{\ge 0} $ such that $ t < N_kn_{k + 1} $, and $ t \equiv t' \mod N_k $ and $ t \equiv t_{k + 1} \mod n_{k + 1} $. Thus the unique $ t \in \Z_{\ge 0} $ holds by induction.
@@ -1094,12 +1098,12 @@ If $ t'' \in \Z $ is such that $ t'' \equiv t_1 \mod n_1 $ and $ t'' \equiv t_2 
 The Chinese remainder theorem can be generalised to ideals $ I_i $ of arbitrary commutative unital rings $ R $, replacing the coprime condition with $ I_n + I_m = R $ for all $ n, m \in \Z $ and modulo with respect to $ I_i $.
 \end{remark}
 
-A general process for computing this unique $ t \in \Z_{\ge 0} $ can be inferred directly from the proof of the Chinese remainder theorem, using the extended Euclidean algorithm for Bézout's identity, illustrated as follows.
+A general process for computing this unique $ t \in \Z_{\ge 0} $ can be inferred directly from the proof of the Chinese remainder theorem, using the extended Euclidean algorithm for B\'ezout's identity, illustrated as follows.
 
 \begin{example}
 Let
 $$ t \equiv 1 \mod 2, \qquad t \equiv 2 \mod 3, \qquad t \equiv 3 \mod 5 $$
-be a system of congruences for $ t \in \Z_{\ge 0} $. Bézout's identity gives $ \rb{-1}\rb{2} + \rb{1}\rb{3} = 1 $, so let $ t' = 2\rb{-1}\rb{2} + 1\rb{1}\rb{3} = -1 $ be such that $ t' \equiv 1 \mod 2 $ and $ t' \equiv 2 \mod 3 $. Hence division gives $ t'' = 1\rb{6} + \rb{-1} = 5 < 6 $ such that $ t'' \equiv t' \mod 6 $. Similarly Bézout's identity gives $ \rb{1}\rb{6} + \rb{-1}\rb{5} = 1 $, so let $ t''' = 3\rb{1}\rb{6} + 5\rb{-1}\rb{5} = -7 $ be such that $ t''' \equiv 5 \mod 6 $ and $ t''' \equiv 3 \mod 5 $. Thus division gives $ t = 1\rb{30} + \rb{-7} = 23 < 30 $ such that $ t \equiv t''' \mod 30 $ similarly.
+be a system of congruences for $ t \in \Z_{\ge 0} $. B\'ezout's identity gives $ \rb{-1}\rb{2} + \rb{1}\rb{3} = 1 $, so let $ t' = 2\rb{-1}\rb{2} + 1\rb{1}\rb{3} = -1 $ be such that $ t' \equiv 1 \mod 2 $ and $ t' \equiv 2 \mod 3 $. Hence division gives $ t'' = 1\rb{6} + \rb{-1} = 5 < 6 $ such that $ t'' \equiv t' \mod 6 $. Similarly B\'ezout's identity gives $ \rb{1}\rb{6} + \rb{-1}\rb{5} = 1 $, so let $ t''' = 3\rb{1}\rb{6} + 5\rb{-1}\rb{5} = -7 $ be such that $ t''' \equiv 5 \mod 6 $ and $ t''' \equiv 3 \mod 5 $. Thus division gives $ t = 1\rb{30} + \rb{-7} = 23 < 30 $ such that $ t \equiv t''' \mod 30 $ similarly.
 \end{example}
 
 For the rest of this section, let $ S $ be as in the first step of Schoof's algorithm and $ n \in S $ be a prime. Now invoking the Chinese remainder theorem on the system of congruences $ t' \equiv t \mod n $ generated by the second step gives a unique $ t'' \in \Z_{\ge 0} $ such that $ t'' < N $ and $ t'' \equiv t' \mod N $, as in the third step. The fourth step then ensures this $ t'' $ falls within the required bound using careful Euclidean division to give the trace $ t \in \Z $, of which the first step has made possible by forcing $ S $ to span the entire interval over which it could lie in. The fifth step is merely a simple application of Hasse's theorem. It only remains to understand the second step of Schoof's algorithm. This uses the properties of a general system of polynomials allowing for recursive operations, given in the following definition.
@@ -1621,7 +1625,7 @@ with coefficients in $ \F_p $ is well-defined. Now let $ P = \sb{a, b, c} $. The
 $$ la + mb + nc = 0 \qquad \implies \qquad \tilde{l}\tilde{a} + \tilde{m}\tilde{b} + \tilde{n}\tilde{c} = 0, $$
 so $ r_p\rb{P} = \rb{\tilde{a}, \tilde{b}, \tilde{c}} \in E_p\rb{\F_p} \cap L_p $. Similarly $ r_p\rb{Q} \in E_p\rb{\F_p} \cap L_p $. Since $ r_p\rb{-\mathcal{O}} = r_p\rb{\mathcal{O}} = -r_p\rb{\mathcal{O}} $ and
 $$ r_p\rb{-\rb{a, b}} = r_p\rb{\rb{a, -b}} = \rb{\tilde{a}, \tilde{-b}} = \rb{\tilde{a}, -\tilde{b}} = -\rb{\tilde{a}, \tilde{b}} = -r_p\rb{\rb{a, b}} $$
-for any point $ \rb{a, b} \in E\rb{\Q} $, similarly $ -r_p\rb{P + Q} = r_p\rb{-\rb{P + Q}} \in E_p\rb{\F_p} \cap L_p $. Since $ \gcd\rb{e_p, l_p} = 1 $ where $ e_p\rb{x, y} $ is the Weierstrass equation of $ E_p $, Bézout's theorem gives that $ L_p $ intersects $ E_p\rb{\F_p} $ at three points up to multiplicity, so
+for any point $ \rb{a, b} \in E\rb{\Q} $, similarly $ -r_p\rb{P + Q} = r_p\rb{-\rb{P + Q}} \in E_p\rb{\F_p} \cap L_p $. Since $ \gcd\rb{e_p, l_p} = 1 $ where $ e_p\rb{x, y} $ is the Weierstrass equation of $ E_p $, B\'ezout's theorem gives that $ L_p $ intersects $ E_p\rb{\F_p} $ at three points up to multiplicity, so
 $$ E_p\rb{\F_p} \cap L_p = \cb{r_p\rb{P}, r_p\rb{Q}, -r_p\rb{P + Q}}. $$
 Hence $ r_p\rb{P} + r_p\rb{Q} = r_p\rb{P + Q} $. Now let $ R = \rb{a, b} \in E\rb{\Q} $ be a point. Then $ a = q / d^2 $ and $ b = r / d^3 $ for some $ q, r \in \Z $ and some $ d \in \Z_{> 0} $ such that $ \gcd\rb{q, d} = \gcd\rb{r, d} = 1 $. Since $ R = \sb{qd, r, d^3} $ has normalised coordinates, it holds that $ r_p\rb{R} = \sb{\tilde{q}\tilde{d}, \tilde{r}, \tilde{d}^3} \in E_p\rb{\F_p} $. Then $ R \in Ker\rb{r_p} $ iff $ \tilde{d}^3 = 0 $, or $ p \mid d $. This holds iff $ v_p\rb{a} \le -2 $ and $ v_p\rb{b} \le -3 $, or $ R \in E\rb{p} $. Thus $ Ker\rb{r_p} = E\rb{p} $.
 \end{proof}
@@ -2621,7 +2625,7 @@ A polynomial $ f \in K\sb{x_0, \dots, x_n} $ is \textbf{homogeneous} of degree $
 A homogeneous polynomial $ f^* \in K\sb{x_0, \dots, x_n} $ can be \emph{dehomogenised} into $ f \in K\sb{x_1, \dots, x_n} $ by
 $$ f\rb{x_1, \dots, x_n} = f^*\rb{1, x_1, \dots, x_n}, $$
 while a non-homogeneous polynomial $ g \in K\sb{x_1, \dots, x_n} $ can be \emph{homogenised} into $ g^* \in K\sb{x_0, \dots, x_n} $ by
-$$ f^*\rb{x_0, \dots, x_n} = x_0^d f\rb{x_1 / x_0, \dots, x_n / x_0}. $$
+$$ g^*\rb{x_0, \dots, x_n} = x_0^d g\rb{x_1 / x_0, \dots, x_n / x_0}. $$
 
 \begin{example}
 $ z^3 + wxy + 7w^3 \in \C\sb{w, x, y, z} $ is homogeneous, which can be dehomogenised to $ z^3 + xy + 7 \in \C\sb{x, y, z} $. Conversely $ x^3 + 3x^2y + z^7 \in \C\sb{x, y, z} $ is non-homogeneous, which can be homogenised to $ w^4x^3 + 3w^4x^2y + z^7 \in \C\sb{w, x, y, z} $. Thus $ \ab{z^3 + wxy + 7w^3, w^4x^3 + 3w^4x^2y + z^7} \subseteq \C\sb{w, x, y, z} $ is a homogeneous ideal.
@@ -2663,7 +2667,7 @@ A point $ a \in A $ is \textbf{singular} iff the Jacobian $ m \times n $ matrix 
 
 \begin{example}
 Let $ A\rb{x - y} $ be an affine algebraic variety of $ \C^3 $ over $ \R $. Then $ dim\rb{A\rb{x - y}} = 2 $, so a point $ a = \rb{x, y, z} \in A\rb{x - y} $ is singular iff $ rk\rb{\val{J}_a} < 3 - 2 = 1 $, or
-$$ 0 = rk\rb{\val{J}_a} = rk \begin{pmatrix} \val{\dfrac{\partial \rb{x - y}}{\partial x}}_a & \val{\dfrac{\partial \rb{x - y}}{\partial y}}_a & \val{\dfrac{\partial \rb{x - y}}{\partial z}}_a \end{pmatrix} = rk \begin{pmatrix} 1 & -1 & 0 \end{pmatrix} = 1. $$
+$$ 0 = rk\rb{\val{J}_a} = rk\onebythree{\val{\dfrac{\partial \rb{x - y}}{\partial x}}_a}{\val{\dfrac{\partial \rb{x - y}}{\partial y}}_a}{\val{\dfrac{\partial \rb{x - y}}{\partial z}}_a} = rk\onebythree{1}{-1}{0} = 1. $$
 Thus there are no singular points and $ A\rb{x - y} $ is smooth.
 \end{example}
 
@@ -2731,14 +2735,14 @@ Thus the multiplicity of $ C $ at $ P $ is $ m_P\rb{f} = 3 $ and $ P $ is singul
 
 \begin{definition}[Tangent]
 The \textbf{tangents} $ T_P\rb{f} $ of $ C $ at $ P = \sb{a, b, c} $ with multiplicity $ m = m_P\rb{f} $ are the irreducible factors of the polynomial
-$$ t_P\rb{f}\rb{X, Y, Z} = \sum_{i + j + k = m} \two{m}{i, j, k} \val{\dfrac{\partial^m f}{\partial X^i \partial Y^j \partial Z^k}}_P \rb{X - a}^i \rb{Y - b}^j \rb{Z - c}^k. $$
+$$ t_P\rb{f}\rb{X, Y, Z} = \sum_{i + j + k = m} \twobyone{m}{i, j, k} \val{\dfrac{\partial^m f}{\partial X^i \partial Y^j \partial Z^k}}_P \rb{X - a}^i \rb{Y - b}^j \rb{Z - c}^k. $$
 \end{definition}
 
 \begin{example}
 Let $ f\rb{X, Y, Z} = f\rb{x, y} = \rb{x^2 + y^2}^2 + 3x^2y - y^3 $ with $ P = \sb{0, 0, 1} = \rb{0, 0} $ and $ m = m_P\rb{f} = 3 $. Then
 \begin{align*}
 t_P\rb{f}\rb{X, Y, Z} = t_P\rb{f}\rb{x, y}
-& = \two{3}{0}\val{\dfrac{\partial^3 f}{\partial x^3}}_Px^3 + \two{3}{1}\val{\dfrac{\partial^3 f}{\partial x^2 \partial y}}_Px^2y + \two{3}{2}\val{\dfrac{\partial^3 f}{\partial x \partial y^2}}_Pxy^2 + \two{3}{3}\val{\dfrac{\partial^3 f}{\partial y^3}}_Py^3 \\
+& = \twobyone{3}{0}\val{\dfrac{\partial^3 f}{\partial x^3}}_Px^3 + \twobyone{3}{1}\val{\dfrac{\partial^3 f}{\partial x^2 \partial y}}_Px^2y + \twobyone{3}{2}\val{\dfrac{\partial^3 f}{\partial x \partial y^2}}_Pxy^2 + \twobyone{3}{3}\val{\dfrac{\partial^3 f}{\partial y^3}}_Py^3 \\
 & = 18x^2y - 6y^3 = 6y\rb{\sqrt{3}x - y}\rb{\sqrt{3}x + y}.
 \end{align*}
 Thus the tangents of $ C $ at $ P $ are $ T_P\rb{f} = \cb{y, \sqrt{3}x - y, \sqrt{3}x + y} $.
@@ -2791,7 +2795,7 @@ Thus $ P $ is a flex.
 
 The following follows from the fundamental theorem of algebra on the \emph{resultant} of $ f $ and $ g $.
 
-\begin{theorem}[Bézout]
+\begin{theorem}[B\'ezout]
 $ C $ intersects $ C' $ at $ \rb{\deg\rb{f}}\rb{\deg\rb{g}} $ points \emph{up to multiplicity}, so
 $$ \sum_{P \in C \cap C'} I_P\rb{f, g} = \rb{\deg\rb{f}}\rb{\deg\rb{g}}. $$
 \end{theorem}
@@ -2894,17 +2898,17 @@ $$ E : f\rb{X, Y, Z} = a_1X^3 + a_2X^2Y + a_3XY^2 + a_4Y^3 + a_5X^2Z + a_6XYZ + 
 for some $ a_i \in F $ be an elliptic curve over a perfect field $ F $, and let $ P = \sb{a, b, c} \in E $ be an $ F $-rational point. Then the unique tangent at $ P $ is
 \begin{align*}
 L
-: & \two{1}{1, 0, 0}\val{\dfrac{\partial f}{\partial X}}_P\rb{X - a} + \two{1}{0, 1, 0}\val{\dfrac{\partial f}{\partial Y}}_P\rb{Y - b} + \two{1}{0, 0, 1}\val{\dfrac{\partial f}{\partial Z}}_P\rb{Z - c} = 0 \\
+: & \twobyone{1}{1, 0, 0}\val{\dfrac{\partial f}{\partial X}}_P\rb{X - a} + \twobyone{1}{0, 1, 0}\val{\dfrac{\partial f}{\partial Y}}_P\rb{Y - b} + \twobyone{1}{0, 0, 1}\val{\dfrac{\partial f}{\partial Z}}_P\rb{Z - c} = 0 \\
 : & \rb{3a_1a^2 + 2a_2ab + a_3b^2 + 2a_5ac + a_6bc + a_8c^2}\rb{X - a} \\
 & + \rb{a_2a^2 + 2a_3ab + 3a_4b^2 + a_6ac + 2a_7bc + a_9c^2}\rb{Y - b} \\
 & + \rb{a_5a^2 + a_6ab + a_7b^2 + 2a_8ac + 2a_9bc + 3a_{10}c^2}\rb{Z - c} = 0.
 \end{align*}
-If $ P $ is not a flex, Bézout's theorem gives that $ L $ intersects $ E $ at three points up to multiplicity, so $ E \cap L = \cb{P, P'} $ for some other $ F $-rational point $ P' \in E $, and repeat inductively with $ P' $. This \emph{chord-tangent} method eventually terminates until $ P' $ is a flex, so assume without loss of generality that $ P $ is a flex. Now let $ Q \in L \setminus E $ be a point distinct to $ P $ and define a matrix
-$$ M = \three{Q}{P}{R}, \qquad R \in \cb{\sb{1, 0, 0}, \sb{0, 1, 0}, \sb{0, 0, 1}}. $$
+If $ P $ is not a flex, B\'ezout's theorem gives that $ L $ intersects $ E $ at three points up to multiplicity, so $ E \cap L = \cb{P, P'} $ for some other $ F $-rational point $ P' \in E $, and repeat inductively with $ P' $. This \emph{chord-tangent} method eventually terminates until $ P' $ is a flex, so assume without loss of generality that $ P $ is a flex. Now let $ Q \in L \setminus E $ be a point distinct to $ P $ and define a matrix
+$$ M = \onebythree{Q}{P}{R}, \qquad R \in \cb{\sb{1, 0, 0}^T, \sb{0, 1, 0}^T, \sb{0, 0, 1}^T}. $$
 Since $ P $ and $ Q $ are linearly independent, at least one of these is invertible. Then transforming $ \sb{X, Y, Z} \mapsto M\sb{X, Y, Z}^T $ gives $ Q \mapsto \sb{1, 0, 0} $ and $ P \mapsto \sb{0, 1, 0} = \mathcal{O} $, and the elliptic curve
 $$ E' : f'\rb{X, Y, Z} = a_1'X^3 + a_2'X^2Y + a_3'XY^2 + a_4'Y^3 + a_5'X^2Z + a_6'XYZ + a_7'Y^2Z + a_8'XZ^2 + a_9'YZ^2 + a_{10}'Z^3 = 0. $$
 for some $ a_i' \in F $. Since $ \mathcal{O} \in E' $, it holds that $ f'\rb{0, 1, 0} = a_4' = 0 $. Now the tangent at $ \mathcal{O} $ is
-$$ L' : \two{1}{1, 0, 0}\val{\dfrac{\partial f'}{\partial X}}_\mathcal{O}X + \two{1}{0, 1, 0}\val{\dfrac{\partial f'}{\partial Y}}_\mathcal{O}\rb{Y - 1} + \two{1}{0, 0, 1}\val{\dfrac{\partial f'}{\partial Z}}_\mathcal{O}Z = 0 : a_3'X + a_7'Z = 0. $$
+$$ L' : \twobyone{1}{1, 0, 0}\val{\dfrac{\partial f'}{\partial X}}_\mathcal{O}X + \twobyone{1}{0, 1, 0}\val{\dfrac{\partial f'}{\partial Y}}_\mathcal{O}\rb{Y - 1} + \twobyone{1}{0, 0, 1}\val{\dfrac{\partial f'}{\partial Z}}_\mathcal{O}Z = 0 : a_3'X + a_7'Z = 0. $$
 Since $ L' : Z = 0 $, it holds that $ a_3' = 0 $ and $ a_7' \ne 0 $. Then $ L' $ intersects $ E' $ at
 $$ a_1'X^3 + a_2'X^2Y + a_5'X^2\rb{0} + a_6'XY\rb{0} + a_7'Y^2\rb{0} + a_8'X\rb{0}^2 + a_9'Y\rb{0}^2 + a_{10}'\rb{0}^3 = X^2\rb{a_1'X + a_2'Y} = 0. $$
 Since $ \mathcal{O} $ is a flex, it holds that $ X = 0 $ is repeated three times, so $ a_1' \ne 0 $ and $ a_2' = 0 $. Hence
@@ -2917,7 +2921,7 @@ Then rescaling $ \sb{X, Y, Z} \mapsto \sb{X, Y, -\rb{a_1' / a_7'}Z} $ gives
 \begin{align*}
 E'
 & : X^3 - \dfrac{a_5'}{a_7'}X^2Z - \dfrac{a_6'}{a_7'}XYZ - Y^2Z + \dfrac{a_8'a_1'}{a_7'^2}XZ^2 + \dfrac{a_9'a_1'}{a_7'^2}YZ^2 - \dfrac{a_{10}'a_1'^2}{a_7'^3}Z^3 = 0 \\
-& : Y^2Z + \dfrac{a_5'}{a_7'}X^2Z + \dfrac{a_6'}{a_7'}XYZ = X^3 + \dfrac{a_8'a_1'}{a_7'^2}XZ^2 + \dfrac{a_9'a_1'}{a_7'^2}YZ^2 - \dfrac{a_{10}'a_1'^2}{a_7'^3}Z^3 = 0.
+& : Y^2Z + \dfrac{a_5'}{a_7'}X^2Z + \dfrac{a_6'}{a_7'}XYZ = X^3 + \dfrac{a_8'a_1'}{a_7'^2}XZ^2 + \dfrac{a_9'a_1'}{a_7'^2}YZ^2 - \dfrac{a_{10}'a_1'^2}{a_7'^3}Z^3.
 \end{align*}
 Thus $ E' $ is a Weierstrass equation.
 
