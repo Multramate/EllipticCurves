@@ -74,3 +74,5 @@ Bibliography excluding basic algebra knowledge.
 ## Miscellaneous
 
 I wrote a short report on proving the group law of an elliptic curve using the Riemann-Roch theorem, as a follow up to the main report.
+
+I gave a talk in the Undergraduate Mathematics Colloquium on an unusual cubic representation problem, which is a simple application of the main theory.
