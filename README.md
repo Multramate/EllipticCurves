@@ -70,3 +70,7 @@ Appendix C includes listings of code in the functional Haskell programming langu
 
 ### References
 Bibliography excluding basic algebra knowledge.
+
+## Miscellaneous
+
+I wrote a short report on proving the group law of an elliptic curve using the Riemann-Roch theorem, as a follow up to the main report.
